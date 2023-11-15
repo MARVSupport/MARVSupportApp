@@ -1,4 +1,3 @@
-
 package view;
 
 import controller.TicketConnections;
@@ -7,15 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JPanel;
 import modal.Fail;
+import modal.Sucess;
 import model.Ticket;
 import utils.HoverEffect;
 
-
 public class InfoTicket extends javax.swing.JPanel {
 
-    
     HoverEffect hover = new HoverEffect();
     Fail erro = new Fail();
+
     public InfoTicket() {
         initComponents();
     }
@@ -52,6 +51,7 @@ public class InfoTicket extends javax.swing.JPanel {
         setBackground(new java.awt.Color(16, 16, 16));
         setMaximumSize(new java.awt.Dimension(1060, 650));
         setMinimumSize(new java.awt.Dimension(1060, 650));
+        setPreferredSize(new java.awt.Dimension(1060, 650));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAbrir.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -205,6 +205,9 @@ public class InfoTicket extends javax.swing.JPanel {
         btSalvar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btSalvar.setText("SALVAR");
         btSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btSalvarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btSalvarMouseEntered(evt);
             }
@@ -272,16 +275,21 @@ public class InfoTicket extends javax.swing.JPanel {
     }//GEN-LAST:event_txtComentarioMouseClicked
 
     private void btSalvarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseEntered
-hover.efeitoHover(pSalvar, 0, 153, 153);
+        hover.efeitoHover(pSalvar, 0, 153, 153);
     }//GEN-LAST:event_btSalvarMouseEntered
 
     private void btSalvarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseExited
-hover.efeitoHover(pSalvar, 0, 204, 204);
+        hover.efeitoHover(pSalvar, 0, 204, 204);
     }//GEN-LAST:event_btSalvarMouseExited
 
     private void txtAssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAssuntoMouseClicked
 
     }//GEN-LAST:event_txtAssuntoMouseClicked
+
+    private void btSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseClicked
+
+        salvarTicket();
+    }//GEN-LAST:event_btSalvarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -310,13 +318,13 @@ hover.efeitoHover(pSalvar, 0, 204, 204);
     private javax.swing.JLabel txtStatus;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
- public void mostrarDadosTicket(int idTicket, int nivel) throws SQLException{
+ public void mostrarDadosTicket(int idTicket, String nivel) throws SQLException {
         TicketConnections ct = new TicketConnections();
 
         try {
             ResultSet resultado = ct.mostrarDados(idTicket);
             while (resultado.next()) {
-                
+
                 // realizando a busca e implementando
                 Ticket t = new Ticket();
                 t.setId(resultado.getInt("id"));
@@ -351,16 +359,22 @@ hover.efeitoHover(pSalvar, 0, 204, 204);
                         comboStatus.setSelectedIndex(2);
                         break;
                 }
-                    verificarAdmin(nivel);
-        }
-
+                System.out.println(nivel);
+                if (nivel.equals("Administrador(a)")) {
+                    painelAdmin.setVisible(true);
+                    txtComentario.setEditable(true);
+                } else {
+                    painelAdmin.setVisible(false);
+                    txtComentario.setEditable(false);
+                }
+            }
         } catch (Exception e) {
             erro.informarErro("Ocorreu um erro: " + e);
         }
     }
-    
-   // método pra trocar de aba clicando na opção
-    private void trocarTela(JPanel painel){
+    // método pra trocar de aba clicando na opção
+
+    private void trocarTela(JPanel painel) {
         painel.setSize(1060, 650);
         painel.setLocation(0, 0);
         this.removeAll();
@@ -369,14 +383,28 @@ hover.efeitoHover(pSalvar, 0, 204, 204);
         this.repaint();
     }
 
-    
-    //verificar se o usuário é administrador
-    private void verificarAdmin(int nivel){
-        if(nivel == 2){
-        painelAdmin.setVisible(true);
-        txtComentario.setEditable(true);
-   }
- }
+    private void salvarTicket() {
+        Ticket ticket = new Ticket();
+        int id = Integer.parseInt(txtId.getText());
+        String comentario = txtComentario.getText();
+        int status = comboStatus.getSelectedIndex();
 
+        ticket.setId(id);
+        ticket.setComentario(comentario);
 
+        switch (status) {
+            case 0:
+                ticket.setStatus(1);
+                break;
+            case 1:
+                ticket.setStatus(2);
+                break;
+            case 2:
+                ticket.setStatus(3);
+                break;
+        }
+        
+        TicketConnections tc = new TicketConnections();
+        tc.editarTicket(ticket);
+    }
 }
