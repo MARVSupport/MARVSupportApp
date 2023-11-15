@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import modal.Fail;
 import modal.Sucess;
+import model.Email;
 import model.User;
 
 public class UserConnections {
@@ -68,6 +69,25 @@ public class UserConnections {
         } catch (SQLException e) {
             fail.informarErro("ConexaoUsuario | verificarNivelUsuario: " + e);
             return null;
+        }
+    }
+
+    public void enviarEmailAdmin(String assunto, String mensagem) {
+        conexao = new DbConnection().conectarBD();
+
+        try {
+            String buscarUser = "SELECT email FROM tb_usuario WHERE nivel = 2;";
+            PreparedStatement stm = conexao.prepareStatement(buscarUser);
+            ResultSet resultado = stm.executeQuery();
+            while(resultado.next()){
+                String destinatario = resultado.getString("email");
+                Email email = new Email(assunto, mensagem, destinatario);
+                email.enviar();
+            }
+            
+
+        } catch (SQLException e) {
+            fail.informarErro("ConexaoUsuario | verificarEmailAdmin: " + e);
         }
     }
 

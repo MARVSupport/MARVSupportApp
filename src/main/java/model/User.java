@@ -8,7 +8,6 @@ public class User {
     private String usuario;
     private String senha;
     private String email;
-    private String senhaEmail;
  
     
     public int getNivel() {
@@ -50,14 +49,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getSenhaEmail() {
-        return senhaEmail;
-    }
-
-    public void setSenhaEmail(String senhaEmail) {
-        this.senhaEmail = senhaEmail;
-    }
-    
 
     }

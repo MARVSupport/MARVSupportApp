@@ -714,6 +714,8 @@ logout.setVisible(true);
         UserConnections conUser = new UserConnections();
         ResultSet resultadoBusca = conUser.verificarNivelUsuario(usuario);
 
+        
+        
         try {
             while (resultadoBusca.next()) {
                 usuario.setNivel(resultadoBusca.getInt("nivel"));
