@@ -4,11 +4,10 @@ import db.DbConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.sql.Connection;
 import modal.Fail;
 import modal.Sucess;
+import model.User;
 import utils.CurrentDate;
 
 public class HomeView extends javax.swing.JPanel {

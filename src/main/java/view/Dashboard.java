@@ -9,14 +9,16 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modal.Fail;
+import modal.Logout;
 import model.User;
 import utils.HoverEffect;
 
 public class Dashboard extends javax.swing.JFrame {
 
-        User usuario = new User();
-        HoverEffect he = new HoverEffect();
-        public Dashboard() {
+    User usuario = new User();
+    HoverEffect he = new HoverEffect();
+
+    public Dashboard() {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
     }
@@ -498,12 +500,12 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btNovoMouseEntered
 
     private void btNovoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseExited
-         he.efeitoHover(pNovo, 0, 204, 204);
+        he.efeitoHover(pNovo, 0, 204, 204);
     }//GEN-LAST:event_btNovoMouseExited
 
     private void newletterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newletterMouseEntered
 
-         he.efeitoHoverTextos(newletter, 230, 230, 230);
+        he.efeitoHoverTextos(newletter, 230, 230, 230);
     }//GEN-LAST:event_newletterMouseEntered
 
     private void newletterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newletterMouseExited
@@ -528,6 +530,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btTicketsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btTicketsMouseClicked
         TicketsView tv = new TicketsView();
+        tv.inicializarTicketsView(nivelUsuario.getText());
         trocarAba(btTickets, tv);
     }//GEN-LAST:event_btTicketsMouseClicked
 
@@ -561,7 +564,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btEmailMouseExited
 
     private void btConfigMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btConfigMouseEntered
-       he.efeitoHover(pConfig, 18, 18, 18);
+        he.efeitoHover(pConfig, 18, 18, 18);
     }//GEN-LAST:event_btConfigMouseEntered
 
     private void btConfigMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btConfigMouseExited
@@ -586,16 +589,17 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_deslogarMouseClicked
 
     private void deslogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deslogarActionPerformed
-
+Logout logout = new Logout();
+logout.setVisible(true);
     }//GEN-LAST:event_deslogarActionPerformed
 
     private void btSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseEntered
-       he. efeitoHover(pSair, 153, 0, 0);
+        he.efeitoHover(pSair, 153, 0, 0);
         btSair.setForeground(Color.WHITE);
     }//GEN-LAST:event_btSairMouseEntered
 
     private void btSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseExited
-        he.efeitoHover(pSair, 16,16,16);
+        he.efeitoHover(pSair, 16, 16, 16);
         btSair.setForeground(Color.GRAY);
     }//GEN-LAST:event_btSairMouseExited
 
@@ -695,13 +699,12 @@ public class Dashboard extends javax.swing.JFrame {
         HomeView home = new HomeView();
         trocarAba(btHome, home);
     }
-    
+
     // novo ticket botões
-    
-    private void novoTicket(){
+    private void novoTicket() {
         NewTicket nt = new NewTicket();
         nt.resgatarUsuario(usuario);
-        trocarAba(btTickets, nt);  
+        trocarAba(btTickets, nt);
     }
 
     // inicializando dashboard
@@ -709,14 +712,17 @@ public class Dashboard extends javax.swing.JFrame {
         iconeUsuario.setText("Bem-Vindo(a), \n" + user.getUsuario());
         usuario = user;
         UserConnections conUser = new UserConnections();
-        ResultSet resultadoBusca = conUser.verificarNivelUsuario(user);
+        ResultSet resultadoBusca = conUser.verificarNivelUsuario(usuario);
 
+        
+        
         try {
             while (resultadoBusca.next()) {
-                user.setNivel(resultadoBusca.getInt("nivel"));
-                int nivel = user.getNivel();
-                switch (nivel) {
+                usuario.setNivel(resultadoBusca.getInt("nivel"));
+                int nivelUser = usuario.getNivel();
+                switch (nivelUser) {
                     case 1:
+                        
                         nivelUsuario.setText("Operador(a)");
                         break;
                     case 2:
@@ -728,13 +734,13 @@ public class Dashboard extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
         }
-        ResultSet resultadoBuscaNome = conUser.verificarDados(user);
+        ResultSet resultadoBuscaNome = conUser.verificarDados(usuario);
         try {
-            while(resultadoBuscaNome.next()){
-                user.setNome(resultadoBuscaNome.getString("nomecompleto"));
-                nomeUsuario.setText(user.getNome());
+            while (resultadoBuscaNome.next()) {
+                usuario.setNome(resultadoBuscaNome.getString("nomecompleto"));
+                nomeUsuario.setText(usuario.getNome());
             }
-            
+
         } catch (SQLException e) {
         }
         HomeView home = new HomeView();

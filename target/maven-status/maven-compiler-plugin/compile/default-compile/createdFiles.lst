@@ -1,5 +1,7 @@
-view\NewTicket$6.class
+modal\Logout$3.class
+modal\Logout.class
 view\Dashboard$3.class
+model\Email.class
 view\Login$2.class
 view\InfoTicket$4.class
 view\NewTicket$3.class
@@ -31,6 +33,7 @@ view\Dashboard$8.class
 view\Dashboard$14.class
 view\NewTicket$4.class
 view\TicketsView$4.class
+modal\Logout$1.class
 view\Dashboard$10.class
 modal\Sucess$2.class
 view\Dashboard$4.class
@@ -52,5 +55,5 @@ view\InfoTicket$5.class
 utils\CurrentDate.class
 view\TicketsView$3.class
 view\NewTicket$2.class
-view\NewTicket$5.class
+modal\Logout$2.class
 controller\TicketConnections.class

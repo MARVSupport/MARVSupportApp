@@ -108,7 +108,7 @@ public class TicketConnections {
         return lista;
     }
     
-     // lista os tickets da empresa
+     // lista todos os tickets da empresa
     public List<Ticket> listarTodosTickets() {
         conexao = new DbConnection().conectarBD();
         String busca = "SELECT id, titulo, data, status FROM tb_ticket;";
