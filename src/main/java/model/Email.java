@@ -42,13 +42,27 @@ public class Email {
         this.destinatario = destinatario;
     }
 
+    // Adiciona um método para verificar se o email é válido
+    private boolean isEmailValid(String email) {
+        // Implemente sua lógica de validação de email aqui
+        // Por exemplo, você pode usar expressões regulares ou outras verificações
+        return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
+    }
+
     public void enviar() {
+        // Verifica se o destinatário é um email válido
+        if (!isEmailValid(destinatario)) {
+            System.out.println("O endereço de email: " + destinatario + " não é válido.");
+            return;
+        }
+
         SimpleEmail email = new SimpleEmail();
         email.setSSLOnConnect(true);
-        email.setStartTLSEnabled(true);  // Adicione esta linha
+        email.setStartTLSEnabled(true);
         email.setHostName("smtp.gmail.com");
-        email.setSmtpPort(587);  // Altere para a porta TLS
+        email.setSmtpPort(587);
         email.setAuthenticator(new DefaultAuthenticator(marvEmail, senhaEmail));
+
         try {
             email.setFrom(marvEmail);
             email.setDebug(true);
@@ -56,7 +70,6 @@ public class Email {
             email.setMsg(this.mensagem);
             email.addTo(this.destinatario);
             email.send();
-
         } catch (EmailException e) {
             e.printStackTrace();
         }

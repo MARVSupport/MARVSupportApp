@@ -235,7 +235,7 @@ public class NewTicket extends javax.swing.JPanel {
             tc.criarTicket(ticket);
             resetarCampos();
             UserConnections uc = new UserConnections();
-            uc.enviarEmailAdmin("Novo chamado aberto - MARVSupport", "Olá, você tem um novo chamado aberto.\n\nTítulo do chamado: " + ticket.getTitulo() + "\n\nAssunto do chamado:\n" + ticket.getAssunto() + "\n\n\nEntre no software MARVSupport e verifique o chamado aberto.");
+            uc.enviarEmailAdmin("Novo chamado aberto - MARVSupport", "Olá, você tem um novo chamado aberto.\n\nChamado aberto por: " +  usuario.getUsuario() + "\n Título do chamado: " + ticket.getTitulo() + "\n\nAssunto do chamado:\n" + ticket.getAssunto() + "\n\n\nEntre no software MARVSupport e verifique o chamado aberto. \n\nAtenciosamente\nEquipe MARVSupport");
             System.out.println("Foi aberto um novo chamado!");
         }
 
