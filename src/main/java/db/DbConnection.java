@@ -10,7 +10,7 @@ public class DbConnection {
     private static final String DB_NAME = "marvsupport";
     private static final int PORT = 3306;
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "rootadmin";
+    private static final String PASSWORD = "root";
     String erro = "Erro ao conectar ao banco de dados.";
     private Connection conexao;
     public boolean verificar;
@@ -44,6 +44,7 @@ public class DbConnection {
     }
 
     public boolean verificarStatus() {
+        conectarBD();
         return verificar;
     }
 }
