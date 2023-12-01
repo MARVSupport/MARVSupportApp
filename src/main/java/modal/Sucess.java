@@ -6,6 +6,7 @@ public class Sucess extends javax.swing.JFrame {
 
     public Sucess() {
         initComponents();
+                this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
     }
 
 

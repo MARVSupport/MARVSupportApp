@@ -6,6 +6,7 @@ public class Logout extends javax.swing.JFrame {
 
     public Logout() {
         initComponents();
+                this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
     }
 
 
