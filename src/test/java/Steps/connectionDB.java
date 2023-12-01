@@ -1,13 +1,10 @@
 package Steps;
-import controller.TicketConnections;
 import db.DbConnection;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
-import model.Ticket;
 import org.junit.Assert;
 
-import java.util.List;
 
 public class connectionDB {
 

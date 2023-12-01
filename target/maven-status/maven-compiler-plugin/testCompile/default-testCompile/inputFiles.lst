@@ -1,2 +1,9 @@
-C:\Users\jessi\Documents\github\MARVSupportApp\src\test\java\runner\tests.java
-C:\Users\jessi\Documents\github\MARVSupportApp\src\test\java\listaTickets.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\controller\UserConnectionsTest.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\db\DbConnectionTest.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\Steps\connectionDB.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\Steps\listaTickets.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\Steps\listaTicketsAbertos.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\controller\TicketConnectionsTest.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\Steps\listaTicketsStatus.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\model\TicketTest.java
+C:\Users\Louis\OneDrive\Documentos\GitHub\MARVSupportApp\src\test\java\SuiteTest.java

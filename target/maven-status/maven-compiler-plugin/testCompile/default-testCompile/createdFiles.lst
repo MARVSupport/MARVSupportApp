@@ -1,2 +1,5 @@
-listaTickets.class
-runner\tests.class
+model\TicketTest.class
+controller\TicketConnectionsTest.class
+controller\UserConnectionsTest.class
+db\DbConnectionTest.class
+SuiteTest.class

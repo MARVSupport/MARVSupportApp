@@ -141,4 +141,12 @@ public class TicketConnections {
         ResultSet result = stm.executeQuery();
         return result;
     }
+       public Ticket pesquisarTicket(int id){
+        for(Ticket t : this.listarTodosTickets()){
+            if(t.getId()== id){
+                return t;
+            }
+        }
+        return null;
+    }
 }

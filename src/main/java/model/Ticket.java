@@ -9,6 +9,19 @@ public class Ticket {
     private String data;
     private String criador;
     private String comentario;
+    
+    public Ticket(){
+    }
+
+    public Ticket(int id, int status, String titulo, String assunto, String data, String criador, String comentario) {
+        this.id = id;
+        this.status = status;
+        this.titulo = titulo;
+        this.assunto = assunto;
+        this.data = data;
+        this.criador = criador;
+        this.comentario = comentario;
+    }
 
     public int getId() {
         return id;

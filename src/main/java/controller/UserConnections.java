@@ -90,5 +90,17 @@ public class UserConnections {
             fail.informarErro("ConexaoUsuario | verificarEmailAdmin: " + e);
         }
     }
-
+public boolean userAutenticado(User user){
+        boolean auth = false;
+            ResultSet resultadoLogin = this.autenticarUsuario(user);
+        try {
+            if (resultadoLogin.next()) {
+                auth = true;
+            } 
+        } catch (SQLException ex) {
+              fail.informarErro("ConexaoUsuario | UserAutenticado: " + ex);
+            
+        }
+        return auth;
+    }
 }
