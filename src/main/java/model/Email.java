@@ -2,19 +2,20 @@ package model;
 
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.SimpleEmail;
+import org.apache.commons.mail.HtmlEmail;
 
 public class Email {
 
     private static final String marvEmail = "marvspprt@gmail.com";
     private static final String senhaEmail = "eurpmiemapqqqjtv";
-    private String assunto;
+    private String assunto = "Novo chamado aberto - MARVSupport";
     private String mensagem;
+    private String mensagem2;
     private String destinatario;
 
-    public Email(String assunto, String mensagem, String destinatario) {
-        this.assunto = assunto;
+    public Email(String mensagem, String mensagem2, String destinatario) {
         this.mensagem = mensagem;
+        this.mensagem2 = mensagem2;
         this.destinatario = destinatario;
     }
 
@@ -56,7 +57,7 @@ public class Email {
             return;
         }
 
-        SimpleEmail email = new SimpleEmail();
+        HtmlEmail email = new HtmlEmail();  // Use HtmlEmail em vez de SimpleEmail
         email.setSSLOnConnect(true);
         email.setStartTLSEnabled(true);
         email.setHostName("smtp.gmail.com");
@@ -67,7 +68,20 @@ public class Email {
             email.setFrom(marvEmail);
             email.setDebug(true);
             email.setSubject(this.assunto);
-            email.setMsg(this.mensagem);
+
+            // Usando HTML para estilizar a mensagem
+            String mensagemHtml = "<html><body style='font-family: Cabin, sans-serif; background-color: #0D1117; border: 2px double #fff'>";
+            mensagemHtml += "<h2 style='color: #fff; text-align: center; font-weight: 600;'>Você tem um novo ticket aberto!</h2>";
+            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 600;'>" + this.mensagem + "<br></p>";
+            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 600;'>" + this.mensagem2 + "<br></p>";
+            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 600;'>Entre no software MARVSupport e verifique o chamado aberto<br></p>";
+            mensagemHtml += "<p style='color: #00cccc; font-size: 1rem; text-align: center;  font-weight: 600;'><br>Atenciosamente,<br>Equipe MARVSupport<br></p>";
+            mensagemHtml += "<p style='color: #D0D0D0; font-size: 0.8rem; text-align: center;  font-weight: 500;'>Esse email é uma mensagem automática, por favor não responde-lo.</p>";
+            mensagemHtml += "</body></html>";
+
+            email.setHtmlMsg(mensagemHtml);  // Define a mensagem como HTML
+            email.setTextMsg("Seu cliente de e-mail não suporta HTML.");
+
             email.addTo(this.destinatario);
             email.send();
         } catch (EmailException e) {

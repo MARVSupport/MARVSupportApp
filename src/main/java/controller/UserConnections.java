@@ -72,7 +72,7 @@ public class UserConnections {
         }
     }
 
-    public void enviarEmailAdmin(String assunto, String mensagem) {
+    public void enviarEmailAdmin(String mensagem1, String mensagem2) {
         conexao = new DbConnection().conectarBD();
 
         try {
@@ -81,7 +81,7 @@ public class UserConnections {
             ResultSet resultado = stm.executeQuery();
             while(resultado.next()){
                 String destinatario = resultado.getString("email");
-                Email email = new Email(assunto, mensagem, destinatario);
+                Email email = new Email(mensagem1, mensagem2, destinatario);
                 email.enviar();
             }
             
@@ -90,6 +90,7 @@ public class UserConnections {
             fail.informarErro("ConexaoUsuario | verificarEmailAdmin: " + e);
         }
     }
+    
 public boolean userAutenticado(User user){
         boolean auth = false;
             ResultSet resultadoLogin = this.autenticarUsuario(user);
