@@ -1,5 +1,5 @@
+junitTests\UserConnectionsTest.class
 model\TicketTest.class
-controller\TicketConnectionsTest.class
-controller\UserConnectionsTest.class
 db\DbConnectionTest.class
 SuiteTest.class
+junitTests\TicketConnectionsTest.class

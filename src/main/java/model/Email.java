@@ -45,8 +45,6 @@ public class Email {
 
     // Adiciona um método para verificar se o email é válido
     private boolean isEmailValid(String email) {
-        // Implemente sua lógica de validação de email aqui
-        // Por exemplo, você pode usar expressões regulares ou outras verificações
         return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
     }
 
@@ -70,18 +68,16 @@ public class Email {
             email.setSubject(this.assunto);
 
             // Usando HTML para estilizar a mensagem
-            String mensagemHtml = "<html><body style='font-family: Cabin, sans-serif; background-color: #0D1117; border: 2px double #fff'>";
-            mensagemHtml += "<h2 style='color: #fff; text-align: center; font-weight: 600;'>Você tem um novo ticket aberto!</h2>";
-            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 600;'>" + this.mensagem + "<br></p>";
-            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 600;'>" + this.mensagem2 + "<br></p>";
-            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 600;'>Entre no software MARVSupport e verifique o chamado aberto<br></p>";
-            mensagemHtml += "<p style='color: #00cccc; font-size: 1rem; text-align: center;  font-weight: 600;'><br>Atenciosamente,<br>Equipe MARVSupport<br></p>";
-            mensagemHtml += "<p style='color: #D0D0D0; font-size: 0.8rem; text-align: center;  font-weight: 500;'>Esse email é uma mensagem automática, por favor não responde-lo.</p>";
+            String mensagemHtml = "<html><body style='font-family: Cabin, sans-serif; background-color: #101010; border: 1px solid #fff'>";
+            mensagemHtml += "<h2 style='color: #fff; text-align: center; font-weight: 600;'>Olá, você tem um novo chamado aberto!</h2>";
+            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 500; font-size: 1rem;'>" + this.mensagem + "</p>";
+            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 500;font-size: 1rem;'>" + this.mensagem2 + "</p>";
+            mensagemHtml += "<p style='color: #fff; text-align: center; font-weight: 600;font-size: 1rem;'>Entre no software MARVSupport e verifique o chamado aberto<br></p>";
+            mensagemHtml += "<p style='color: #00cccc; font-size: 1rem; text-align: center;  font-weight: 600;'>Atenciosamente,<br>Equipe MARVSupport.</p>";
+            mensagemHtml += "<p style='color: #D0D0D0; font-size: 0.8rem; text-align: center;  font-weight: 500;'>Este e-mail é uma mensagem automática, por favor não responde-lo.</p>";
             mensagemHtml += "</body></html>";
-
             email.setHtmlMsg(mensagemHtml);  // Define a mensagem como HTML
             email.setTextMsg("Seu cliente de e-mail não suporta HTML.");
-
             email.addTo(this.destinatario);
             email.send();
         } catch (EmailException e) {

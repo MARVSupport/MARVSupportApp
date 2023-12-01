@@ -104,4 +104,25 @@ public boolean userAutenticado(User user){
         }
         return auth;
     }
+
+
+    // EDITAR ticket
+    public void editarEmailUsuario(User user){
+        conexao = new DbConnection().conectarBD();
+        
+        try {
+            String editarTicket = "UPDATE tb_usuario SET email = ? WHERE usuario = ?;";
+            
+            PreparedStatement stm = conexao.prepareStatement(editarTicket);
+            stm.setString(1, user.getEmail());
+            stm.setString(2, user.getUsuario());
+            stm.executeUpdate();
+            stm.close();
+            ok.informarAssunto("Email editado com sucesso.");
+            ok.setVisible(true);
+            
+        } catch (Exception e) {
+            fail.informarErro("ConexaoUsuario | editarEmailUsuario " + e);
+        }
+    }
 }

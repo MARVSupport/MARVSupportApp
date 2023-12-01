@@ -36,8 +36,6 @@ public class Dashboard extends javax.swing.JFrame {
         btTickets = new javax.swing.JLabel();
         pHome = new javax.swing.JPanel();
         btHome = new javax.swing.JLabel();
-        pEmail = new javax.swing.JPanel();
-        btEmail = new javax.swing.JLabel();
         pConfig = new javax.swing.JPanel();
         btConfig = new javax.swing.JLabel();
         pInfo = new javax.swing.JPanel();
@@ -190,38 +188,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         menu.add(pHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
 
-        pEmail.setBackground(new java.awt.Color(16, 16, 16));
-
-        btEmail.setBackground(new java.awt.Color(16, 16, 16));
-        btEmail.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        btEmail.setForeground(new java.awt.Color(255, 255, 255));
-        btEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/email.png"))); // NOI18N
-        btEmail.setText("EMAIL");
-        btEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(16, 16, 16)));
-        btEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btEmail.setIconTextGap(12);
-        btEmail.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btEmailMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btEmailMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pEmailLayout = new javax.swing.GroupLayout(pEmail);
-        pEmail.setLayout(pEmailLayout);
-        pEmailLayout.setHorizontalGroup(
-            pEmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-        );
-        pEmailLayout.setVerticalGroup(
-            pEmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-        );
-
-        menu.add(pEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, -1));
-
         pConfig.setBackground(new java.awt.Color(16, 16, 16));
         pConfig.setMaximumSize(new java.awt.Dimension(200, 40));
         pConfig.setMinimumSize(new java.awt.Dimension(200, 40));
@@ -235,6 +201,9 @@ public class Dashboard extends javax.swing.JFrame {
         btConfig.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btConfig.setIconTextGap(12);
         btConfig.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btConfigMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btConfigMouseEntered(evt);
             }
@@ -254,7 +223,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(btConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        menu.add(pConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 200, -1));
+        menu.add(pConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 200, -1));
 
         pInfo.setBackground(new java.awt.Color(16, 16, 16));
 
@@ -267,6 +236,9 @@ public class Dashboard extends javax.swing.JFrame {
         btSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btSobre.setIconTextGap(12);
         btSobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btSobreMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btSobreMouseEntered(evt);
             }
@@ -286,12 +258,12 @@ public class Dashboard extends javax.swing.JFrame {
             .addComponent(btSobre, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        menu.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));
+        menu.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, -1));
 
         txtExtras.setFont(new java.awt.Font("Segoe UI", 3, 15)); // NOI18N
         txtExtras.setForeground(new java.awt.Color(255, 255, 255));
         txtExtras.setText("EXTRAS");
-        menu.add(txtExtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 80, -1));
+        menu.add(txtExtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 80, -1));
 
         txtPrincipal.setFont(new java.awt.Font("Segoe UI", 3, 15)); // NOI18N
         txtPrincipal.setForeground(new java.awt.Color(255, 255, 255));
@@ -555,14 +527,6 @@ public class Dashboard extends javax.swing.JFrame {
         he.efeitoHover(pHome, 16, 16, 16);
     }//GEN-LAST:event_btHomeMouseExited
 
-    private void btEmailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEmailMouseEntered
-        he.efeitoHover(pEmail, 18, 18, 18);
-    }//GEN-LAST:event_btEmailMouseEntered
-
-    private void btEmailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEmailMouseExited
-        he.efeitoHover(pEmail, 16, 16, 16);
-    }//GEN-LAST:event_btEmailMouseExited
-
     private void btConfigMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btConfigMouseEntered
         he.efeitoHover(pConfig, 18, 18, 18);
     }//GEN-LAST:event_btConfigMouseEntered
@@ -607,6 +571,17 @@ logout.setVisible(true);
         System.exit(0);
     }//GEN-LAST:event_btSairMousePressed
 
+    private void btConfigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btConfigMouseClicked
+        Config config = new Config();
+        config.resgatarUsuario(usuario);
+        trocarAba(btConfig, config);
+    }//GEN-LAST:event_btConfigMouseClicked
+
+    private void btSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSobreMouseClicked
+        About about = new About();
+        trocarAba(btSobre, about);
+    }//GEN-LAST:event_btSobreMouseClicked
+
     public static void main(String args[]) {
 
         try {
@@ -640,7 +615,6 @@ logout.setVisible(true);
     private javax.swing.JLabel atualizacoes;
     private javax.swing.JPanel background;
     private javax.swing.JLabel btConfig;
-    private javax.swing.JLabel btEmail;
     private javax.swing.JLabel btHome;
     private javax.swing.JLabel btNovo;
     private javax.swing.JLabel btSair;
@@ -658,7 +632,6 @@ logout.setVisible(true);
     private javax.swing.JMenuItem nivelUsuario;
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JPanel pConfig;
-    private javax.swing.JPanel pEmail;
     private javax.swing.JPanel pHome;
     private javax.swing.JPanel pInfo;
     private javax.swing.JPanel pNovo;
@@ -677,7 +650,6 @@ logout.setVisible(true);
     private void trocarAba(JLabel label, JPanel painel) {
         btHome.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));
         btTickets.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));
-        btEmail.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));
         btConfig.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));
         btSobre.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));
         label.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaSelecionado));

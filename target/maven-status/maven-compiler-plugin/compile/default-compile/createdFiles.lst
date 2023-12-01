@@ -8,7 +8,6 @@ view\NewTicket$3.class
 view\TicketsView$5.class
 controller\UserConnections.class
 view\Dashboard$6.class
-view\Dashboard$15.class
 modal\Fail.class
 view\Dashboard$12.class
 model\User.class
@@ -20,12 +19,15 @@ view\Login$1.class
 modal\Fail$2.class
 view\Dashboard$7.class
 view\InfoTicket.class
+view\Config$1.class
+view\About.class
 view\Dashboard.class
 view\Login$5.class
 view\Dashboard$11.class
 view\InfoTicket$3.class
 view\TicketsView.class
 view\HomeView.class
+view\Config.class
 view\Dashboard$1.class
 view\InfoTicket$2.class
 modal\Fail$1.class
@@ -55,5 +57,6 @@ view\InfoTicket$5.class
 utils\CurrentDate.class
 view\TicketsView$3.class
 view\NewTicket$2.class
+view\TicketsView$6.class
 modal\Logout$2.class
 controller\TicketConnections.class

@@ -11,10 +11,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import model.Ticket;
+import utils.HoverEffect;
 
 public class TicketsView extends javax.swing.JPanel {
 
     String nivel = "";
+    HoverEffect hover = new HoverEffect();
 
     public TicketsView() {
         initComponents();
@@ -40,8 +42,8 @@ public class TicketsView extends javax.swing.JPanel {
         btBuscar = new javax.swing.JButton();
         txtFiltro = new javax.swing.JLabel();
         barraPesquisa = new javax.swing.JSeparator();
-        btBuscar1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btBuscarId = new javax.swing.JButton();
+        txtId = new javax.swing.JTextField();
 
         jScrollPane3.setViewportView(jEditorPane1);
 
@@ -192,6 +194,7 @@ public class TicketsView extends javax.swing.JPanel {
         btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconeBuscar.png"))); // NOI18N
         btBuscar.setToolTipText("BUSCAR");
         btBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 204, 204), null, null));
+        btBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btBuscar.setFocusPainted(false);
         btBuscar.setFocusable(false);
         btBuscar.setIconTextGap(0);
@@ -214,26 +217,32 @@ public class TicketsView extends javax.swing.JPanel {
         barraPesquisa.setPreferredSize(new java.awt.Dimension(0, 1));
         container.add(barraPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 340, 10));
 
-        btBuscar1.setBackground(new java.awt.Color(16, 16, 16));
-        btBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconeBuscar.png"))); // NOI18N
-        btBuscar1.setToolTipText("BUSCAR");
-        btBuscar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 204, 204), null, null));
-        btBuscar1.setFocusPainted(false);
-        btBuscar1.setFocusable(false);
-        btBuscar1.setIconTextGap(0);
-        btBuscar1.addActionListener(new java.awt.event.ActionListener() {
+        btBuscarId.setBackground(new java.awt.Color(16, 16, 16));
+        btBuscarId.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/iconeBuscar.png"))); // NOI18N
+        btBuscarId.setToolTipText("BUSCAR");
+        btBuscarId.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 204, 204), null, null));
+        btBuscarId.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btBuscarId.setFocusPainted(false);
+        btBuscarId.setFocusable(false);
+        btBuscarId.setIconTextGap(0);
+        btBuscarId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscar1ActionPerformed(evt);
+                btBuscarIdActionPerformed(evt);
             }
         });
-        container.add(btBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 40, 33));
+        container.add(btBuscarId, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 40, 33));
 
-        jTextField1.setBackground(new java.awt.Color(16, 16, 16));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Pesquisar por #");
-        jTextField1.setBorder(null);
-        container.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 340, 30));
+        txtId.setBackground(new java.awt.Color(16, 16, 16));
+        txtId.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtId.setForeground(new java.awt.Color(255, 255, 255));
+        txtId.setText("Pesquisar por #");
+        txtId.setBorder(null);
+        txtId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtIdMousePressed(evt);
+            }
+        });
+        container.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 340, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -256,18 +265,27 @@ public class TicketsView extends javax.swing.JPanel {
     }//GEN-LAST:event_tbAbertosMouseClicked
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
+
         buscarTickets();
     }//GEN-LAST:event_btBuscarActionPerformed
 
-    private void btBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btBuscar1ActionPerformed
+    private void btBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarIdActionPerformed
+        buscarTicketId();
+        txtId.setText("Pesquisar por #");
+    }//GEN-LAST:event_btBuscarIdActionPerformed
+
+    private void txtIdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIdMousePressed
+        if (txtId.getText().equals("Pesquisar por #")) {
+            txtId.setText("");
+            hover.efeitoHoverSeparador(barraPesquisa, 0, 204, 204);
+        }
+    }//GEN-LAST:event_txtIdMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator barraPesquisa;
     private javax.swing.JButton btBuscar;
-    private javax.swing.JButton btBuscar1;
+    private javax.swing.JButton btBuscarId;
     private javax.swing.JComboBox<String> comboSelecionarStatus;
     private javax.swing.JPanel container;
     private javax.swing.JEditorPane jEditorPane1;
@@ -277,11 +295,11 @@ public class TicketsView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pHeader;
     private javax.swing.JTable tbAbertos;
     private javax.swing.JLabel txtAbertos;
     private javax.swing.JLabel txtFiltro;
+    private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
     // efeito hover nos botões
     private void efeitoHover(JPanel painel, int r, int g, int b) {
@@ -414,6 +432,37 @@ public class TicketsView extends javax.swing.JPanel {
 
     // resgata o nível do usuário
     public void inicializarTicketsView(String nivelUsuario) {
-         nivel = nivelUsuario;
+        nivel = nivelUsuario;
+    }
+
+    // realizando busca dos chamados através do filtro
+    private void buscarTicketId() {
+        DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();
+        TicketConnections t = new TicketConnections();
+        String id = txtId.getText();
+        int idTicket = Integer.parseInt(id);
+        Ticket ticket = t.pesquisarTicket(idTicket);
+        String status = "";
+
+        String stt = (String) comboSelecionarStatus.getSelectedItem();
+        modeloTabelaPendentes.setNumRows(0);
+
+        switch (ticket.getStatus()) {
+            case 1:
+                status = "ABERTO";
+                break;
+
+            case 2:
+                status = "PENDENTE";
+                break;
+
+            case 3:
+                status = "FECHADO";
+                break;
+        }
+        modeloTabelaPendentes.addRow(new Object[]{
+            ticket.getId(), ticket.getTitulo(), ticket.getData(), status
+        });
+        corNaLinha();
     }
 }

@@ -233,10 +233,11 @@ public class NewTicket extends javax.swing.JPanel {
             ticket.setStatus(1); // ABERTO
             TicketConnections tc = new TicketConnections();
             tc.criarTicket(ticket);
-            resetarCampos();
-            UserConnections uc = new UserConnections();
-            uc.enviarEmailAdmin("Chamado aberto por: " +  usuario.getUsuario() + " | Título do chamado: " + ticket.getTitulo(),"Assunto do chamado: " + ticket.getAssunto());
             System.out.println("Foi aberto um novo chamado!");
+            resetarCampos();
+            
+            UserConnections uc = new UserConnections();
+            uc.enviarEmailAdmin("Chamado aberto por: " + usuario.getUsuario() + " | Título: " + ticket.getTitulo(), "Assunto: " + ticket.getAssunto());
         }
 
     }
