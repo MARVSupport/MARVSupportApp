@@ -14,9 +14,10 @@ import modal.Fail;
 import model.User;
 import utils.HoverEffect;
 
+// classe view - Login
 public class Login extends javax.swing.JFrame {
-    
-   // importando objetos que serão usados repetidas vezes
+
+    // importando objetos que serão usados repetidas vezes
     Fail fail = new Fail();
     HoverEffect hover = new HoverEffect();
 
@@ -24,7 +25,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -276,26 +276,25 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
-        if (txtUsuario.getText().equals("Nome de usuário")) {
+        if (txtUsuario.getText().equals("Nome de usuário")) { //ao clicar pra colocar o usuário, apaga a escrita e muda a cor do separador
             txtUsuario.setText("");
             txtUsuario.setForeground(Color.WHITE);
             hover.efeitoHoverSeparador(separadorUser, 0, 204, 204);
         }
-        if (txtSenha.getText().isEmpty()) {
+        if (txtSenha.getText().isEmpty()) { //ao clicar pra colocar a senha, apaga a escrita e muda a cor do separador
             txtSenha.setText("******");
             txtSenha.setForeground(new java.awt.Color(153, 153, 153));
-           hover.efeitoHoverSeparador(separadorSenha, 51, 51, 51);
+            hover.efeitoHoverSeparador(separadorSenha, 51, 51, 51);
         }
     }//GEN-LAST:event_txtUsuarioMousePressed
 
     private void txtSenhaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSenhaMousePressed
-
-        if (txtSenha.getText().equals("******")) {
+        if (txtSenha.getText().equals("******")) { //ao clicar pra colocar a senha, apaga a escrita e muda a cor do separador
             txtSenha.setText("");
             txtSenha.setForeground(Color.WHITE);
             hover.efeitoHoverSeparador(separadorSenha, 0, 204, 204);
         }
-        if (txtUsuario.getText().isEmpty()) {
+        if (txtUsuario.getText().isEmpty()) { //ao clicar pra colocar o usuário, apaga a escrita e muda a cor do separador
             txtUsuario.setText("Nome de usuário");
             txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
             hover.efeitoHoverSeparador(separadorUser, 51, 51, 51);
@@ -304,7 +303,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseClicked
         try {
-            Logar();
+            Logar(); // realiza a verificação de Login
         } catch (UnknownHostException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -315,7 +314,6 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btEntrarMouseEntered
 
     private void btEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseExited
-
         hover.efeitoHover(pEntrar, 10, 10, 10);
     }//GEN-LAST:event_btEntrarMouseExited
 
@@ -330,19 +328,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btSairMouseExited
 
     private void btSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMousePressed
-        System.exit(0);
+        System.exit(0); // sai do sistema ao clicar no X
     }//GEN-LAST:event_btSairMousePressed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        verificarConexao();
+        verificarConexao(); // verifica conexão com o banco de dados
     }//GEN-LAST:event_formWindowOpened
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Metal".equals(info.getName())) {
@@ -359,9 +352,6 @@ public class Login extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
@@ -392,10 +382,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel usuario;
     private javax.swing.JLabel versao;
     // End of variables declaration//GEN-END:variables
-
-
-
-    // verificando conexão com o banco de dados
+// verificando conexão com o banco de dados
     public void verificarConexao() {
         ImageIcon ii;
         DbConnection db = new DbConnection();
@@ -408,7 +395,6 @@ public class Login extends javax.swing.JFrame {
             txtStatus.setToolTipText("CONEXÃO COM BANCO DE DADOS ONLINE.");
         }
     }
-
     // verificando usuário/senha para autenticar.
     public void Logar() throws UnknownHostException {
         try {
@@ -423,7 +409,7 @@ public class Login extends javax.swing.JFrame {
             user.setSenha(senha);
             UserConnections conexao = new UserConnections();
             ResultSet resultadoLogin = conexao.autenticarUsuario(user);
-
+            // realiza a verificação no Banco de dados se existe aquele usuário e senha
             if (resultadoLogin.next()) {
                 Dashboard dash = new Dashboard();
                 String ipPc = InetAddress.getLocalHost().getHostAddress();
@@ -434,12 +420,8 @@ public class Login extends javax.swing.JFrame {
             } else {
                 fail.informarErro("Usuário ou senha incorretos.");
                 System.out.println("Erro ao encontrar usuário: " + usuario);
-
             }
-
         } catch (SQLException e) {
         }
-
     }
-
 }

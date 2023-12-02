@@ -9,10 +9,11 @@ public class Ticket {
     private String data;
     private String criador;
     private String comentario;
-    
-    public Ticket(){
-    }
 
+    //construtor padrão
+    public Ticket() {
+    }
+    // construtor pra criação de tickets
     public Ticket(int id, int status, String titulo, String assunto, String data, String criador, String comentario) {
         this.id = id;
         this.status = status;
@@ -22,7 +23,7 @@ public class Ticket {
         this.criador = criador;
         this.comentario = comentario;
     }
-
+// getters e setters
     public int getId() {
         return id;
     }
@@ -78,5 +79,4 @@ public class Ticket {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-
 }

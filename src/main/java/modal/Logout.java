@@ -1,14 +1,12 @@
-
 package modal;
 
 public class Logout extends javax.swing.JFrame {
 
-
     public Logout() {
         initComponents();
-                this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
+        //seta ícone
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -104,10 +102,12 @@ public class Logout extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
-       System.exit(0);
+        // fecha o sistema
+        System.exit(0);
     }//GEN-LAST:event_btOkActionPerformed
 
     private void btNokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNokActionPerformed
+        // fecha essa janela
         this.dispose();
     }//GEN-LAST:event_btNokActionPerformed
 

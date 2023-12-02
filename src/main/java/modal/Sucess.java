@@ -1,14 +1,12 @@
-
 package modal;
-
 
 public class Sucess extends javax.swing.JFrame {
 
     public Sucess() {
         initComponents();
-                this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
+        // seta o ícone
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -91,12 +89,11 @@ public class Sucess extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
+        // fecha essa janela
         this.dispose();
     }//GEN-LAST:event_btOkActionPerformed
 
-
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -118,8 +115,6 @@ public class Sucess extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Sucess.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Sucess().setVisible(true);
@@ -134,9 +129,9 @@ public class Sucess extends javax.swing.JFrame {
     private javax.swing.JLabel txtOk;
     // End of variables declaration//GEN-END:variables
 
-    // método pra informar mensagem
-    public void informarAssunto(String erro){
-    this.setVisible(true);
-    txtOk.setText(erro);
-}
+    // método que seta uma mensagem no campo txtOk
+    public void informarAssunto(String erro) {
+        this.setVisible(true);
+        txtOk.setText(erro);
+    }
 }

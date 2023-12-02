@@ -13,8 +13,10 @@ import javax.swing.table.DefaultTableModel;
 import model.Ticket;
 import utils.HoverEffect;
 
+//classe que lista na tabela os tickets
 public class TicketsView extends javax.swing.JPanel {
 
+    //imports e variáveis locais
     String nivel = "";
     HoverEffect hover = new HoverEffect();
 
@@ -22,7 +24,6 @@ public class TicketsView extends javax.swing.JPanel {
         initComponents();
         mostrarTickets();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -258,19 +259,18 @@ public class TicketsView extends javax.swing.JPanel {
 
     private void tbAbertosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbAbertosMouseClicked
         try {
-            carregarTicket(tbAbertos);
+            carregarTicket(tbAbertos); // carrega as informações do chamado que foi clicado
         } catch (SQLException ex) {
             System.out.println("ex");
         }
     }//GEN-LAST:event_tbAbertosMouseClicked
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-
-        buscarTickets();
+buscarTickets(); // realiza busca de tickets pelo filtro
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarIdActionPerformed
-        buscarTicketId();
+        buscarTicketId();// realiza busca de tickets pelo id
         txtId.setText("Pesquisar por #");
     }//GEN-LAST:event_btBuscarIdActionPerformed
 
@@ -280,7 +280,6 @@ public class TicketsView extends javax.swing.JPanel {
             hover.efeitoHoverSeparador(barraPesquisa, 0, 204, 204);
         }
     }//GEN-LAST:event_txtIdMousePressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator barraPesquisa;
@@ -301,12 +300,8 @@ public class TicketsView extends javax.swing.JPanel {
     private javax.swing.JLabel txtFiltro;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
-    // efeito hover nos botões
-    private void efeitoHover(JPanel painel, int r, int g, int b) {
-        painel.setBackground(new java.awt.Color(r, g, b));
-    }
 
-    // método pra trocar de aba clicando na opção
+// método pra trocar de aba clicando na opção
     private void trocarTela(JPanel painel) {
         painel.setSize(1060, 650);
         painel.setLocation(0, 0);
@@ -315,7 +310,7 @@ public class TicketsView extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();
     }
-
+// método que exibe os chamados na tabela
     private void mostrarTickets() {
         DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();
         TicketConnections t = new TicketConnections();
@@ -343,14 +338,12 @@ public class TicketsView extends javax.swing.JPanel {
             corNaLinha();
         }
     }
-
     // inserindo cor no status do chamado
     private void corNaLinha() {
         String aberto = "ABERTO";
         String pendente = "PENDENTE";
         String fechado = "FECHADO";
         tbAbertos.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 this.setHorizontalAlignment(CENTER);
@@ -369,16 +362,13 @@ public class TicketsView extends javax.swing.JPanel {
             }
         });
     }
-
-    // realizando busca dos chamados através do filtro
+    // realizando busca dos chamados através do filtro (aberto, pendente e fechado)
     private void buscarTickets() {
         DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();
         TicketConnections t = new TicketConnections();
         String status = "";
         int sttNumber = 0;
-
         String stt = (String) comboSelecionarStatus.getSelectedItem();
-
         switch (stt) {
             case "ABERTOS":
                 sttNumber = 1;
@@ -393,9 +383,7 @@ public class TicketsView extends javax.swing.JPanel {
                 sttNumber = 4;
                 break;
         }
-
         modeloTabelaPendentes.setNumRows(0);
-
         if (sttNumber == 4) {
             mostrarTickets();
         } else {
@@ -421,7 +409,6 @@ public class TicketsView extends javax.swing.JPanel {
             }
         }
     }
-
     // passa a view InfoTicket a coluna e linha da tabela pra realizar a busca, além do tipo de usuário (Admin ou operador)
     private void carregarTicket(JTable table) throws SQLException {
         int validar = (int) table.getValueAt(table.getSelectedRow(), 0);
@@ -429,21 +416,18 @@ public class TicketsView extends javax.swing.JPanel {
         infos.mostrarDadosTicket(validar, nivel);
         trocarTela(infos);
     }
-
     // resgata o nível do usuário
     public void inicializarTicketsView(String nivelUsuario) {
         nivel = nivelUsuario;
     }
-
-    // realizando busca dos chamados através do filtro
-    private void buscarTicketId() {
+    // realizando busca dos chamados através do filtro (ID)
+    private void buscarTicketId() { 
         DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();
         TicketConnections t = new TicketConnections();
         String id = txtId.getText();
         int idTicket = Integer.parseInt(id);
         Ticket ticket = t.pesquisarTicket(idTicket);
         String status = "";
-
         String stt = (String) comboSelecionarStatus.getSelectedItem();
         modeloTabelaPendentes.setNumRows(0);
 

@@ -13,13 +13,16 @@ import modal.Logout;
 import model.User;
 import utils.HoverEffect;
 
+// classe view - Dashboard (principal)
 public class Dashboard extends javax.swing.JFrame {
+//imports
 
     User usuario = new User();
     HoverEffect he = new HoverEffect();
 
     public Dashboard() {
         initComponents();
+        //setando ícone
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
     }
 
@@ -72,11 +75,6 @@ public class Dashboard extends javax.swing.JFrame {
         nivelUsuario.setBorderPainted(false);
         nivelUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         nivelUsuario.setIconTextGap(10);
-        nivelUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nivelUsuarioActionPerformed(evt);
-            }
-        });
         userMenu.add(nivelUsuario);
 
         deslogar.setBackground(new java.awt.Color(10, 10, 10));
@@ -88,11 +86,6 @@ public class Dashboard extends javax.swing.JFrame {
         deslogar.setBorderPainted(false);
         deslogar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         deslogar.setIconTextGap(10);
-        deslogar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deslogarMouseClicked(evt);
-            }
-        });
         deslogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deslogarActionPerformed(evt);
@@ -463,7 +456,6 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_iconeUsuarioMouseClicked
 
     private void btNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseClicked
-
         novoTicket();
     }//GEN-LAST:event_btNovoMouseClicked
 
@@ -476,7 +468,6 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btNovoMouseExited
 
     private void newletterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newletterMouseEntered
-
         he.efeitoHoverTextos(newletter, 230, 230, 230);
     }//GEN-LAST:event_newletterMouseEntered
 
@@ -501,6 +492,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_manualMouseExited
 
     private void btTicketsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btTicketsMouseClicked
+        // alterando pra view Tickets
         TicketsView tv = new TicketsView();
         tv.inicializarTicketsView(nivelUsuario.getText());
         trocarAba(btTickets, tv);
@@ -515,6 +507,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btTicketsMouseExited
 
     private void btHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btHomeMouseClicked
+        // alterando pra view Home (Dashboard)
         HomeView hv = new HomeView();
         trocarAba(btHome, hv);
     }//GEN-LAST:event_btHomeMouseClicked
@@ -540,21 +533,13 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btSobreMouseEntered
 
     private void btSobreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSobreMouseExited
-
         he.efeitoHover(pInfo, 16, 16, 16);
     }//GEN-LAST:event_btSobreMouseExited
 
-    private void nivelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nivelUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nivelUsuarioActionPerformed
-
-    private void deslogarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deslogarMouseClicked
-
-    }//GEN-LAST:event_deslogarMouseClicked
-
     private void deslogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deslogarActionPerformed
-Logout logout = new Logout();
-logout.setVisible(true);
+        // exibe o Logout ao clicar no botão de deslogar
+        Logout logout = new Logout();
+        logout.setVisible(true);
     }//GEN-LAST:event_deslogarActionPerformed
 
     private void btSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseEntered
@@ -568,22 +553,24 @@ logout.setVisible(true);
     }//GEN-LAST:event_btSairMouseExited
 
     private void btSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMousePressed
+// fecha o sistema ao clicar direto no X pra sair
         System.exit(0);
     }//GEN-LAST:event_btSairMousePressed
 
     private void btConfigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btConfigMouseClicked
+        // alterando pra view Configurações
         Config config = new Config();
         config.resgatarUsuario(usuario);
         trocarAba(btConfig, config);
     }//GEN-LAST:event_btConfigMouseClicked
 
     private void btSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSobreMouseClicked
+        // alterando pra view Sobre
         About about = new About();
         trocarAba(btSobre, about);
     }//GEN-LAST:event_btSobreMouseClicked
 
     public static void main(String args[]) {
-
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Metal".equals(info.getName())) {
@@ -600,9 +587,6 @@ logout.setVisible(true);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Dashboard().setVisible(true);
@@ -645,7 +629,6 @@ logout.setVisible(true);
     Fail fail = new Fail();
     Color bordaSelecionado = new java.awt.Color(0, 204, 204);
     Color bordaNormal = new java.awt.Color(16, 16, 16);
-
     // método de trocar a aba e marcar selecionada
     private void trocarAba(JLabel label, JPanel painel) {
         btHome.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));
@@ -655,7 +638,6 @@ logout.setVisible(true);
         label.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaSelecionado));
         trocarTela(painel);
     }
-
     // método pra trocar de aba clicando na opção
     private void trocarTela(JPanel painel) {
         painel.setSize(1060, 650);
@@ -665,36 +647,30 @@ logout.setVisible(true);
         container.revalidate();
         container.repaint();
     }
-
     // mostrar tela home dashboard
     public void mostrarHome() {
         HomeView home = new HomeView();
         trocarAba(btHome, home);
     }
-
-    // novo ticket botões
+    // novo ticket botão
     private void novoTicket() {
         NewTicket nt = new NewTicket();
         nt.resgatarUsuario(usuario);
         trocarAba(btTickets, nt);
     }
-
-    // inicializando dashboard
+    // inicializando dashboard com dados do usuário recebidos depois do Login
     public void inicializar(User user) {
         iconeUsuario.setText("Bem-Vindo(a), \n" + user.getUsuario());
         usuario = user;
         UserConnections conUser = new UserConnections();
         ResultSet resultadoBusca = conUser.verificarNivelUsuario(usuario);
-
-        
-        
+        // realiza busca do usuário e verifica o nível do mesmo (1 Operador e 2 Administrador)
         try {
             while (resultadoBusca.next()) {
                 usuario.setNivel(resultadoBusca.getInt("nivel"));
                 int nivelUser = usuario.getNivel();
                 switch (nivelUser) {
                     case 1:
-                        
                         nivelUsuario.setText("Operador(a)");
                         break;
                     case 2:
@@ -702,19 +678,20 @@ logout.setVisible(true);
                         break;
                 }
                 mostrarHome();
-
             }
         } catch (SQLException ex) {
         }
+        // busca o nome completo do usuário
         ResultSet resultadoBuscaNome = conUser.verificarDados(usuario);
         try {
             while (resultadoBuscaNome.next()) {
                 usuario.setNome(resultadoBuscaNome.getString("nomecompleto"));
                 nomeUsuario.setText(usuario.getNome());
             }
-
         } catch (SQLException e) {
-        }
+            nomeUsuario.setText("Não encontrado");
+   }
+        // exibe a Home
         HomeView home = new HomeView();
         trocarAba(btHome, home);
         mostrarHome();

@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import modal.Fail;
 import modal.Sucess;
-import model.User;
 import utils.CurrentDate;
 
 public class HomeView extends javax.swing.JPanel {
+    //imports
 
     Connection conexao;
     Fail fail = new Fail();
@@ -379,12 +379,11 @@ public class HomeView extends javax.swing.JPanel {
     private javax.swing.JLabel txtFechados;
     private javax.swing.JLabel txtPendentes;
     // End of variables declaration//GEN-END:variables
-
+// verificando a data completa através da classe CurrentDate
     private void iniciarData() {
         CurrentDate data = new CurrentDate();
-        txtData.setText("Exibindo atualizações de "+data.verificarDataCompleta());
+        txtData.setText("Exibindo atualizações de " + data.verificarDataCompleta());
     }
-
     // verificando e calculando quantidade mínima, máxima e meio termo para analisar e mostrar no gráfico
     private void mostrarGrafico() {
         int qntMin = 8;
@@ -400,7 +399,7 @@ public class HomeView extends javax.swing.JPanel {
         abertos.setToolTipText(txtAbertos.getText());
         pendentes.setToolTipText(txtPendentes.getText());
         fechados.setToolTipText(txtFechados.getText());
-
+        // VALOR ABERTO
         if (valorAberto == 0) {
             abertos.setPreferredSize(new java.awt.Dimension(zero, 19));
         } else if (valorAberto > qntMin && valorAberto < qntMax) {
@@ -410,7 +409,6 @@ public class HomeView extends javax.swing.JPanel {
         } else {
             abertos.setPreferredSize(new java.awt.Dimension(min, 19));
         }
-
         // VALOR PENDENTE
         if (valorPendente == 0) {
             pendentes.setPreferredSize(new java.awt.Dimension(zero, 19));
@@ -421,7 +419,6 @@ public class HomeView extends javax.swing.JPanel {
         } else {
             pendentes.setPreferredSize(new java.awt.Dimension(min, 19));
         }
-
         //VALOR FECHADO
         if (valorFechados == 0) {
             fechados.setPreferredSize(new java.awt.Dimension(zero, 19));
@@ -433,7 +430,6 @@ public class HomeView extends javax.swing.JPanel {
             fechados.setPreferredSize(new java.awt.Dimension(min, 19));
         }
     }
-
     // realizando busca e contagem de Tickets abertos
     private void contagemDeTicketsAbertos() {
         conexao = new DbConnection().conectarBD();
@@ -445,14 +441,11 @@ public class HomeView extends javax.swing.JPanel {
             result.next();
             txtAbertos.setText(String.valueOf(result.getInt(1)));
             txtAbertos.setToolTipText(txtAbertos.getText());
-            mostrarGrafico();
-
+            mostrarGrafico(); // exibindo no gráfico
         } catch (SQLException erro) {
             fail.informarErro("Home | contagemDeTicketsAbertos " + erro);
         }
-
     }
-
     // realizando busca e contagem de Tickets pendentes
     private void contagemDeTicketsPendentes() {
         conexao = new DbConnection().conectarBD();
@@ -464,14 +457,11 @@ public class HomeView extends javax.swing.JPanel {
             result.next();
             txtPendentes.setText(String.valueOf(result.getInt(1)));
             txtPendentes.setToolTipText(txtPendentes.getText());
-            mostrarGrafico();
-
+            mostrarGrafico(); // exibindo no gráfico
         } catch (SQLException erro) {
             fail.informarErro("Home | contagemDeTicketsPendentes " + erro);
         }
-
     }
-
     // realizando busca e contagem de Tickets fechados
     private void contagemDeTicketsFechados() {
         conexao = new DbConnection().conectarBD();
@@ -483,19 +473,16 @@ public class HomeView extends javax.swing.JPanel {
             result.next();
             txtFechados.setText(String.valueOf(result.getInt(1)));
             txtFechados.setToolTipText(txtFechados.getText());
-            mostrarGrafico();
-
+            mostrarGrafico(); // exibindo no gráfico
         } catch (SQLException erro) {
             fail.informarErro("Home | contagemDeTicketsFechados " + erro);
         }
-
     }
-
+// exibindo informações ao abrir essa aba
     private void inicializarTicketsView() {
         contagemDeTicketsAbertos();
         contagemDeTicketsPendentes();
         contagemDeTicketsFechados();
         mostrarGrafico();
     }
-
 }

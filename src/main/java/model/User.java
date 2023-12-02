@@ -9,7 +9,10 @@ public class User {
     private String senha;
     private String email;
  
-    
+    //construtor padrão
+    public User(){ 
+    }
+    //getters e setters
     public int getNivel() {
         return nivel;
     }
@@ -49,5 +52,4 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
     }

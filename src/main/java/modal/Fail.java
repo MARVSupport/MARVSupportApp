@@ -1,16 +1,12 @@
 package modal;
 
-
-
 public class Fail extends javax.swing.JFrame {
-
 
     public Fail() {
         initComponents();
-                this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
+        // seta ícone
+        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
     }
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -97,13 +93,7 @@ public class Fail extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btOkActionPerformed
 
-  
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Metal".equals(info.getName())) {
@@ -120,10 +110,6 @@ public class Fail extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Fail().setVisible(true);
@@ -138,8 +124,9 @@ public class Fail extends javax.swing.JFrame {
     private javax.swing.JLabel txtErro;
     // End of variables declaration//GEN-END:variables
 
-public void informarErro(String erro){
-    this.setVisible(true);
-    txtErro.setText(erro);
-}
+    // método que seta uma mensagem no campo txtErro
+    public void informarErro(String erro) {
+        this.setVisible(true);
+        txtErro.setText(erro);
+    }
 }

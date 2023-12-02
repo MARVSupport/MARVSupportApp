@@ -6,19 +6,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JPanel;
 import modal.Fail;
-import modal.Sucess;
 import model.Ticket;
 import utils.HoverEffect;
 
 public class InfoTicket extends javax.swing.JPanel {
-
+    // imports
     HoverEffect hover = new HoverEffect();
     Fail erro = new Fail();
-
     public InfoTicket() {
         initComponents();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -75,11 +72,6 @@ public class InfoTicket extends javax.swing.JPanel {
         txtTitulo.setForeground(new java.awt.Color(255, 255, 255));
         txtTitulo.setText("TÍTULO");
         txtTitulo.setBorder(null);
-        txtTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtTituloMouseClicked(evt);
-            }
-        });
         add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 260, -1));
 
         separadorTitulo.setBackground(new java.awt.Color(51, 51, 51));
@@ -138,9 +130,6 @@ public class InfoTicket extends javax.swing.JPanel {
         btFechar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btFechar.setText("FECHAR");
         btFechar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btFecharMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btFecharMouseEntered(evt);
             }
@@ -173,11 +162,6 @@ public class InfoTicket extends javax.swing.JPanel {
         txtComentario.setLineWrap(true);
         txtComentario.setRows(5);
         txtComentario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-        txtComentario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtComentarioMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(txtComentario);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 250, 370, 190));
@@ -243,36 +227,18 @@ public class InfoTicket extends javax.swing.JPanel {
         txtAssunto.setRows(5);
         txtAssunto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         txtAssunto.setMargin(new java.awt.Insets(2, 10, 2, 6));
-        txtAssunto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAssuntoMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(txtAssunto);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 440, 250));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTituloMouseClicked
-
-    }//GEN-LAST:event_txtTituloMouseClicked
-
-    private void btFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btFecharMouseClicked
-
-    }//GEN-LAST:event_btFecharMouseClicked
-
     private void btFecharMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btFecharMouseEntered
-
         hover.efeitoHover(pFechar, 102, 0, 0);
     }//GEN-LAST:event_btFecharMouseEntered
 
     private void btFecharMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btFecharMouseExited
         hover.efeitoHover(pFechar, 16, 16, 16);
     }//GEN-LAST:event_btFecharMouseExited
-
-    private void txtComentarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtComentarioMouseClicked
-
-    }//GEN-LAST:event_txtComentarioMouseClicked
 
     private void btSalvarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseEntered
         hover.efeitoHover(pSalvar, 0, 153, 153);
@@ -282,13 +248,8 @@ public class InfoTicket extends javax.swing.JPanel {
         hover.efeitoHover(pSalvar, 0, 204, 204);
     }//GEN-LAST:event_btSalvarMouseExited
 
-    private void txtAssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAssuntoMouseClicked
-
-    }//GEN-LAST:event_txtAssuntoMouseClicked
-
     private void btSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarMouseClicked
-
-        salvarTicket();
+        salvarTicket(); // salva o ticket
     }//GEN-LAST:event_btSalvarMouseClicked
 
 
@@ -318,13 +279,12 @@ public class InfoTicket extends javax.swing.JPanel {
     private javax.swing.JLabel txtStatus;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
- public void mostrarDadosTicket(int idTicket, String nivel) throws SQLException {
+    //realiza a busca e exibe os dados do ticket
+    public void mostrarDadosTicket(int idTicket, String nivel) throws SQLException {
         TicketConnections ct = new TicketConnections();
-
         try {
             ResultSet resultado = ct.mostrarDados(idTicket);
             while (resultado.next()) {
-
                 // realizando a busca e implementando
                 Ticket t = new Ticket();
                 t.setId(resultado.getInt("id"));
@@ -334,7 +294,6 @@ public class InfoTicket extends javax.swing.JPanel {
                 t.setStatus(resultado.getInt("status"));
                 t.setCriador(resultado.getString("criador"));
                 t.setComentario(resultado.getString("comentario"));
-
                 // mostrando o resultado
                 String idT = String.valueOf(t.getId());
                 int stt = t.getStatus();
@@ -344,7 +303,6 @@ public class InfoTicket extends javax.swing.JPanel {
                 txtId.setText(idT);
                 txtComentario.setText(t.getComentario());
                 txtCriador.setText(t.getCriador());
-
                 switch (stt) {
                     case 1:
                         txtStatus.setText("ABERTO");
@@ -360,10 +318,11 @@ public class InfoTicket extends javax.swing.JPanel {
                         break;
                 }
                 System.out.println(nivel);
+                // caso usuário não for administrador, não terá como comentar e nem como alterar o status do chamado
                 if (nivel.equals("Administrador(a)")) {
                     painelAdmin.setVisible(true);
                     txtComentario.setEditable(true);
-                } else {
+                } else { // caso for administrador, exibe e permite adicionar comentário
                     painelAdmin.setVisible(false);
                     txtComentario.setEditable(false);
                 }
@@ -373,7 +332,6 @@ public class InfoTicket extends javax.swing.JPanel {
         }
     }
     // método pra trocar de aba clicando na opção
-
     private void trocarTela(JPanel painel) {
         painel.setSize(1060, 650);
         painel.setLocation(0, 0);
@@ -382,7 +340,7 @@ public class InfoTicket extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();
     }
-
+    // método que salva o ticket
     private void salvarTicket() {
         Ticket ticket = new Ticket();
         int id = Integer.parseInt(txtId.getText());
@@ -391,7 +349,7 @@ public class InfoTicket extends javax.swing.JPanel {
 
         ticket.setId(id);
         ticket.setComentario(comentario);
-
+//verifica o status do ticket
         switch (status) {
             case 0:
                 ticket.setStatus(1);
@@ -403,8 +361,7 @@ public class InfoTicket extends javax.swing.JPanel {
                 ticket.setStatus(3);
                 break;
         }
-        
         TicketConnections tc = new TicketConnections();
-        tc.editarTicket(ticket);
+        tc.editarTicket(ticket); // enviou os dados pra editar
     }
 }

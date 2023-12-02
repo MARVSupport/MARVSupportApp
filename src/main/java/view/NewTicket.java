@@ -13,7 +13,7 @@ import model.User;
 import utils.CurrentDate;
 
 public class NewTicket extends javax.swing.JPanel {
-
+    // imports
     Fail fail = new Fail();
     CurrentDate data = new CurrentDate();
     Ticket ticket = new Ticket();
@@ -22,7 +22,6 @@ public class NewTicket extends javax.swing.JPanel {
     public NewTicket() {
         initComponents();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -183,19 +182,16 @@ public class NewTicket extends javax.swing.JPanel {
     }//GEN-LAST:event_txtTituloMouseClicked
 
     private void btCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseClicked
-
         resetarCampos();
     }//GEN-LAST:event_btCancelarMouseClicked
 
     private void btCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseEntered
-
         painelMudar(pCancelar, 102, 0, 0);
     }//GEN-LAST:event_btCancelarMouseEntered
 
     private void btCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseExited
         painelMudar(pCancelar, 16, 16, 16);
     }//GEN-LAST:event_btCancelarMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btAbrirTicket;
@@ -213,20 +209,19 @@ public class NewTicket extends javax.swing.JPanel {
     private void painelMudar(JPanel painel, int r, int g, int b) {
         painel.setBackground(new java.awt.Color(r, g, b));
     }
-
+    // resgata o usuário da aba que o chamou
     public void resgatarUsuario(User user) {
         ticket.setCriador(user.getUsuario());
         usuario = user;
     }
-
+    // realiza a criação de um novo chamado
     private void criarTicket() {
+        // verifica se os dados estão em branco
         if (txtTitulo.getText().isEmpty() || txtTitulo.getText().equals("Título do TICKET")) {
             fail.informarErro("Insira o título do chamado.");
-
         } else if (txtAssunto.getText().isEmpty()) {
             fail.informarErro("Insira o assunto do chamado.");
-
-        } else {
+        } else { // caso esteja tudo preenchido, abre o chamado
             ticket.setTitulo(txtTitulo.getText());
             ticket.setAssunto(txtAssunto.getText());
             ticket.setData(data.verificarData());
@@ -235,13 +230,12 @@ public class NewTicket extends javax.swing.JPanel {
             tc.criarTicket(ticket);
             System.out.println("Foi aberto um novo chamado!");
             resetarCampos();
-            
             UserConnections uc = new UserConnections();
+            //envia os dados para criar o chamado
             uc.enviarEmailAdmin("Chamado aberto por: " + usuario.getUsuario() + " | Título: " + ticket.getTitulo(), "Assunto: " + ticket.getAssunto());
         }
-
     }
-
+    //reseta todos os campos (limpa)
     private void resetarCampos() {
         txtTitulo.setText("Título do TICKET");
         txtAssunto.setText("");

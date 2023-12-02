@@ -8,8 +8,9 @@ import modal.Fail;
 import modal.Sucess;
 import model.User;
 
+// classe view - Configurações
 public class Config extends javax.swing.JPanel {
-
+ //imports
     User usuario = new User();
     Fail fail = new Fail();
     Sucess sucess = new Sucess();
@@ -18,7 +19,6 @@ public class Config extends javax.swing.JPanel {
     public Config() {
         initComponents();
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -123,7 +123,7 @@ public class Config extends javax.swing.JPanel {
     private javax.swing.JLabel txtAbertos;
     private javax.swing.JTextField txtEmailUser;
     // End of variables declaration//GEN-END:variables
-
+// resgata o usuário que abriu a tela
     public void resgatarUsuario(User user) {
         usuario = user;
         UserConnections conexao = new UserConnections();
@@ -137,7 +137,7 @@ public class Config extends javax.swing.JPanel {
             fail.informarErro("Erro ao puxar email.");
         }
     }
-
+// método que salva o novo email e verifica se é válido
     private void salvarEmail() {
         if (!isEmailValid(txtEmailUser.getText())) {
             fail.informarErro("Email inválido.");
@@ -146,7 +146,7 @@ public class Config extends javax.swing.JPanel {
             uc.editarEmailUsuario(usuario);
         }
     }
-
+   // confirma se o formato do email é válido comparando uma sequência de matches
     private boolean isEmailValid(String email) {
         return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
     }

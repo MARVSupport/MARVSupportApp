@@ -14,7 +14,6 @@ public class UserConnections {
 
     Connection conexao;
     String erro = "Ocorreu um erro: ";
-
     Fail fail = new Fail();
     Sucess ok = new Sucess();
 
@@ -29,15 +28,14 @@ public class UserConnections {
             ResultSet resultado = stm.executeQuery();
             return resultado;
             // realizando a busca de usuário/senha e retornando o resultado
-
         } catch (SQLException e) {
             System.out.println(erro + e);
             // caso der erro, retorna a mensagem e não faz nada
             return null;
         }
-
     }
 
+    // resgatar dados do usuário selecionado
     public ResultSet verificarDados(User user) {
         conexao = new DbConnection().conectarBD();
         try {
@@ -53,12 +51,11 @@ public class UserConnections {
             // caso der erro, retorna a mensagem e não faz nada
             return null;
         }
-
     }
 
+    // verifica o nível do usuário em alguma requisição
     public ResultSet verificarNivelUsuario(User user) {
         conexao = new DbConnection().conectarBD();
-
         try {
             String buscarUser = "SELECT nivel FROM tb_usuario WHERE usuario = ?;";
             PreparedStatement stm = conexao.prepareStatement(buscarUser);
@@ -72,47 +69,42 @@ public class UserConnections {
         }
     }
 
+    // envia um email para todos os administradores do sistema 
     public void enviarEmailAdmin(String mensagem1, String mensagem2) {
         conexao = new DbConnection().conectarBD();
-
         try {
             String buscarUser = "SELECT email FROM tb_usuario WHERE nivel = 2;";
             PreparedStatement stm = conexao.prepareStatement(buscarUser);
             ResultSet resultado = stm.executeQuery();
-            while(resultado.next()){
+            while (resultado.next()) {
                 String destinatario = resultado.getString("email");
                 Email email = new Email(mensagem1, mensagem2, destinatario);
                 email.enviar();
             }
-            
-
         } catch (SQLException e) {
             fail.informarErro("ConexaoUsuario | verificarEmailAdmin: " + e);
         }
     }
-    
-public boolean userAutenticado(User user){
+
+    // verifica se aquele usuário está autenticado
+    public boolean userAutenticado(User user) {
         boolean auth = false;
-            ResultSet resultadoLogin = this.autenticarUsuario(user);
+        ResultSet resultadoLogin = this.autenticarUsuario(user);
         try {
             if (resultadoLogin.next()) {
                 auth = true;
-            } 
+            }
         } catch (SQLException ex) {
-              fail.informarErro("ConexaoUsuario | UserAutenticado: " + ex);
-            
+            fail.informarErro("ConexaoUsuario | UserAutenticado: " + ex);
         }
         return auth;
     }
 
-
-    // EDITAR ticket
-    public void editarEmailUsuario(User user){
+    // Edição do email dos usuários
+    public void editarEmailUsuario(User user) {
         conexao = new DbConnection().conectarBD();
-        
         try {
             String editarTicket = "UPDATE tb_usuario SET email = ? WHERE usuario = ?;";
-            
             PreparedStatement stm = conexao.prepareStatement(editarTicket);
             stm.setString(1, user.getEmail());
             stm.setString(2, user.getUsuario());
@@ -120,7 +112,6 @@ public boolean userAutenticado(User user){
             stm.close();
             ok.informarAssunto("Email editado com sucesso.");
             ok.setVisible(true);
-            
         } catch (Exception e) {
             fail.informarErro("ConexaoUsuario | editarEmailUsuario " + e);
         }

@@ -31,7 +31,6 @@ public class DbConnection {
         return conexao;
     }
     }
-
     // Desconecta do BANCO DE DADOS
     public void desconectarBD() {
         try {
@@ -42,7 +41,7 @@ public class DbConnection {
             System.out.println(erro);
         }
     }
-
+    // verifica o status da conexão com o banco de dados
     public boolean verificarStatus() {
         conectarBD();
         return verificar;
