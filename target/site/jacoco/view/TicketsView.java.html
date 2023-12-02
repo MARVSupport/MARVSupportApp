@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TicketsView.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">TicketsView.java</span></div><h1>TicketsView.java</h1><pre class="source lang-java linenums">package view;
+
+import controller.TicketConnections;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.sql.SQLException;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import model.Ticket;
+
+public class TicketsView extends javax.swing.JPanel {
+
+<span class="nc" id="L17">    String nivel = &quot;&quot;;</span>
+
+<span class="nc" id="L19">    public TicketsView() {</span>
+<span class="nc" id="L20">        initComponents();</span>
+<span class="nc" id="L21">        mostrarTickets();</span>
+<span class="nc" id="L22">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L28">        jScrollPane3 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L29">        jEditorPane1 = new javax.swing.JEditorPane();</span>
+<span class="nc" id="L30">        container = new javax.swing.JPanel();</span>
+<span class="nc" id="L31">        pHeader = new javax.swing.JPanel();</span>
+<span class="nc" id="L32">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L33">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L34">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L35">        jLabel5 = new javax.swing.JLabel();</span>
+<span class="nc" id="L36">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L37">        tbAbertos = new javax.swing.JTable();</span>
+<span class="nc" id="L38">        txtAbertos = new javax.swing.JLabel();</span>
+<span class="nc" id="L39">        comboSelecionarStatus = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="nc" id="L40">        btBuscar = new javax.swing.JButton();</span>
+<span class="nc" id="L41">        txtFiltro = new javax.swing.JLabel();</span>
+<span class="nc" id="L42">        barraPesquisa = new javax.swing.JSeparator();</span>
+<span class="nc" id="L43">        btBuscar1 = new javax.swing.JButton();</span>
+<span class="nc" id="L44">        jTextField1 = new javax.swing.JTextField();</span>
+
+<span class="nc" id="L46">        jScrollPane3.setViewportView(jEditorPane1);</span>
+
+<span class="nc" id="L48">        setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L49">        setMaximumSize(new java.awt.Dimension(1060, 650));</span>
+<span class="nc" id="L50">        setMinimumSize(new java.awt.Dimension(1060, 650));</span>
+<span class="nc" id="L51">        setPreferredSize(new java.awt.Dimension(1060, 650));</span>
+
+<span class="nc" id="L53">        container.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L54">        container.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L56">        pHeader.setBackground(new java.awt.Color(0, 204, 204));</span>
+
+<span class="nc" id="L58">        jLabel1.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L59">        jLabel1.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L60">        jLabel1.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L61">        jLabel1.setText(&quot;#&quot;);</span>
+
+<span class="nc" id="L63">        jLabel2.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L64">        jLabel2.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L65">        jLabel2.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L66">        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L67">        jLabel2.setText(&quot;TÍTULO&quot;);</span>
+
+<span class="nc" id="L69">        jLabel3.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L70">        jLabel3.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L71">        jLabel3.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L72">        jLabel3.setText(&quot;DATA&quot;);</span>
+
+<span class="nc" id="L74">        jLabel5.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L75">        jLabel5.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L76">        jLabel5.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L77">        jLabel5.setText(&quot;STATUS&quot;);</span>
+
+<span class="nc" id="L79">        javax.swing.GroupLayout pHeaderLayout = new javax.swing.GroupLayout(pHeader);</span>
+<span class="nc" id="L80">        pHeader.setLayout(pHeaderLayout);</span>
+<span class="nc" id="L81">        pHeaderLayout.setHorizontalGroup(</span>
+<span class="nc" id="L82">            pHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L83">            .addGroup(pHeaderLayout.createSequentialGroup()</span>
+<span class="nc" id="L84">                .addGap(71, 71, 71)</span>
+<span class="nc" id="L85">                .addComponent(jLabel1)</span>
+<span class="nc" id="L86">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)</span>
+<span class="nc" id="L87">                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L88">                .addGap(74, 74, 74)</span>
+<span class="nc" id="L89">                .addComponent(jLabel3)</span>
+<span class="nc" id="L90">                .addGap(155, 155, 155)</span>
+<span class="nc" id="L91">                .addComponent(jLabel5)</span>
+<span class="nc" id="L92">                .addGap(82, 82, 82))</span>
+        );
+<span class="nc" id="L94">        pHeaderLayout.setVerticalGroup(</span>
+<span class="nc" id="L95">            pHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L96">            .addGroup(pHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L97">                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)</span>
+<span class="nc" id="L98">                .addComponent(jLabel2)</span>
+<span class="nc" id="L99">                .addComponent(jLabel3)</span>
+<span class="nc" id="L100">                .addComponent(jLabel5))</span>
+        );
+
+<span class="nc" id="L103">        container.add(pHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 92, 840, -1));</span>
+
+<span class="nc" id="L105">        jScrollPane1.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L106">        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));</span>
+<span class="nc" id="L107">        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L108">        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+
+<span class="nc" id="L110">        tbAbertos.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L111">        tbAbertos.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L112">        tbAbertos.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L113">        tbAbertos.setModel(new javax.swing.table.DefaultTableModel(</span>
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;
+            }
+<span class="nc" id="L140">        ) {</span>
+<span class="nc" id="L141">            boolean[] canEdit = new boolean [] {</span>
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+<span class="nc" id="L146">                return canEdit [columnIndex];</span>
+            }
+        });
+<span class="nc" id="L149">        tbAbertos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L150">        tbAbertos.setGridColor(new java.awt.Color(102, 102, 102));</span>
+<span class="nc" id="L151">        tbAbertos.setRowHeight(22);</span>
+<span class="nc" id="L152">        tbAbertos.setSelectionBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L153">        tbAbertos.setSelectionForeground(new java.awt.Color(0, 204, 204));</span>
+<span class="nc" id="L154">        tbAbertos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);</span>
+<span class="nc" id="L155">        tbAbertos.setShowGrid(false);</span>
+<span class="nc" id="L156">        tbAbertos.setShowHorizontalLines(true);</span>
+<span class="nc" id="L157">        tbAbertos.getTableHeader().setResizingAllowed(false);</span>
+<span class="nc" id="L158">        tbAbertos.getTableHeader().setReorderingAllowed(false);</span>
+<span class="nc" id="L159">        tbAbertos.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L161">                tbAbertosMouseClicked(evt);</span>
+<span class="nc" id="L162">            }</span>
+        });
+<span class="nc" id="L164">        jScrollPane1.setViewportView(tbAbertos);</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        if (tbAbertos.getColumnModel().getColumnCount() &gt; 0) {</span>
+<span class="nc" id="L166">            tbAbertos.getColumnModel().getColumn(0).setResizable(false);</span>
+<span class="nc" id="L167">            tbAbertos.getColumnModel().getColumn(0).setPreferredWidth(20);</span>
+<span class="nc" id="L168">            tbAbertos.getColumnModel().getColumn(1).setResizable(false);</span>
+<span class="nc" id="L169">            tbAbertos.getColumnModel().getColumn(1).setPreferredWidth(160);</span>
+<span class="nc" id="L170">            tbAbertos.getColumnModel().getColumn(2).setResizable(false);</span>
+<span class="nc" id="L171">            tbAbertos.getColumnModel().getColumn(2).setPreferredWidth(60);</span>
+<span class="nc" id="L172">            tbAbertos.getColumnModel().getColumn(3).setResizable(false);</span>
+<span class="nc" id="L173">            tbAbertos.getColumnModel().getColumn(3).setPreferredWidth(80);</span>
+        }
+
+<span class="nc" id="L176">        container.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 840, 490));</span>
+
+<span class="nc" id="L178">        txtAbertos.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 36)); // NOI18N</span>
+<span class="nc" id="L179">        txtAbertos.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L180">        txtAbertos.setText(&quot;TICKETS&quot;);</span>
+<span class="nc" id="L181">        container.add(txtAbertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 150, 50));</span>
+
+<span class="nc" id="L183">        comboSelecionarStatus.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L184">        comboSelecionarStatus.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 13)); // NOI18N</span>
+<span class="nc" id="L185">        comboSelecionarStatus.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L186">        comboSelecionarStatus.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;TODOS&quot;, &quot;ABERTOS&quot;, &quot;PENDENTES&quot;, &quot;FECHADOS&quot; }));</span>
+<span class="nc" id="L187">        comboSelecionarStatus.setToolTipText(&quot;SELECIONE O STATUS&quot;);</span>
+<span class="nc" id="L188">        comboSelecionarStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));</span>
+<span class="nc" id="L189">        container.add(comboSelecionarStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 150, 30));</span>
+
+<span class="nc" id="L191">        btBuscar.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L192">        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeBuscar.png&quot;))); // NOI18N</span>
+<span class="nc" id="L193">        btBuscar.setToolTipText(&quot;BUSCAR&quot;);</span>
+<span class="nc" id="L194">        btBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 204, 204), null, null));</span>
+<span class="nc" id="L195">        btBuscar.setFocusPainted(false);</span>
+<span class="nc" id="L196">        btBuscar.setFocusable(false);</span>
+<span class="nc" id="L197">        btBuscar.setIconTextGap(0);</span>
+<span class="nc" id="L198">        btBuscar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L200">                btBuscarActionPerformed(evt);</span>
+<span class="nc" id="L201">            }</span>
+        });
+<span class="nc" id="L203">        container.add(btBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 50, 40, 33));</span>
+
+<span class="nc" id="L205">        txtFiltro.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L206">        txtFiltro.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L207">        txtFiltro.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L208">        txtFiltro.setText(&quot;STATUS&quot;);</span>
+<span class="nc" id="L209">        txtFiltro.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L210">        container.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 150, -1));</span>
+
+<span class="nc" id="L212">        barraPesquisa.setBackground(new java.awt.Color(51, 51, 51));</span>
+<span class="nc" id="L213">        barraPesquisa.setForeground(new java.awt.Color(51, 51, 51));</span>
+<span class="nc" id="L214">        barraPesquisa.setPreferredSize(new java.awt.Dimension(0, 1));</span>
+<span class="nc" id="L215">        container.add(barraPesquisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 340, 10));</span>
+
+<span class="nc" id="L217">        btBuscar1.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L218">        btBuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeBuscar.png&quot;))); // NOI18N</span>
+<span class="nc" id="L219">        btBuscar1.setToolTipText(&quot;BUSCAR&quot;);</span>
+<span class="nc" id="L220">        btBuscar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 204, 204), null, null));</span>
+<span class="nc" id="L221">        btBuscar1.setFocusPainted(false);</span>
+<span class="nc" id="L222">        btBuscar1.setFocusable(false);</span>
+<span class="nc" id="L223">        btBuscar1.setIconTextGap(0);</span>
+<span class="nc" id="L224">        btBuscar1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L226">                btBuscar1ActionPerformed(evt);</span>
+<span class="nc" id="L227">            }</span>
+        });
+<span class="nc" id="L229">        container.add(btBuscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 40, 33));</span>
+
+<span class="nc" id="L231">        jTextField1.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L232">        jTextField1.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 0, 13)); // NOI18N</span>
+<span class="nc" id="L233">        jTextField1.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L234">        jTextField1.setText(&quot;Pesquisar por #&quot;);</span>
+<span class="nc" id="L235">        jTextField1.setBorder(null);</span>
+<span class="nc" id="L236">        container.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 340, 30));</span>
+
+<span class="nc" id="L238">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
+<span class="nc" id="L239">        this.setLayout(layout);</span>
+<span class="nc" id="L240">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L241">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L242">            .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L244">        layout.setVerticalGroup(</span>
+<span class="nc" id="L245">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L246">            .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L248">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void tbAbertosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbAbertosMouseClicked
+        try {
+<span class="nc" id="L252">            carregarTicket(tbAbertos);</span>
+<span class="nc" id="L253">        } catch (SQLException ex) {</span>
+<span class="nc" id="L254">            System.out.println(&quot;ex&quot;);</span>
+<span class="nc" id="L255">        }</span>
+<span class="nc" id="L256">    }//GEN-LAST:event_tbAbertosMouseClicked</span>
+
+    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
+<span class="nc" id="L259">        buscarTickets();</span>
+<span class="nc" id="L260">    }//GEN-LAST:event_btBuscarActionPerformed</span>
+
+    private void btBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscar1ActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L264">    }//GEN-LAST:event_btBuscar1ActionPerformed</span>
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSeparator barraPesquisa;
+    private javax.swing.JButton btBuscar;
+    private javax.swing.JButton btBuscar1;
+    private javax.swing.JComboBox&lt;String&gt; comboSelecionarStatus;
+    private javax.swing.JPanel container;
+    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel pHeader;
+    private javax.swing.JTable tbAbertos;
+    private javax.swing.JLabel txtAbertos;
+    private javax.swing.JLabel txtFiltro;
+    // End of variables declaration//GEN-END:variables
+    // efeito hover nos botões
+    private void efeitoHover(JPanel painel, int r, int g, int b) {
+<span class="nc" id="L288">        painel.setBackground(new java.awt.Color(r, g, b));</span>
+<span class="nc" id="L289">    }</span>
+
+    // método pra trocar de aba clicando na opção
+    private void trocarTela(JPanel painel) {
+<span class="nc" id="L293">        painel.setSize(1060, 650);</span>
+<span class="nc" id="L294">        painel.setLocation(0, 0);</span>
+<span class="nc" id="L295">        this.removeAll();</span>
+<span class="nc" id="L296">        this.add(painel, BorderLayout.CENTER);</span>
+<span class="nc" id="L297">        this.revalidate();</span>
+<span class="nc" id="L298">        this.repaint();</span>
+<span class="nc" id="L299">    }</span>
+
+    private void mostrarTickets() {
+<span class="nc" id="L302">        DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();</span>
+<span class="nc" id="L303">        TicketConnections t = new TicketConnections();</span>
+<span class="nc" id="L304">        String status = &quot;&quot;;</span>
+
+<span class="nc" id="L306">        modeloTabelaPendentes.setNumRows(0);</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">        for (Ticket ticket : t.listarTodosTickets()) {</span>
+
+<span class="nc bnc" id="L309" title="All 4 branches missed.">            switch (ticket.getStatus()) {</span>
+                case 1:
+<span class="nc" id="L311">                    status = &quot;ABERTO&quot;;</span>
+<span class="nc" id="L312">                    break;</span>
+
+                case 2:
+<span class="nc" id="L315">                    status = &quot;PENDENTE&quot;;</span>
+<span class="nc" id="L316">                    break;</span>
+
+                case 3:
+<span class="nc" id="L319">                    status = &quot;FECHADO&quot;;</span>
+                    break;
+            }
+<span class="nc" id="L322">            modeloTabelaPendentes.addRow(new Object[]{</span>
+<span class="nc" id="L323">                ticket.getId(), ticket.getTitulo(), ticket.getData(), status</span>
+            });
+<span class="nc" id="L325">            corNaLinha();</span>
+<span class="nc" id="L326">        }</span>
+<span class="nc" id="L327">    }</span>
+
+    // inserindo cor no status do chamado
+    private void corNaLinha() {
+<span class="nc" id="L331">        String aberto = &quot;ABERTO&quot;;</span>
+<span class="nc" id="L332">        String pendente = &quot;PENDENTE&quot;;</span>
+<span class="nc" id="L333">        String fechado = &quot;FECHADO&quot;;</span>
+<span class="nc" id="L334">        tbAbertos.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {</span>
+
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+<span class="nc" id="L338">                this.setHorizontalAlignment(CENTER);</span>
+<span class="nc" id="L339">                JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);</span>
+<span class="nc bnc" id="L340" title="All 2 branches missed.">                if (value.equals(aberto)) {</span>
+<span class="nc" id="L341">                    setForeground(Color.GREEN.darker());</span>
+<span class="nc bnc" id="L342" title="All 2 branches missed.">                } else if (value.equals(pendente)) {</span>
+<span class="nc" id="L343">                    setForeground(Color.YELLOW);</span>
+<span class="nc bnc" id="L344" title="All 2 branches missed.">                } else if (value.equals(fechado)) {</span>
+<span class="nc" id="L345">                    setForeground(Color.RED);</span>
+                } else {
+<span class="nc" id="L347">                    setForeground(Color.WHITE);</span>
+                }
+
+<span class="nc" id="L350">                return label;</span>
+            }
+        });
+<span class="nc" id="L353">    }</span>
+
+    // realizando busca dos chamados através do filtro
+    private void buscarTickets() {
+<span class="nc" id="L357">        DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();</span>
+<span class="nc" id="L358">        TicketConnections t = new TicketConnections();</span>
+<span class="nc" id="L359">        String status = &quot;&quot;;</span>
+<span class="nc" id="L360">        int sttNumber = 0;</span>
+
+<span class="nc" id="L362">        String stt = (String) comboSelecionarStatus.getSelectedItem();</span>
+
+<span class="nc bnc" id="L364" title="All 5 branches missed.">        switch (stt) {</span>
+            case &quot;ABERTOS&quot;:
+<span class="nc" id="L366">                sttNumber = 1;</span>
+<span class="nc" id="L367">                break;</span>
+            case &quot;PENDENTES&quot;:
+<span class="nc" id="L369">                sttNumber = 2;</span>
+<span class="nc" id="L370">                break;</span>
+            case &quot;FECHADOS&quot;:
+<span class="nc" id="L372">                sttNumber = 3;</span>
+<span class="nc" id="L373">                break;</span>
+            case &quot;TODOS&quot;:
+<span class="nc" id="L375">                sttNumber = 4;</span>
+                break;
+        }
+
+<span class="nc" id="L379">        modeloTabelaPendentes.setNumRows(0);</span>
+
+<span class="nc bnc" id="L381" title="All 2 branches missed.">        if (sttNumber == 4) {</span>
+<span class="nc" id="L382">            mostrarTickets();</span>
+        } else {
+<span class="nc bnc" id="L384" title="All 2 branches missed.">            for (Ticket ticket : t.listarTicketsEspecificos(sttNumber)) {</span>
+
+<span class="nc bnc" id="L386" title="All 4 branches missed.">                switch (ticket.getStatus()) {</span>
+                    case 1:
+<span class="nc" id="L388">                        status = &quot;ABERTO&quot;;</span>
+<span class="nc" id="L389">                        break;</span>
+
+                    case 2:
+<span class="nc" id="L392">                        status = &quot;PENDENTE&quot;;</span>
+<span class="nc" id="L393">                        break;</span>
+
+                    case 3:
+<span class="nc" id="L396">                        status = &quot;FECHADO&quot;;</span>
+                        break;
+                }
+<span class="nc" id="L399">                modeloTabelaPendentes.addRow(new Object[]{</span>
+<span class="nc" id="L400">                    ticket.getId(), ticket.getTitulo(), ticket.getData(), status</span>
+                });
+<span class="nc" id="L402">                corNaLinha();</span>
+<span class="nc" id="L403">            }</span>
+        }
+<span class="nc" id="L405">    }</span>
+
+    // passa a view InfoTicket a coluna e linha da tabela pra realizar a busca, além do tipo de usuário (Admin ou operador)
+    private void carregarTicket(JTable table) throws SQLException {
+<span class="nc" id="L409">        int validar = (int) table.getValueAt(table.getSelectedRow(), 0);</span>
+<span class="nc" id="L410">        InfoTicket infos = new InfoTicket();</span>
+<span class="nc" id="L411">        infos.mostrarDadosTicket(validar, nivel);</span>
+<span class="nc" id="L412">        trocarTela(infos);</span>
+<span class="nc" id="L413">    }</span>
+
+    // resgata o nível do usuário
+    public void inicializarTicketsView(String nivelUsuario) {
+<span class="nc" id="L417">         nivel = nivelUsuario;</span>
+<span class="nc" id="L418">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserConnections.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">UserConnections.java</span></div><h1>UserConnections.java</h1><pre class="source lang-java linenums">package controller;
+
+import db.DbConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import modal.Fail;
+import modal.Sucess;
+import model.Email;
+import model.User;
+
+<span class="fc" id="L13">public class UserConnections {</span>
+
+    Connection conexao;
+<span class="fc" id="L16">    String erro = &quot;Ocorreu um erro: &quot;;</span>
+
+<span class="fc" id="L18">    Fail fail = new Fail();</span>
+<span class="fc" id="L19">    Sucess ok = new Sucess();</span>
+
+    // VERIFICANDO SE EXISTE O USUÁRIO E AUTENTICANDO
+    public ResultSet autenticarUsuario(User user) {
+<span class="fc" id="L23">        conexao = new DbConnection().conectarBD();</span>
+        try {
+<span class="fc" id="L25">            String buscarUserPass = &quot;SELECT usuario, senha FROM tb_usuario WHERE usuario = ? AND senha = ?;&quot;;</span>
+<span class="fc" id="L26">            PreparedStatement stm = conexao.prepareStatement(buscarUserPass);</span>
+<span class="fc" id="L27">            stm.setString(1, user.getUsuario());</span>
+<span class="fc" id="L28">            stm.setString(2, user.getSenha());</span>
+<span class="fc" id="L29">            ResultSet resultado = stm.executeQuery();</span>
+<span class="fc" id="L30">            return resultado;</span>
+            // realizando a busca de usuário/senha e retornando o resultado
+
+<span class="nc" id="L33">        } catch (SQLException e) {</span>
+<span class="nc" id="L34">            System.out.println(erro + e);</span>
+            // caso der erro, retorna a mensagem e não faz nada
+<span class="nc" id="L36">            return null;</span>
+        }
+
+    }
+
+    public ResultSet verificarDados(User user) {
+<span class="nc" id="L42">        conexao = new DbConnection().conectarBD();</span>
+        try {
+<span class="nc" id="L44">            String buscarUserPass = &quot;SELECT * FROM tb_usuario WHERE usuario = ?;&quot;;</span>
+<span class="nc" id="L45">            PreparedStatement stm = conexao.prepareStatement(buscarUserPass);</span>
+<span class="nc" id="L46">            stm.setString(1, user.getUsuario());</span>
+<span class="nc" id="L47">            ResultSet resultado = stm.executeQuery();</span>
+<span class="nc" id="L48">            return resultado;</span>
+            // realizando a busca dos dados do usuário
+
+<span class="nc" id="L51">        } catch (SQLException e) {</span>
+<span class="nc" id="L52">            fail.informarErro(&quot;ConexaoUsuario | verificarDados: &quot; + e);</span>
+            // caso der erro, retorna a mensagem e não faz nada
+<span class="nc" id="L54">            return null;</span>
+        }
+
+    }
+
+    public ResultSet verificarNivelUsuario(User user) {
+<span class="nc" id="L60">        conexao = new DbConnection().conectarBD();</span>
+
+        try {
+<span class="nc" id="L63">            String buscarUser = &quot;SELECT nivel FROM tb_usuario WHERE usuario = ?;&quot;;</span>
+<span class="nc" id="L64">            PreparedStatement stm = conexao.prepareStatement(buscarUser);</span>
+<span class="nc" id="L65">            stm.setString(1, user.getUsuario());</span>
+<span class="nc" id="L66">            ResultSet resultado = stm.executeQuery();</span>
+<span class="nc" id="L67">            return resultado;</span>
+
+<span class="nc" id="L69">        } catch (SQLException e) {</span>
+<span class="nc" id="L70">            fail.informarErro(&quot;ConexaoUsuario | verificarNivelUsuario: &quot; + e);</span>
+<span class="nc" id="L71">            return null;</span>
+        }
+    }
+
+    public void enviarEmailAdmin(String assunto, String mensagem) {
+<span class="nc" id="L76">        conexao = new DbConnection().conectarBD();</span>
+
+        try {
+<span class="nc" id="L79">            String buscarUser = &quot;SELECT email FROM tb_usuario WHERE nivel = 2;&quot;;</span>
+<span class="nc" id="L80">            PreparedStatement stm = conexao.prepareStatement(buscarUser);</span>
+<span class="nc" id="L81">            ResultSet resultado = stm.executeQuery();</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            while(resultado.next()){</span>
+<span class="nc" id="L83">                String destinatario = resultado.getString(&quot;email&quot;);</span>
+<span class="nc" id="L84">                Email email = new Email(assunto, mensagem, destinatario);</span>
+<span class="nc" id="L85">                email.enviar();</span>
+<span class="nc" id="L86">            }</span>
+            
+
+<span class="nc" id="L89">        } catch (SQLException e) {</span>
+<span class="nc" id="L90">            fail.informarErro(&quot;ConexaoUsuario | verificarEmailAdmin: &quot; + e);</span>
+<span class="nc" id="L91">        }</span>
+<span class="nc" id="L92">    }</span>
+public boolean userAutenticado(User user){
+<span class="fc" id="L94">        boolean auth = false;</span>
+<span class="fc" id="L95">            ResultSet resultadoLogin = this.autenticarUsuario(user);</span>
+        try {
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">            if (resultadoLogin.next()) {</span>
+<span class="fc" id="L98">                auth = true;</span>
+            } 
+<span class="nc" id="L100">        } catch (SQLException ex) {</span>
+<span class="nc" id="L101">              fail.informarErro(&quot;ConexaoUsuario | UserAutenticado: &quot; + ex);</span>
+            
+<span class="fc" id="L103">        }</span>
+<span class="fc" id="L104">        return auth;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
