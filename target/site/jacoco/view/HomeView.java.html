@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HomeView.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">HomeView.java</span></div><h1>HomeView.java</h1><pre class="source lang-java linenums">package view;
+
+import db.DbConnection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Connection;
+import modal.Fail;
+import modal.Sucess;
+import model.User;
+import utils.CurrentDate;
+
+public class HomeView extends javax.swing.JPanel {
+
+    Connection conexao;
+<span class="nc" id="L16">    Fail fail = new Fail();</span>
+<span class="nc" id="L17">    Sucess ok = new Sucess();</span>
+
+<span class="nc" id="L19">    public HomeView() {</span>
+<span class="nc" id="L20">        initComponents();</span>
+<span class="nc" id="L21">        iniciarData();</span>
+<span class="nc" id="L22">        inicializarTicketsView();</span>
+<span class="nc" id="L23">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L29">        pFechados = new javax.swing.JPanel();</span>
+<span class="nc" id="L30">        txtFechados = new javax.swing.JLabel();</span>
+<span class="nc" id="L31">        pAbertos = new javax.swing.JPanel();</span>
+<span class="nc" id="L32">        txtAbertos = new javax.swing.JLabel();</span>
+<span class="nc" id="L33">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L34">        pPendentes = new javax.swing.JPanel();</span>
+<span class="nc" id="L35">        txtPendentes = new javax.swing.JLabel();</span>
+<span class="nc" id="L36">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L37">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L38">        jLabel5 = new javax.swing.JLabel();</span>
+<span class="nc" id="L39">        jLabel6 = new javax.swing.JLabel();</span>
+<span class="nc" id="L40">        painelGrafico = new javax.swing.JPanel();</span>
+<span class="nc" id="L41">        pendentes = new javax.swing.JPanel();</span>
+<span class="nc" id="L42">        fechados = new javax.swing.JPanel();</span>
+<span class="nc" id="L43">        abertos = new javax.swing.JPanel();</span>
+<span class="nc" id="L44">        pendentes1 = new javax.swing.JPanel();</span>
+<span class="nc" id="L45">        fechados1 = new javax.swing.JPanel();</span>
+<span class="nc" id="L46">        abertos1 = new javax.swing.JPanel();</span>
+<span class="nc" id="L47">        pendentes2 = new javax.swing.JPanel();</span>
+<span class="nc" id="L48">        fechados2 = new javax.swing.JPanel();</span>
+<span class="nc" id="L49">        jLabel7 = new javax.swing.JLabel();</span>
+<span class="nc" id="L50">        jLabel8 = new javax.swing.JLabel();</span>
+<span class="nc" id="L51">        jLabel9 = new javax.swing.JLabel();</span>
+<span class="nc" id="L52">        jLabel10 = new javax.swing.JLabel();</span>
+<span class="nc" id="L53">        pVerde = new javax.swing.JPanel();</span>
+<span class="nc" id="L54">        pVermelho = new javax.swing.JPanel();</span>
+<span class="nc" id="L55">        pAmarelo = new javax.swing.JPanel();</span>
+<span class="nc" id="L56">        txtData = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L58">        setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L59">        setMaximumSize(new java.awt.Dimension(1060, 650));</span>
+<span class="nc" id="L60">        setMinimumSize(new java.awt.Dimension(1060, 650));</span>
+<span class="nc" id="L61">        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L63">        pFechados.setBackground(new java.awt.Color(18, 18, 18));</span>
+<span class="nc" id="L64">        pFechados.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(102, 0, 0)));</span>
+
+<span class="nc" id="L66">        txtFechados.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 36)); // NOI18N</span>
+<span class="nc" id="L67">        txtFechados.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L68">        txtFechados.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L69">        txtFechados.setText(&quot;427&quot;);</span>
+<span class="nc" id="L70">        txtFechados.setToolTipText(&quot;&quot;);</span>
+
+<span class="nc" id="L72">        javax.swing.GroupLayout pFechadosLayout = new javax.swing.GroupLayout(pFechados);</span>
+<span class="nc" id="L73">        pFechados.setLayout(pFechadosLayout);</span>
+<span class="nc" id="L74">        pFechadosLayout.setHorizontalGroup(</span>
+<span class="nc" id="L75">            pFechadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L76">            .addComponent(txtFechados, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L78">        pFechadosLayout.setVerticalGroup(</span>
+<span class="nc" id="L79">            pFechadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L80">            .addComponent(txtFechados, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L83">        add(pFechados, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 480, 209, 120));</span>
+
+<span class="nc" id="L85">        pAbertos.setBackground(new java.awt.Color(18, 18, 18));</span>
+<span class="nc" id="L86">        pAbertos.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(0, 153, 0)));</span>
+
+<span class="nc" id="L88">        txtAbertos.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 36)); // NOI18N</span>
+<span class="nc" id="L89">        txtAbertos.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L90">        txtAbertos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L91">        txtAbertos.setText(&quot;13&quot;);</span>
+<span class="nc" id="L92">        txtAbertos.setToolTipText(&quot;&quot;);</span>
+
+<span class="nc" id="L94">        javax.swing.GroupLayout pAbertosLayout = new javax.swing.GroupLayout(pAbertos);</span>
+<span class="nc" id="L95">        pAbertos.setLayout(pAbertosLayout);</span>
+<span class="nc" id="L96">        pAbertosLayout.setHorizontalGroup(</span>
+<span class="nc" id="L97">            pAbertosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L98">            .addComponent(txtAbertos, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L100">        pAbertosLayout.setVerticalGroup(</span>
+<span class="nc" id="L101">            pAbertosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L102">            .addComponent(txtAbertos, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L105">        add(pAbertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, 209, 120));</span>
+
+<span class="nc" id="L107">        jLabel1.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 36)); // NOI18N</span>
+<span class="nc" id="L108">        jLabel1.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L109">        jLabel1.setText(&quot;SEJA BEM-VINDO(A)!&quot;);</span>
+<span class="nc" id="L110">        jLabel1.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L111">        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 370, -1));</span>
+
+<span class="nc" id="L113">        pPendentes.setBackground(new java.awt.Color(18, 18, 18));</span>
+<span class="nc" id="L114">        pPendentes.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 0, 0, 0, new java.awt.Color(204, 204, 0)));</span>
+
+<span class="nc" id="L116">        txtPendentes.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 36)); // NOI18N</span>
+<span class="nc" id="L117">        txtPendentes.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L118">        txtPendentes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L119">        txtPendentes.setText(&quot;61&quot;);</span>
+<span class="nc" id="L120">        txtPendentes.setToolTipText(&quot;&quot;);</span>
+
+<span class="nc" id="L122">        javax.swing.GroupLayout pPendentesLayout = new javax.swing.GroupLayout(pPendentes);</span>
+<span class="nc" id="L123">        pPendentes.setLayout(pPendentesLayout);</span>
+<span class="nc" id="L124">        pPendentesLayout.setHorizontalGroup(</span>
+<span class="nc" id="L125">            pPendentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L126">            .addComponent(txtPendentes, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L128">        pPendentesLayout.setVerticalGroup(</span>
+<span class="nc" id="L129">            pPendentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L130">            .addComponent(txtPendentes, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L133">        add(pPendentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 310, 209, 120));</span>
+
+<span class="nc" id="L135">        jLabel3.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 18)); // NOI18N</span>
+<span class="nc" id="L136">        jLabel3.setForeground(new java.awt.Color(0, 153, 0));</span>
+<span class="nc" id="L137">        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L138">        jLabel3.setText(&quot;ABERTOS&quot;);</span>
+<span class="nc" id="L139">        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, 209, -1));</span>
+
+<span class="nc" id="L141">        jLabel4.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 18)); // NOI18N</span>
+<span class="nc" id="L142">        jLabel4.setForeground(new java.awt.Color(204, 204, 0));</span>
+<span class="nc" id="L143">        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L144">        jLabel4.setText(&quot;PENDENTES&quot;);</span>
+<span class="nc" id="L145">        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 270, 209, -1));</span>
+
+<span class="nc" id="L147">        jLabel5.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 18)); // NOI18N</span>
+<span class="nc" id="L148">        jLabel5.setForeground(new java.awt.Color(102, 0, 0));</span>
+<span class="nc" id="L149">        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L150">        jLabel5.setText(&quot;FECHADOS&quot;);</span>
+<span class="nc" id="L151">        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 440, 209, -1));</span>
+
+<span class="nc" id="L153">        jLabel6.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 36)); // NOI18N</span>
+<span class="nc" id="L154">        jLabel6.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L155">        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L156">        jLabel6.setText(&quot;STATUS&quot;);</span>
+<span class="nc" id="L157">        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, 150, 50));</span>
+
+<span class="nc" id="L159">        painelGrafico.setBackground(new java.awt.Color(18, 18, 18));</span>
+<span class="nc" id="L160">        painelGrafico.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(20, 20, 20)));</span>
+
+<span class="nc" id="L162">        pendentes.setBackground(new java.awt.Color(204, 204, 0));</span>
+<span class="nc" id="L163">        pendentes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L164">        pendentes.setPreferredSize(new java.awt.Dimension(60, 19));</span>
+
+<span class="nc" id="L166">        javax.swing.GroupLayout pendentesLayout = new javax.swing.GroupLayout(pendentes);</span>
+<span class="nc" id="L167">        pendentes.setLayout(pendentesLayout);</span>
+<span class="nc" id="L168">        pendentesLayout.setHorizontalGroup(</span>
+<span class="nc" id="L169">            pendentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L170">            .addGap(0, 60, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L172">        pendentesLayout.setVerticalGroup(</span>
+<span class="nc" id="L173">            pendentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L174">            .addGap(0, 19, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L177">        fechados.setBackground(new java.awt.Color(102, 0, 0));</span>
+<span class="nc" id="L178">        fechados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L179">        fechados.setPreferredSize(new java.awt.Dimension(60, 19));</span>
+
+<span class="nc" id="L181">        javax.swing.GroupLayout fechadosLayout = new javax.swing.GroupLayout(fechados);</span>
+<span class="nc" id="L182">        fechados.setLayout(fechadosLayout);</span>
+<span class="nc" id="L183">        fechadosLayout.setHorizontalGroup(</span>
+<span class="nc" id="L184">            fechadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L185">            .addGap(0, 60, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L187">        fechadosLayout.setVerticalGroup(</span>
+<span class="nc" id="L188">            fechadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L189">            .addGap(0, 19, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L192">        abertos.setBackground(new java.awt.Color(0, 153, 0));</span>
+<span class="nc" id="L193">        abertos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L194">        abertos.setPreferredSize(new java.awt.Dimension(60, 19));</span>
+
+<span class="nc" id="L196">        pendentes1.setBackground(new java.awt.Color(204, 204, 0));</span>
+<span class="nc" id="L197">        pendentes1.setPreferredSize(new java.awt.Dimension(19, 50));</span>
+<span class="nc" id="L198">        pendentes1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L200">        fechados1.setBackground(new java.awt.Color(102, 0, 0));</span>
+<span class="nc" id="L201">        fechados1.setPreferredSize(new java.awt.Dimension(19, 50));</span>
+<span class="nc" id="L202">        fechados1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L204">        abertos1.setBackground(new java.awt.Color(0, 153, 0));</span>
+<span class="nc" id="L205">        abertos1.setPreferredSize(new java.awt.Dimension(19, 50));</span>
+<span class="nc" id="L206">        abertos1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L208">        pendentes2.setBackground(new java.awt.Color(204, 204, 0));</span>
+<span class="nc" id="L209">        pendentes2.setPreferredSize(new java.awt.Dimension(19, 50));</span>
+<span class="nc" id="L210">        pendentes2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+<span class="nc" id="L211">        abertos1.add(pendentes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 105, -1, -1));</span>
+
+<span class="nc" id="L213">        fechados2.setBackground(new java.awt.Color(102, 0, 0));</span>
+<span class="nc" id="L214">        fechados2.setPreferredSize(new java.awt.Dimension(19, 50));</span>
+<span class="nc" id="L215">        fechados2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+<span class="nc" id="L216">        abertos1.add(fechados2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, -1));</span>
+
+<span class="nc" id="L218">        javax.swing.GroupLayout abertosLayout = new javax.swing.GroupLayout(abertos);</span>
+<span class="nc" id="L219">        abertos.setLayout(abertosLayout);</span>
+<span class="nc" id="L220">        abertosLayout.setHorizontalGroup(</span>
+<span class="nc" id="L221">            abertosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L222">            .addGroup(abertosLayout.createSequentialGroup()</span>
+<span class="nc" id="L223">                .addGap(60, 60, 60)</span>
+<span class="nc" id="L224">                .addComponent(abertos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L225">                .addGap(131, 131, 131)</span>
+<span class="nc" id="L226">                .addComponent(pendentes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L227">                .addGap(121, 121, 121)</span>
+<span class="nc" id="L228">                .addComponent(fechados1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+        );
+<span class="nc" id="L230">        abertosLayout.setVerticalGroup(</span>
+<span class="nc" id="L231">            abertosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L232">            .addGroup(abertosLayout.createSequentialGroup()</span>
+<span class="nc" id="L233">                .addGap(105, 105, 105)</span>
+<span class="nc" id="L234">                .addComponent(abertos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L235">            .addGroup(abertosLayout.createSequentialGroup()</span>
+<span class="nc" id="L236">                .addGap(105, 105, 105)</span>
+<span class="nc" id="L237">                .addComponent(pendentes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L238">            .addGroup(abertosLayout.createSequentialGroup()</span>
+<span class="nc" id="L239">                .addGap(100, 100, 100)</span>
+<span class="nc" id="L240">                .addComponent(fechados1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+        );
+
+<span class="nc" id="L243">        javax.swing.GroupLayout painelGraficoLayout = new javax.swing.GroupLayout(painelGrafico);</span>
+<span class="nc" id="L244">        painelGrafico.setLayout(painelGraficoLayout);</span>
+<span class="nc" id="L245">        painelGraficoLayout.setHorizontalGroup(</span>
+<span class="nc" id="L246">            painelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L247">            .addGroup(painelGraficoLayout.createSequentialGroup()</span>
+<span class="nc" id="L248">                .addGroup(painelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L249">                    .addComponent(abertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L250">                    .addComponent(pendentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L251">                    .addComponent(fechados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L252">                .addGap(375, 375, 375))</span>
+        );
+<span class="nc" id="L254">        painelGraficoLayout.setVerticalGroup(</span>
+<span class="nc" id="L255">            painelGraficoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L256">            .addGroup(painelGraficoLayout.createSequentialGroup()</span>
+<span class="nc" id="L257">                .addGap(15, 15, 15)</span>
+<span class="nc" id="L258">                .addComponent(abertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L259">                .addGap(31, 31, 31)</span>
+<span class="nc" id="L260">                .addComponent(pendentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L261">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)</span>
+<span class="nc" id="L262">                .addComponent(fechados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L263">                .addGap(14, 14, 14))</span>
+        );
+
+<span class="nc" id="L266">        add(painelGrafico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 440, 160));</span>
+
+<span class="nc" id="L268">        jLabel7.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L269">        jLabel7.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 36)); // NOI18N</span>
+<span class="nc" id="L270">        jLabel7.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L271">        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L272">        jLabel7.setText(&quot;GRÁFICO&quot;);</span>
+<span class="nc" id="L273">        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 210, -1));</span>
+
+<span class="nc" id="L275">        jLabel8.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L276">        jLabel8.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L277">        jLabel8.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L278">        jLabel8.setText(&quot;ABERTOS&quot;);</span>
+<span class="nc" id="L279">        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));</span>
+
+<span class="nc" id="L281">        jLabel9.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L282">        jLabel9.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L283">        jLabel9.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L284">        jLabel9.setText(&quot;FECHADOS&quot;);</span>
+<span class="nc" id="L285">        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, -1, -1));</span>
+
+<span class="nc" id="L287">        jLabel10.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L288">        jLabel10.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L289">        jLabel10.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L290">        jLabel10.setText(&quot;PENDENTES&quot;);</span>
+<span class="nc" id="L291">        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, -1, -1));</span>
+
+<span class="nc" id="L293">        pVerde.setBackground(new java.awt.Color(0, 153, 0));</span>
+<span class="nc" id="L294">        pVerde.setMaximumSize(new java.awt.Dimension(16, 16));</span>
+<span class="nc" id="L295">        pVerde.setPreferredSize(new java.awt.Dimension(16, 16));</span>
+
+<span class="nc" id="L297">        javax.swing.GroupLayout pVerdeLayout = new javax.swing.GroupLayout(pVerde);</span>
+<span class="nc" id="L298">        pVerde.setLayout(pVerdeLayout);</span>
+<span class="nc" id="L299">        pVerdeLayout.setHorizontalGroup(</span>
+<span class="nc" id="L300">            pVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L301">            .addGap(0, 16, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L303">        pVerdeLayout.setVerticalGroup(</span>
+<span class="nc" id="L304">            pVerdeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L305">            .addGap(0, 16, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L308">        add(pVerde, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, -1, -1));</span>
+
+<span class="nc" id="L310">        pVermelho.setBackground(new java.awt.Color(102, 0, 0));</span>
+<span class="nc" id="L311">        pVermelho.setMaximumSize(new java.awt.Dimension(16, 16));</span>
+<span class="nc" id="L312">        pVermelho.setMinimumSize(new java.awt.Dimension(16, 16));</span>
+
+<span class="nc" id="L314">        javax.swing.GroupLayout pVermelhoLayout = new javax.swing.GroupLayout(pVermelho);</span>
+<span class="nc" id="L315">        pVermelho.setLayout(pVermelhoLayout);</span>
+<span class="nc" id="L316">        pVermelhoLayout.setHorizontalGroup(</span>
+<span class="nc" id="L317">            pVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L318">            .addGap(0, 16, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L320">        pVermelhoLayout.setVerticalGroup(</span>
+<span class="nc" id="L321">            pVermelhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L322">            .addGap(0, 16, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L325">        add(pVermelho, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, -1, -1));</span>
+
+<span class="nc" id="L327">        pAmarelo.setBackground(new java.awt.Color(204, 204, 0));</span>
+<span class="nc" id="L328">        pAmarelo.setMaximumSize(new java.awt.Dimension(16, 16));</span>
+<span class="nc" id="L329">        pAmarelo.setMinimumSize(new java.awt.Dimension(16, 16));</span>
+
+<span class="nc" id="L331">        javax.swing.GroupLayout pAmareloLayout = new javax.swing.GroupLayout(pAmarelo);</span>
+<span class="nc" id="L332">        pAmarelo.setLayout(pAmareloLayout);</span>
+<span class="nc" id="L333">        pAmareloLayout.setHorizontalGroup(</span>
+<span class="nc" id="L334">            pAmareloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L335">            .addGap(0, 16, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L337">        pAmareloLayout.setVerticalGroup(</span>
+<span class="nc" id="L338">            pAmareloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L339">            .addGap(0, 16, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L342">        add(pAmarelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, -1));</span>
+
+<span class="nc" id="L344">        txtData.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 14)); // NOI18N</span>
+<span class="nc" id="L345">        txtData.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L346">        txtData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L347">        txtData.setText(&quot;01/01/2001&quot;);</span>
+<span class="nc" id="L348">        add(txtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 84, 440, -1));</span>
+<span class="nc" id="L349">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel abertos;
+    private javax.swing.JPanel abertos1;
+    private javax.swing.JPanel fechados;
+    private javax.swing.JPanel fechados1;
+    private javax.swing.JPanel fechados2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel pAbertos;
+    private javax.swing.JPanel pAmarelo;
+    private javax.swing.JPanel pFechados;
+    private javax.swing.JPanel pPendentes;
+    private javax.swing.JPanel pVerde;
+    private javax.swing.JPanel pVermelho;
+    private javax.swing.JPanel painelGrafico;
+    private javax.swing.JPanel pendentes;
+    private javax.swing.JPanel pendentes1;
+    private javax.swing.JPanel pendentes2;
+    private javax.swing.JLabel txtAbertos;
+    private javax.swing.JLabel txtData;
+    private javax.swing.JLabel txtFechados;
+    private javax.swing.JLabel txtPendentes;
+    // End of variables declaration//GEN-END:variables
+
+    private void iniciarData() {
+<span class="nc" id="L384">        CurrentDate data = new CurrentDate();</span>
+<span class="nc" id="L385">        txtData.setText(&quot;Exibindo atualizações de &quot;+data.verificarDataCompleta());</span>
+<span class="nc" id="L386">    }</span>
+
+    // verificando e calculando quantidade mínima, máxima e meio termo para analisar e mostrar no gráfico
+    private void mostrarGrafico() {
+<span class="nc" id="L390">        int qntMin = 8;</span>
+<span class="nc" id="L391">        int qntMedia = 100;</span>
+<span class="nc" id="L392">        int qntMax = 150;</span>
+<span class="nc" id="L393">        int max = 380;</span>
+<span class="nc" id="L394">        int meio = 150;</span>
+<span class="nc" id="L395">        int min = 60;</span>
+<span class="nc" id="L396">        int zero = 15;</span>
+<span class="nc" id="L397">        int valorAberto = Integer.parseInt(txtAbertos.getText());</span>
+<span class="nc" id="L398">        int valorPendente = Integer.parseInt(txtPendentes.getText());</span>
+<span class="nc" id="L399">        int valorFechados = Integer.parseInt(txtFechados.getText());</span>
+<span class="nc" id="L400">        abertos.setToolTipText(txtAbertos.getText());</span>
+<span class="nc" id="L401">        pendentes.setToolTipText(txtPendentes.getText());</span>
+<span class="nc" id="L402">        fechados.setToolTipText(txtFechados.getText());</span>
+
+<span class="nc bnc" id="L404" title="All 2 branches missed.">        if (valorAberto == 0) {</span>
+<span class="nc" id="L405">            abertos.setPreferredSize(new java.awt.Dimension(zero, 19));</span>
+<span class="nc bnc" id="L406" title="All 4 branches missed.">        } else if (valorAberto &gt; qntMin &amp;&amp; valorAberto &lt; qntMax) {</span>
+<span class="nc" id="L407">            abertos.setPreferredSize(new java.awt.Dimension(meio, 19));</span>
+<span class="nc bnc" id="L408" title="All 2 branches missed.">        } else if (valorAberto &gt;= qntMax) {</span>
+<span class="nc" id="L409">            abertos.setPreferredSize(new java.awt.Dimension(max, 19));</span>
+        } else {
+<span class="nc" id="L411">            abertos.setPreferredSize(new java.awt.Dimension(min, 19));</span>
+        }
+
+        // VALOR PENDENTE
+<span class="nc bnc" id="L415" title="All 2 branches missed.">        if (valorPendente == 0) {</span>
+<span class="nc" id="L416">            pendentes.setPreferredSize(new java.awt.Dimension(zero, 19));</span>
+<span class="nc bnc" id="L417" title="All 4 branches missed.">        } else if (valorPendente &gt; qntMin &amp;&amp; valorPendente &lt; qntMax) {</span>
+<span class="nc" id="L418">            pendentes.setPreferredSize(new java.awt.Dimension(meio, 19));</span>
+<span class="nc bnc" id="L419" title="All 2 branches missed.">        } else if (valorPendente &gt;= qntMax) {</span>
+<span class="nc" id="L420">            pendentes.setPreferredSize(new java.awt.Dimension(max, 19));</span>
+        } else {
+<span class="nc" id="L422">            pendentes.setPreferredSize(new java.awt.Dimension(min, 19));</span>
+        }
+
+        //VALOR FECHADO
+<span class="nc bnc" id="L426" title="All 2 branches missed.">        if (valorFechados == 0) {</span>
+<span class="nc" id="L427">            fechados.setPreferredSize(new java.awt.Dimension(zero, 19));</span>
+<span class="nc bnc" id="L428" title="All 4 branches missed.">        } else if (valorFechados &gt; qntMin &amp;&amp; valorFechados &lt; qntMax) {</span>
+<span class="nc" id="L429">            fechados.setPreferredSize(new java.awt.Dimension(meio, 19));</span>
+<span class="nc bnc" id="L430" title="All 2 branches missed.">        } else if (valorFechados &gt;= qntMax) {</span>
+<span class="nc" id="L431">            fechados.setPreferredSize(new java.awt.Dimension(max, 19));</span>
+        } else {
+<span class="nc" id="L433">            fechados.setPreferredSize(new java.awt.Dimension(min, 19));</span>
+        }
+<span class="nc" id="L435">    }</span>
+
+    // realizando busca e contagem de Tickets abertos
+    private void contagemDeTicketsAbertos() {
+<span class="nc" id="L439">        conexao = new DbConnection().conectarBD();</span>
+<span class="nc" id="L440">        String busca = &quot;SELECT count(1) as total from tb_ticket where status = 1;&quot;;</span>
+        PreparedStatement stm;
+        try {
+<span class="nc" id="L443">            stm = conexao.prepareStatement(busca);</span>
+<span class="nc" id="L444">            ResultSet result = stm.executeQuery();</span>
+<span class="nc" id="L445">            result.next();</span>
+<span class="nc" id="L446">            txtAbertos.setText(String.valueOf(result.getInt(1)));</span>
+<span class="nc" id="L447">            txtAbertos.setToolTipText(txtAbertos.getText());</span>
+<span class="nc" id="L448">            mostrarGrafico();</span>
+
+<span class="nc" id="L450">        } catch (SQLException erro) {</span>
+<span class="nc" id="L451">            fail.informarErro(&quot;Home | contagemDeTicketsAbertos &quot; + erro);</span>
+<span class="nc" id="L452">        }</span>
+
+<span class="nc" id="L454">    }</span>
+
+    // realizando busca e contagem de Tickets pendentes
+    private void contagemDeTicketsPendentes() {
+<span class="nc" id="L458">        conexao = new DbConnection().conectarBD();</span>
+<span class="nc" id="L459">        String busca = &quot;SELECT count(1) as total from tb_ticket where status = 2;&quot;;</span>
+        PreparedStatement stm;
+        try {
+<span class="nc" id="L462">            stm = conexao.prepareStatement(busca);</span>
+<span class="nc" id="L463">            ResultSet result = stm.executeQuery();</span>
+<span class="nc" id="L464">            result.next();</span>
+<span class="nc" id="L465">            txtPendentes.setText(String.valueOf(result.getInt(1)));</span>
+<span class="nc" id="L466">            txtPendentes.setToolTipText(txtPendentes.getText());</span>
+<span class="nc" id="L467">            mostrarGrafico();</span>
+
+<span class="nc" id="L469">        } catch (SQLException erro) {</span>
+<span class="nc" id="L470">            fail.informarErro(&quot;Home | contagemDeTicketsPendentes &quot; + erro);</span>
+<span class="nc" id="L471">        }</span>
+
+<span class="nc" id="L473">    }</span>
+
+    // realizando busca e contagem de Tickets fechados
+    private void contagemDeTicketsFechados() {
+<span class="nc" id="L477">        conexao = new DbConnection().conectarBD();</span>
+<span class="nc" id="L478">        String busca = &quot;SELECT count(1) as total from tb_ticket where status = 3;&quot;;</span>
+        PreparedStatement stm;
+        try {
+<span class="nc" id="L481">            stm = conexao.prepareStatement(busca);</span>
+<span class="nc" id="L482">            ResultSet result = stm.executeQuery();</span>
+<span class="nc" id="L483">            result.next();</span>
+<span class="nc" id="L484">            txtFechados.setText(String.valueOf(result.getInt(1)));</span>
+<span class="nc" id="L485">            txtFechados.setToolTipText(txtFechados.getText());</span>
+<span class="nc" id="L486">            mostrarGrafico();</span>
+
+<span class="nc" id="L488">        } catch (SQLException erro) {</span>
+<span class="nc" id="L489">            fail.informarErro(&quot;Home | contagemDeTicketsFechados &quot; + erro);</span>
+<span class="nc" id="L490">        }</span>
+
+<span class="nc" id="L492">    }</span>
+
+    private void inicializarTicketsView() {
+<span class="nc" id="L495">        contagemDeTicketsAbertos();</span>
+<span class="nc" id="L496">        contagemDeTicketsPendentes();</span>
+<span class="nc" id="L497">        contagemDeTicketsFechados();</span>
+<span class="nc" id="L498">        mostrarGrafico();</span>
+<span class="nc" id="L499">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

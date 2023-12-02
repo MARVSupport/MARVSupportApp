@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ticket.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Ticket.java</span></div><h1>Ticket.java</h1><pre class="source lang-java linenums">package model;
+
+public class Ticket {
+
+    private int id;
+    private int status;
+    private String titulo;
+    private String assunto;
+    private String data;
+    private String criador;
+    private String comentario;
+    
+<span class="fc" id="L13">    public Ticket(){</span>
+<span class="fc" id="L14">    }</span>
+
+<span class="fc" id="L16">    public Ticket(int id, int status, String titulo, String assunto, String data, String criador, String comentario) {</span>
+<span class="fc" id="L17">        this.id = id;</span>
+<span class="fc" id="L18">        this.status = status;</span>
+<span class="fc" id="L19">        this.titulo = titulo;</span>
+<span class="fc" id="L20">        this.assunto = assunto;</span>
+<span class="fc" id="L21">        this.data = data;</span>
+<span class="fc" id="L22">        this.criador = criador;</span>
+<span class="fc" id="L23">        this.comentario = comentario;</span>
+<span class="fc" id="L24">    }</span>
+
+    public int getId() {
+<span class="fc" id="L27">        return id;</span>
+    }
+
+    public void setId(int id) {
+<span class="fc" id="L31">        this.id = id;</span>
+<span class="fc" id="L32">    }</span>
+
+    public int getStatus() {
+<span class="nc" id="L35">        return status;</span>
+    }
+
+    public void setStatus(int status) {
+<span class="fc" id="L39">        this.status = status;</span>
+<span class="fc" id="L40">    }</span>
+
+    public String getTitulo() {
+<span class="fc" id="L43">        return titulo;</span>
+    }
+
+    public void setTitulo(String titulo) {
+<span class="fc" id="L47">        this.titulo = titulo;</span>
+<span class="fc" id="L48">    }</span>
+
+    public String getAssunto() {
+<span class="nc" id="L51">        return assunto;</span>
+    }
+
+    public void setAssunto(String assunto) {
+<span class="nc" id="L55">        this.assunto = assunto;</span>
+<span class="nc" id="L56">    }</span>
+
+    public String getData() {
+<span class="nc" id="L59">        return data;</span>
+    }
+
+    public void setData(String data) {
+<span class="fc" id="L63">        this.data = data;</span>
+<span class="fc" id="L64">    }</span>
+
+    public String getCriador() {
+<span class="nc" id="L67">        return criador;</span>
+    }
+
+    public void setCriador(String criador) {
+<span class="nc" id="L71">        this.criador = criador;</span>
+<span class="nc" id="L72">    }</span>
+
+    public String getComentario() {
+<span class="nc" id="L75">        return comentario;</span>
+    }
+
+    public void setComentario(String comentario) {
+<span class="nc" id="L79">        this.comentario = comentario;</span>
+<span class="nc" id="L80">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

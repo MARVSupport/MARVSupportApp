@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Email.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">model</a> &gt; <span class="el_source">Email.java</span></div><h1>Email.java</h1><pre class="source lang-java linenums">package model;
+
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
+
+public class Email {
+
+    private static final String marvEmail = &quot;marvspprt@gmail.com&quot;;
+    private static final String senhaEmail = &quot;eurpmiemapqqqjtv&quot;;
+    private String assunto;
+    private String mensagem;
+    private String destinatario;
+
+<span class="nc" id="L15">    public Email(String assunto, String mensagem, String destinatario) {</span>
+<span class="nc" id="L16">        this.assunto = assunto;</span>
+<span class="nc" id="L17">        this.mensagem = mensagem;</span>
+<span class="nc" id="L18">        this.destinatario = destinatario;</span>
+<span class="nc" id="L19">    }</span>
+
+    public String getAssunto() {
+<span class="nc" id="L22">        return assunto;</span>
+    }
+
+    public void setAssunto(String assunto) {
+<span class="nc" id="L26">        this.assunto = assunto;</span>
+<span class="nc" id="L27">    }</span>
+
+    public String getMensagem() {
+<span class="nc" id="L30">        return mensagem;</span>
+    }
+
+    public void setMensagem(String mensagem) {
+<span class="nc" id="L34">        this.mensagem = mensagem;</span>
+<span class="nc" id="L35">    }</span>
+
+    public String getDestinatario() {
+<span class="nc" id="L38">        return destinatario;</span>
+    }
+
+    public void setDestinatario(String destinatario) {
+<span class="nc" id="L42">        this.destinatario = destinatario;</span>
+<span class="nc" id="L43">    }</span>
+
+    // Adiciona um método para verificar se o email é válido
+    private boolean isEmailValid(String email) {
+        // Implemente sua lógica de validação de email aqui
+        // Por exemplo, você pode usar expressões regulares ou outras verificações
+<span class="nc" id="L49">        return email.matches(&quot;^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$&quot;);</span>
+    }
+
+    public void enviar() {
+        // Verifica se o destinatário é um email válido
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (!isEmailValid(destinatario)) {</span>
+<span class="nc" id="L55">            System.out.println(&quot;O endereço de email: &quot; + destinatario + &quot; não é válido.&quot;);</span>
+<span class="nc" id="L56">            return;</span>
+        }
+
+<span class="nc" id="L59">        SimpleEmail email = new SimpleEmail();</span>
+<span class="nc" id="L60">        email.setSSLOnConnect(true);</span>
+<span class="nc" id="L61">        email.setStartTLSEnabled(true);</span>
+<span class="nc" id="L62">        email.setHostName(&quot;smtp.gmail.com&quot;);</span>
+<span class="nc" id="L63">        email.setSmtpPort(587);</span>
+<span class="nc" id="L64">        email.setAuthenticator(new DefaultAuthenticator(marvEmail, senhaEmail));</span>
+
+        try {
+<span class="nc" id="L67">            email.setFrom(marvEmail);</span>
+<span class="nc" id="L68">            email.setDebug(true);</span>
+<span class="nc" id="L69">            email.setSubject(this.assunto);</span>
+<span class="nc" id="L70">            email.setMsg(this.mensagem);</span>
+<span class="nc" id="L71">            email.addTo(this.destinatario);</span>
+<span class="nc" id="L72">            email.send();</span>
+<span class="nc" id="L73">        } catch (EmailException e) {</span>
+<span class="nc" id="L74">            e.printStackTrace();</span>
+<span class="nc" id="L75">        }</span>
+<span class="nc" id="L76">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

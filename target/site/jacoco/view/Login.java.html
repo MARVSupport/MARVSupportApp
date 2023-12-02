@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Login.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">view</a> &gt; <span class="el_source">Login.java</span></div><h1>Login.java</h1><pre class="source lang-java linenums">package view;
+
+import controller.UserConnections;
+import db.DbConnection;
+import java.awt.Color;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import modal.Fail;
+import model.User;
+import utils.HoverEffect;
+
+public class Login extends javax.swing.JFrame {
+    
+   // importando objetos que serão usados repetidas vezes
+<span class="nc" id="L20">    Fail fail = new Fail();</span>
+<span class="nc" id="L21">    HoverEffect hover = new HoverEffect();</span>
+
+<span class="nc" id="L23">    public Login() {</span>
+<span class="nc" id="L24">        initComponents();</span>
+<span class="nc" id="L25">        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/icone-32x32.png&quot;)).getImage());</span>
+<span class="nc" id="L26">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L32">        background = new javax.swing.JPanel();</span>
+<span class="nc" id="L33">        Logo = new javax.swing.JLabel();</span>
+<span class="nc" id="L34">        txtStatus = new javax.swing.JLabel();</span>
+<span class="nc" id="L35">        loginForm = new javax.swing.JPanel();</span>
+<span class="nc" id="L36">        iniciarSessao = new javax.swing.JLabel();</span>
+<span class="nc" id="L37">        usuario = new javax.swing.JLabel();</span>
+<span class="nc" id="L38">        iconeUser = new javax.swing.JLabel();</span>
+<span class="nc" id="L39">        txtUsuario = new javax.swing.JTextField();</span>
+<span class="nc" id="L40">        txtSenha = new javax.swing.JPasswordField();</span>
+<span class="nc" id="L41">        iconeSenha = new javax.swing.JLabel();</span>
+<span class="nc" id="L42">        senha = new javax.swing.JLabel();</span>
+<span class="nc" id="L43">        esqueceuTexto = new javax.swing.JLabel();</span>
+<span class="nc" id="L44">        txtCliqueAqui = new javax.swing.JLabel();</span>
+<span class="nc" id="L45">        pEntrar = new javax.swing.JPanel();</span>
+<span class="nc" id="L46">        btEntrar = new javax.swing.JLabel();</span>
+<span class="nc" id="L47">        separadorUser = new javax.swing.JSeparator();</span>
+<span class="nc" id="L48">        separadorSenha = new javax.swing.JSeparator();</span>
+<span class="nc" id="L49">        copyright = new javax.swing.JLabel();</span>
+<span class="nc" id="L50">        pSair = new javax.swing.JPanel();</span>
+<span class="nc" id="L51">        btSair = new javax.swing.JLabel();</span>
+<span class="nc" id="L52">        versao = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L54">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L55">        setTitle(&quot;MARVSupport | Login&quot;);</span>
+<span class="nc" id="L56">        setUndecorated(true);</span>
+<span class="nc" id="L57">        setResizable(false);</span>
+<span class="nc" id="L58">        addWindowListener(new java.awt.event.WindowAdapter() {</span>
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+<span class="nc" id="L60">                formWindowOpened(evt);</span>
+<span class="nc" id="L61">            }</span>
+        });
+
+<span class="nc" id="L64">        background.setBackground(new java.awt.Color(10, 10, 10));</span>
+
+<span class="nc" id="L66">        Logo.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 18)); // NOI18N</span>
+<span class="nc" id="L67">        Logo.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L68">        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/icone-32x32.png&quot;))); // NOI18N</span>
+<span class="nc" id="L69">        Logo.setText(&quot;MARVSupport&quot;);</span>
+
+<span class="nc" id="L71">        txtStatus.setBackground(new java.awt.Color(153, 0, 0));</span>
+<span class="nc" id="L72">        txtStatus.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L73">        txtStatus.setForeground(new java.awt.Color(153, 0, 0));</span>
+<span class="nc" id="L74">        txtStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeOffline.png&quot;))); // NOI18N</span>
+<span class="nc" id="L75">        txtStatus.setText(&quot;OFFLINE&quot;);</span>
+
+<span class="nc" id="L77">        loginForm.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L78">        loginForm.setForeground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L79">        loginForm.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L81">        iniciarSessao.setBackground(new java.awt.Color(0, 0, 0));</span>
+<span class="nc" id="L82">        iniciarSessao.setFont(new java.awt.Font(&quot;Myanmar Text&quot;, 1, 24)); // NOI18N</span>
+<span class="nc" id="L83">        iniciarSessao.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L84">        iniciarSessao.setText(&quot;INICIAR SESSÃO&quot;);</span>
+<span class="nc" id="L85">        loginForm.add(iniciarSessao, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, -1));</span>
+
+<span class="nc" id="L87">        usuario.setBackground(new java.awt.Color(131, 131, 131));</span>
+<span class="nc" id="L88">        usuario.setFont(new java.awt.Font(&quot;Myanmar Text&quot;, 1, 16)); // NOI18N</span>
+<span class="nc" id="L89">        usuario.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L90">        usuario.setText(&quot;USUÁRIO&quot;);</span>
+<span class="nc" id="L91">        loginForm.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 30));</span>
+
+<span class="nc" id="L93">        iconeUser.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeUsuario.png&quot;))); // NOI18N</span>
+<span class="nc" id="L94">        loginForm.add(iconeUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));</span>
+
+<span class="nc" id="L96">        txtUsuario.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L97">        txtUsuario.setFont(new java.awt.Font(&quot;Myanmar Text&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L98">        txtUsuario.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L99">        txtUsuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);</span>
+<span class="nc" id="L100">        txtUsuario.setText(&quot;Nome de usuário&quot;);</span>
+<span class="nc" id="L101">        txtUsuario.setBorder(null);</span>
+<span class="nc" id="L102">        txtUsuario.setCaretPosition(0);</span>
+<span class="nc" id="L103">        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L105">                txtUsuarioMousePressed(evt);</span>
+<span class="nc" id="L106">            }</span>
+        });
+<span class="nc" id="L108">        loginForm.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 250, 30));</span>
+
+<span class="nc" id="L110">        txtSenha.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L111">        txtSenha.setFont(new java.awt.Font(&quot;Myanmar Text&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L112">        txtSenha.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L113">        txtSenha.setText(&quot;******&quot;);</span>
+<span class="nc" id="L114">        txtSenha.setBorder(null);</span>
+<span class="nc" id="L115">        txtSenha.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L117">                txtSenhaMousePressed(evt);</span>
+<span class="nc" id="L118">            }</span>
+        });
+<span class="nc" id="L120">        loginForm.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 207, 250, 30));</span>
+
+<span class="nc" id="L122">        iconeSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeSenha.png&quot;))); // NOI18N</span>
+<span class="nc" id="L123">        loginForm.add(iconeSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));</span>
+
+<span class="nc" id="L125">        senha.setFont(new java.awt.Font(&quot;Myanmar Text&quot;, 1, 16)); // NOI18N</span>
+<span class="nc" id="L126">        senha.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L127">        senha.setText(&quot;SENHA&quot;);</span>
+<span class="nc" id="L128">        loginForm.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, 30));</span>
+
+<span class="nc" id="L130">        esqueceuTexto.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L131">        esqueceuTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L132">        esqueceuTexto.setText(&quot;Esqueceu sua senha?&quot;);</span>
+<span class="nc" id="L133">        loginForm.add(esqueceuTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));</span>
+
+<span class="nc" id="L135">        txtCliqueAqui.setForeground(new java.awt.Color(0, 204, 204));</span>
+<span class="nc" id="L136">        txtCliqueAqui.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L137">        txtCliqueAqui.setText(&quot;clique aqui.&quot;);</span>
+<span class="nc" id="L138">        txtCliqueAqui.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L139">        loginForm.add(txtCliqueAqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 276, 110, -1));</span>
+
+<span class="nc" id="L141">        pEntrar.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L142">        pEntrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));</span>
+
+<span class="nc" id="L144">        btEntrar.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L145">        btEntrar.setFont(new java.awt.Font(&quot;Myanmar Text&quot;, 1, 16)); // NOI18N</span>
+<span class="nc" id="L146">        btEntrar.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L147">        btEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L148">        btEntrar.setText(&quot;ENTRAR&quot;);</span>
+<span class="nc" id="L149">        btEntrar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);</span>
+<span class="nc" id="L150">        btEntrar.setAlignmentY(0.0F);</span>
+<span class="nc" id="L151">        btEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L152">        btEntrar.setFocusable(false);</span>
+<span class="nc" id="L153">        btEntrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);</span>
+<span class="nc" id="L154">        btEntrar.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L156">                btEntrarMouseClicked(evt);</span>
+<span class="nc" id="L157">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L159">                btEntrarMouseEntered(evt);</span>
+<span class="nc" id="L160">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L162">                btEntrarMouseExited(evt);</span>
+<span class="nc" id="L163">            }</span>
+        });
+
+<span class="nc" id="L166">        javax.swing.GroupLayout pEntrarLayout = new javax.swing.GroupLayout(pEntrar);</span>
+<span class="nc" id="L167">        pEntrar.setLayout(pEntrarLayout);</span>
+<span class="nc" id="L168">        pEntrarLayout.setHorizontalGroup(</span>
+<span class="nc" id="L169">            pEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L170">            .addComponent(btEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L172">        pEntrarLayout.setVerticalGroup(</span>
+<span class="nc" id="L173">            pEntrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L174">            .addGroup(pEntrarLayout.createSequentialGroup()</span>
+<span class="nc" id="L175">                .addComponent(btEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L176">                .addGap(0, 0, Short.MAX_VALUE))</span>
+        );
+
+<span class="nc" id="L179">        loginForm.add(pEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 100, 40));</span>
+
+<span class="nc" id="L181">        separadorUser.setBackground(new java.awt.Color(51, 51, 51));</span>
+<span class="nc" id="L182">        loginForm.add(separadorUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 280, 10));</span>
+
+<span class="nc" id="L184">        separadorSenha.setBackground(new java.awt.Color(51, 51, 51));</span>
+<span class="nc" id="L185">        loginForm.add(separadorSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 237, 280, 10));</span>
+
+<span class="nc" id="L187">        copyright.setBackground(new java.awt.Color(0, 0, 0));</span>
+<span class="nc" id="L188">        copyright.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
+<span class="nc" id="L189">        copyright.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L190">        copyright.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L191">        copyright.setText(&quot;2023© MARVSupport&quot;);</span>
+<span class="nc" id="L192">        copyright.setToolTipText(&quot;2023© MARVSupport&quot;);</span>
+<span class="nc" id="L193">        loginForm.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 345, 140, 20));</span>
+
+<span class="nc" id="L195">        pSair.setBackground(new java.awt.Color(10, 10, 10));</span>
+
+<span class="nc" id="L197">        btSair.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L198">        btSair.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L199">        btSair.setForeground(new java.awt.Color(102, 102, 102));</span>
+<span class="nc" id="L200">        btSair.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L201">        btSair.setText(&quot;X&quot;);</span>
+<span class="nc" id="L202">        btSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L203">        btSair.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L205">                btSairMouseEntered(evt);</span>
+<span class="nc" id="L206">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L208">                btSairMouseExited(evt);</span>
+<span class="nc" id="L209">            }</span>
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L211">                btSairMousePressed(evt);</span>
+<span class="nc" id="L212">            }</span>
+        });
+
+<span class="nc" id="L215">        javax.swing.GroupLayout pSairLayout = new javax.swing.GroupLayout(pSair);</span>
+<span class="nc" id="L216">        pSair.setLayout(pSairLayout);</span>
+<span class="nc" id="L217">        pSairLayout.setHorizontalGroup(</span>
+<span class="nc" id="L218">            pSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L219">            .addComponent(btSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L221">        pSairLayout.setVerticalGroup(</span>
+<span class="nc" id="L222">            pSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L223">            .addComponent(btSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L226">        versao.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
+<span class="nc" id="L227">        versao.setForeground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L228">        versao.setText(&quot;v1.0.2&quot;);</span>
+
+<span class="nc" id="L230">        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);</span>
+<span class="nc" id="L231">        background.setLayout(backgroundLayout);</span>
+<span class="nc" id="L232">        backgroundLayout.setHorizontalGroup(</span>
+<span class="nc" id="L233">            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L234">            .addGroup(backgroundLayout.createSequentialGroup()</span>
+<span class="nc" id="L235">                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L236">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L237">                .addComponent(pSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L238">            .addComponent(loginForm, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)</span>
+<span class="nc" id="L239">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()</span>
+<span class="nc" id="L240">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L241">                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L242">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()</span>
+<span class="nc" id="L243">                        .addComponent(Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L244">                        .addGap(82, 82, 82))</span>
+<span class="nc" id="L245">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()</span>
+<span class="nc" id="L246">                        .addComponent(versao)</span>
+<span class="nc" id="L247">                        .addGap(151, 151, 151))))</span>
+        );
+<span class="nc" id="L249">        backgroundLayout.setVerticalGroup(</span>
+<span class="nc" id="L250">            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L251">            .addGroup(backgroundLayout.createSequentialGroup()</span>
+<span class="nc" id="L252">                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L253">                    .addComponent(txtStatus)</span>
+<span class="nc" id="L254">                    .addComponent(pSair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L255">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L256">                .addComponent(Logo)</span>
+<span class="nc" id="L257">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L258">                .addComponent(versao)</span>
+<span class="nc" id="L259">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L260">                .addComponent(loginForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+        );
+
+<span class="nc" id="L263">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L264">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L265">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L266">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L267">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L269">        layout.setVerticalGroup(</span>
+<span class="nc" id="L270">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L271">            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+        );
+
+<span class="nc" id="L274">        pack();</span>
+<span class="nc" id="L275">        setLocationRelativeTo(null);</span>
+<span class="nc" id="L276">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
+<span class="nc bnc" id="L279" title="All 2 branches missed.">        if (txtUsuario.getText().equals(&quot;Nome de usuário&quot;)) {</span>
+<span class="nc" id="L280">            txtUsuario.setText(&quot;&quot;);</span>
+<span class="nc" id="L281">            txtUsuario.setForeground(Color.WHITE);</span>
+<span class="nc" id="L282">            hover.efeitoHoverSeparador(separadorUser, 0, 204, 204);</span>
+        }
+<span class="nc bnc" id="L284" title="All 2 branches missed.">        if (txtSenha.getText().isEmpty()) {</span>
+<span class="nc" id="L285">            txtSenha.setText(&quot;******&quot;);</span>
+<span class="nc" id="L286">            txtSenha.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L287">           hover.efeitoHoverSeparador(separadorSenha, 51, 51, 51);</span>
+        }
+<span class="nc" id="L289">    }//GEN-LAST:event_txtUsuarioMousePressed</span>
+
+    private void txtSenhaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSenhaMousePressed
+
+<span class="nc bnc" id="L293" title="All 2 branches missed.">        if (txtSenha.getText().equals(&quot;******&quot;)) {</span>
+<span class="nc" id="L294">            txtSenha.setText(&quot;&quot;);</span>
+<span class="nc" id="L295">            txtSenha.setForeground(Color.WHITE);</span>
+<span class="nc" id="L296">            hover.efeitoHoverSeparador(separadorSenha, 0, 204, 204);</span>
+        }
+<span class="nc bnc" id="L298" title="All 2 branches missed.">        if (txtUsuario.getText().isEmpty()) {</span>
+<span class="nc" id="L299">            txtUsuario.setText(&quot;Nome de usuário&quot;);</span>
+<span class="nc" id="L300">            txtUsuario.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L301">            hover.efeitoHoverSeparador(separadorUser, 51, 51, 51);</span>
+        }
+<span class="nc" id="L303">    }//GEN-LAST:event_txtSenhaMousePressed</span>
+
+    private void btEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseClicked
+        try {
+<span class="nc" id="L307">            Logar();</span>
+<span class="nc" id="L308">        } catch (UnknownHostException ex) {</span>
+<span class="nc" id="L309">            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L310">        }</span>
+<span class="nc" id="L311">    }//GEN-LAST:event_btEntrarMouseClicked</span>
+
+    private void btEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseEntered
+<span class="nc" id="L314">        hover.efeitoHover(pEntrar, 0, 204, 204);</span>
+<span class="nc" id="L315">    }//GEN-LAST:event_btEntrarMouseEntered</span>
+
+    private void btEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEntrarMouseExited
+
+<span class="nc" id="L319">        hover.efeitoHover(pEntrar, 10, 10, 10);</span>
+<span class="nc" id="L320">    }//GEN-LAST:event_btEntrarMouseExited</span>
+
+    private void btSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseEntered
+<span class="nc" id="L323">        hover.efeitoHover(pSair, 153, 0, 0);</span>
+<span class="nc" id="L324">        btSair.setForeground(Color.WHITE);</span>
+<span class="nc" id="L325">    }//GEN-LAST:event_btSairMouseEntered</span>
+
+    private void btSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseExited
+<span class="nc" id="L328">        hover.efeitoHover(pSair, 10, 10, 10);</span>
+<span class="nc" id="L329">        btSair.setForeground(Color.GRAY);</span>
+<span class="nc" id="L330">    }//GEN-LAST:event_btSairMouseExited</span>
+
+    private void btSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMousePressed
+<span class="nc" id="L333">        System.exit(0);</span>
+<span class="nc" id="L334">    }//GEN-LAST:event_btSairMousePressed</span>
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+<span class="nc" id="L337">        verificarConexao();</span>
+<span class="nc" id="L338">    }//GEN-LAST:event_formWindowOpened</span>
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L347" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L348" title="All 2 branches missed.">                if (&quot;Metal&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L349">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L350">                    break;</span>
+                }
+            }
+<span class="nc" id="L353">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L354">            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L355">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L356">            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L357">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L358">            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L359">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L360">            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L361">        }</span>
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L365">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L367">                new Login().setVisible(true);</span>
+<span class="nc" id="L368">            }</span>
+        });
+<span class="nc" id="L370">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Logo;
+    private javax.swing.JPanel background;
+    private javax.swing.JLabel btEntrar;
+    private javax.swing.JLabel btSair;
+    private javax.swing.JLabel copyright;
+    private javax.swing.JLabel esqueceuTexto;
+    private javax.swing.JLabel iconeSenha;
+    private javax.swing.JLabel iconeUser;
+    private javax.swing.JLabel iniciarSessao;
+    private javax.swing.JPanel loginForm;
+    private javax.swing.JPanel pEntrar;
+    private javax.swing.JPanel pSair;
+    private javax.swing.JLabel senha;
+    private javax.swing.JSeparator separadorSenha;
+    private javax.swing.JSeparator separadorUser;
+    private javax.swing.JLabel txtCliqueAqui;
+    private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JLabel txtStatus;
+    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JLabel usuario;
+    private javax.swing.JLabel versao;
+    // End of variables declaration//GEN-END:variables
+
+
+
+    // verificando conexão com o banco de dados
+    public void verificarConexao() {
+        ImageIcon ii;
+<span class="nc" id="L401">        DbConnection db = new DbConnection();</span>
+<span class="nc" id="L402">        db.conectarBD();</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">        if (db.verificarStatus() == true) {</span>
+<span class="nc" id="L404">            ii = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeOnline.png&quot;)).getImage());</span>
+<span class="nc" id="L405">            txtStatus.setText(&quot;ONLINE&quot;);</span>
+<span class="nc" id="L406">            txtStatus.setForeground(Color.GREEN.darker().darker());</span>
+<span class="nc" id="L407">            txtStatus.setIcon(ii);</span>
+<span class="nc" id="L408">            txtStatus.setToolTipText(&quot;CONEXÃO COM BANCO DE DADOS ONLINE.&quot;);</span>
+        }
+<span class="nc" id="L410">    }</span>
+
+    // verificando usuário/senha para autenticar.
+    public void Logar() throws UnknownHostException {
+        try {
+<span class="nc" id="L415">            String usuario = txtUsuario.getText();</span>
+<span class="nc" id="L416">            String senha = txtSenha.getText();</span>
+
+<span class="nc bnc" id="L418" title="All 4 branches missed.">            if (usuario.isEmpty() || senha.isEmpty()) {</span>
+<span class="nc" id="L419">                fail.informarErro(&quot;Digite em todos os campos.&quot;);</span>
+            }
+<span class="nc" id="L421">            User user = new User();</span>
+<span class="nc" id="L422">            user.setUsuario(usuario);</span>
+<span class="nc" id="L423">            user.setSenha(senha);</span>
+<span class="nc" id="L424">            UserConnections conexao = new UserConnections();</span>
+<span class="nc" id="L425">            ResultSet resultadoLogin = conexao.autenticarUsuario(user);</span>
+
+<span class="nc bnc" id="L427" title="All 2 branches missed.">            if (resultadoLogin.next()) {</span>
+<span class="nc" id="L428">                Dashboard dash = new Dashboard();</span>
+<span class="nc" id="L429">                String ipPc = InetAddress.getLocalHost().getHostAddress();</span>
+<span class="nc" id="L430">                System.out.println(&quot;Usuario autenticado: &quot; + usuario + &quot; | IP: &quot; + ipPc);</span>
+<span class="nc" id="L431">                dash.setVisible(true);</span>
+<span class="nc" id="L432">                dash.inicializar(user);</span>
+<span class="nc" id="L433">                this.dispose();</span>
+<span class="nc" id="L434">            } else {</span>
+<span class="nc" id="L435">                fail.informarErro(&quot;Usuário ou senha incorretos.&quot;);</span>
+<span class="nc" id="L436">                System.out.println(&quot;Erro ao encontrar usuário: &quot; + usuario);</span>
+
+            }
+
+<span class="nc" id="L440">        } catch (SQLException e) {</span>
+<span class="nc" id="L441">        }</span>
+
+<span class="nc" id="L443">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

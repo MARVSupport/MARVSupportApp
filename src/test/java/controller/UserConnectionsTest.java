@@ -13,7 +13,6 @@ public class UserConnectionsTest {
 @Test
 public void testLoginAuth() {
     System.out.println("Teste Login Auth");
-
         UserConnections uc = new UserConnections();
         User user = new User();
         user.setUsuario("becalouise");
