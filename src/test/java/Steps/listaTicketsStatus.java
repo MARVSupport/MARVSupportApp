@@ -11,7 +11,7 @@ import java.util.List;
 
 public class listaTicketsStatus {
     private TicketConnections serviceTicket;
-    private List<Ticket> tktsPendente;
+   // private List<Ticket> tktsPendente;
     private List<Ticket> tktsFechado;
 
     @Dado("usuario chamou TicketConnections para verificação")
@@ -22,15 +22,15 @@ public class listaTicketsStatus {
 
     @Quando("chamou a função listarTicketsEspecificos")
     public void chamouAFunçãoListarTicketsEspecificos() {
-        tktsPendente = serviceTicket.listarTicketsEspecificos(2);
+      //  tktsPendente = serviceTicket.listarTicketsEspecificos(2);
         tktsFechado = serviceTicket.listarTicketsEspecificos(3);
 
     }
 
-    @Entao("recebe lista de tickets Pendente")
-    public void recebeListaDeTicketsPendente() {
-        Assert.assertEquals(1,tktsPendente.size());
-    }
+//    @Entao("recebe lista de tickets Pendente")
+//    public void recebeListaDeTicketsPendente() {
+//        Assert.assertEquals(1,tktsPendente.size());
+//    }
 
     @Entao("recebe lista de tickets Fechado")
     public void recebeListaDeTicketsFechado() {

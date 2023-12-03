@@ -11,17 +11,17 @@ import org.junit.Assert;
 public class listaTicketsAbertos {
     private TicketConnections serviceTicket;
     private List<Ticket> tktsAbertos;
-    @Dado("usuario chamou TicketConnections para verificação")
+    @Dado("chamada TicketConnections para verificação de tkt abertos")
     public void usuarioChamouTicketConnectionsParaVerificação() {
         serviceTicket = new TicketConnections();
     }
 
-    @Quando("chamou a função listarTicketsEspecificos")
+    @Quando("chamada função listarTicketsEspecificos para verificação")
     public void chamouAFunçãoListarTicketsEspecificos() {
         tktsAbertos = serviceTicket.listarTicketsEspecificos(1);
     }
 
-    @Entao("recebe lista de tickets Abertos")
+    @Entao("receb lista de tickets Abertos")
     public void recebeListaDeTicketsAbertos() {
         Assert.assertEquals(3,tktsAbertos.size());
     }
