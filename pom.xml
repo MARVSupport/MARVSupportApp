@@ -30,7 +30,7 @@
                 <configuration>
                     <excludes>
                         <exclude>/view/**/*</exclude>
-                        <!-- Adicione mais exclusões, se necessário -->
+  
                     </excludes>
                 </configuration>
                 <executions>
