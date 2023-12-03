@@ -27,6 +27,12 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.11</version>
+                <configuration>
+                    <excludes>
+                        <exclude>/view/**/*</exclude>
+                        <!-- Adicione mais exclusões, se necessário -->
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
