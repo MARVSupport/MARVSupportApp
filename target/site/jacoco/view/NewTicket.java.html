@@ -13,7 +13,7 @@ import model.User;
 import utils.CurrentDate;
 
 public class NewTicket extends javax.swing.JPanel {
-
+    // imports
 <span class="nc" id="L17">    Fail fail = new Fail();</span>
 <span class="nc" id="L18">    CurrentDate data = new CurrentDate();</span>
 <span class="nc" id="L19">    Ticket ticket = new Ticket();</span>
@@ -22,180 +22,176 @@ public class NewTicket extends javax.swing.JPanel {
 <span class="nc" id="L22">    public NewTicket() {</span>
 <span class="nc" id="L23">        initComponents();</span>
 <span class="nc" id="L24">    }</span>
-
     @SuppressWarnings(&quot;unchecked&quot;)
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L30">        separadorTitulo = new javax.swing.JSeparator();</span>
-<span class="nc" id="L31">        labelExtras = new javax.swing.JLabel();</span>
-<span class="nc" id="L32">        pAbrirTicket = new javax.swing.JPanel();</span>
-<span class="nc" id="L33">        btAbrirTicket = new javax.swing.JLabel();</span>
-<span class="nc" id="L34">        jScrollPane1 = new javax.swing.JScrollPane();</span>
-<span class="nc" id="L35">        txtAssunto = new javax.swing.JTextArea();</span>
-<span class="nc" id="L36">        txtTitulo = new javax.swing.JTextField();</span>
-<span class="nc" id="L37">        pCancelar = new javax.swing.JPanel();</span>
-<span class="nc" id="L38">        btCancelar = new javax.swing.JLabel();</span>
-<span class="nc" id="L39">        labelAbrir = new javax.swing.JLabel();</span>
+<span class="nc" id="L29">        separadorTitulo = new javax.swing.JSeparator();</span>
+<span class="nc" id="L30">        labelExtras = new javax.swing.JLabel();</span>
+<span class="nc" id="L31">        pAbrirTicket = new javax.swing.JPanel();</span>
+<span class="nc" id="L32">        btAbrirTicket = new javax.swing.JLabel();</span>
+<span class="nc" id="L33">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L34">        txtAssunto = new javax.swing.JTextArea();</span>
+<span class="nc" id="L35">        txtTitulo = new javax.swing.JTextField();</span>
+<span class="nc" id="L36">        pCancelar = new javax.swing.JPanel();</span>
+<span class="nc" id="L37">        btCancelar = new javax.swing.JLabel();</span>
+<span class="nc" id="L38">        labelAbrir = new javax.swing.JLabel();</span>
 
-<span class="nc" id="L41">        setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L42">        setMaximumSize(new java.awt.Dimension(1060, 650));</span>
-<span class="nc" id="L43">        setMinimumSize(new java.awt.Dimension(1060, 650));</span>
-<span class="nc" id="L44">        setPreferredSize(new java.awt.Dimension(1060, 650));</span>
-<span class="nc" id="L45">        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+<span class="nc" id="L40">        setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L41">        setMaximumSize(new java.awt.Dimension(1060, 650));</span>
+<span class="nc" id="L42">        setMinimumSize(new java.awt.Dimension(1060, 650));</span>
+<span class="nc" id="L43">        setPreferredSize(new java.awt.Dimension(1060, 650));</span>
+<span class="nc" id="L44">        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
 
-<span class="nc" id="L47">        separadorTitulo.setBackground(new java.awt.Color(51, 51, 51));</span>
-<span class="nc" id="L48">        separadorTitulo.setForeground(new java.awt.Color(51, 51, 51));</span>
-<span class="nc" id="L49">        separadorTitulo.setPreferredSize(new java.awt.Dimension(0, 1));</span>
-<span class="nc" id="L50">        add(separadorTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 173, 260, 3));</span>
+<span class="nc" id="L46">        separadorTitulo.setBackground(new java.awt.Color(51, 51, 51));</span>
+<span class="nc" id="L47">        separadorTitulo.setForeground(new java.awt.Color(51, 51, 51));</span>
+<span class="nc" id="L48">        separadorTitulo.setPreferredSize(new java.awt.Dimension(0, 1));</span>
+<span class="nc" id="L49">        add(separadorTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 173, 260, 3));</span>
 
-<span class="nc" id="L52">        labelExtras.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 15)); // NOI18N</span>
-<span class="nc" id="L53">        labelExtras.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L54">        labelExtras.setText(&quot;Assunto do TICKET&quot;);</span>
-<span class="nc" id="L55">        add(labelExtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 214, -1, -1));</span>
+<span class="nc" id="L51">        labelExtras.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 15)); // NOI18N</span>
+<span class="nc" id="L52">        labelExtras.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L53">        labelExtras.setText(&quot;Assunto do TICKET&quot;);</span>
+<span class="nc" id="L54">        add(labelExtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 214, -1, -1));</span>
 
-<span class="nc" id="L57">        pAbrirTicket.setBackground(new java.awt.Color(0, 204, 204));</span>
+<span class="nc" id="L56">        pAbrirTicket.setBackground(new java.awt.Color(0, 204, 204));</span>
 
-<span class="nc" id="L59">        btAbrirTicket.setBackground(new java.awt.Color(0, 204, 204));</span>
-<span class="nc" id="L60">        btAbrirTicket.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L61">        btAbrirTicket.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L62">        btAbrirTicket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="nc" id="L63">        btAbrirTicket.setText(&quot;ABRIR TICKET&quot;);</span>
-<span class="nc" id="L64">        btAbrirTicket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L65">        btAbrirTicket.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L58">        btAbrirTicket.setBackground(new java.awt.Color(0, 204, 204));</span>
+<span class="nc" id="L59">        btAbrirTicket.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L60">        btAbrirTicket.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L61">        btAbrirTicket.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L62">        btAbrirTicket.setText(&quot;ABRIR TICKET&quot;);</span>
+<span class="nc" id="L63">        btAbrirTicket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L64">        btAbrirTicket.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L67">                btAbrirTicketMouseClicked(evt);</span>
-<span class="nc" id="L68">            }</span>
+<span class="nc" id="L66">                btAbrirTicketMouseClicked(evt);</span>
+<span class="nc" id="L67">            }</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L70">                btAbrirTicketMouseEntered(evt);</span>
-<span class="nc" id="L71">            }</span>
+<span class="nc" id="L69">                btAbrirTicketMouseEntered(evt);</span>
+<span class="nc" id="L70">            }</span>
             public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L73">                btAbrirTicketMouseExited(evt);</span>
-<span class="nc" id="L74">            }</span>
+<span class="nc" id="L72">                btAbrirTicketMouseExited(evt);</span>
+<span class="nc" id="L73">            }</span>
         });
 
-<span class="nc" id="L77">        javax.swing.GroupLayout pAbrirTicketLayout = new javax.swing.GroupLayout(pAbrirTicket);</span>
-<span class="nc" id="L78">        pAbrirTicket.setLayout(pAbrirTicketLayout);</span>
-<span class="nc" id="L79">        pAbrirTicketLayout.setHorizontalGroup(</span>
-<span class="nc" id="L80">            pAbrirTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L81">            .addComponent(btAbrirTicket, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)</span>
+<span class="nc" id="L76">        javax.swing.GroupLayout pAbrirTicketLayout = new javax.swing.GroupLayout(pAbrirTicket);</span>
+<span class="nc" id="L77">        pAbrirTicket.setLayout(pAbrirTicketLayout);</span>
+<span class="nc" id="L78">        pAbrirTicketLayout.setHorizontalGroup(</span>
+<span class="nc" id="L79">            pAbrirTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L80">            .addComponent(btAbrirTicket, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L83">        pAbrirTicketLayout.setVerticalGroup(</span>
-<span class="nc" id="L84">            pAbrirTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L85">            .addComponent(btAbrirTicket, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)</span>
+<span class="nc" id="L82">        pAbrirTicketLayout.setVerticalGroup(</span>
+<span class="nc" id="L83">            pAbrirTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L84">            .addComponent(btAbrirTicket, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L88">        add(pAbrirTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, 160, 30));</span>
+<span class="nc" id="L87">        add(pAbrirTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, 160, 30));</span>
 
-<span class="nc" id="L90">        jScrollPane1.setBorder(null);</span>
-<span class="nc" id="L91">        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L89">        jScrollPane1.setBorder(null);</span>
+<span class="nc" id="L90">        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
 
-<span class="nc" id="L93">        txtAssunto.setBackground(new java.awt.Color(15, 15, 15));</span>
-<span class="nc" id="L94">        txtAssunto.setColumns(20);</span>
-<span class="nc" id="L95">        txtAssunto.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 2, 14)); // NOI18N</span>
-<span class="nc" id="L96">        txtAssunto.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L97">        txtAssunto.setLineWrap(true);</span>
-<span class="nc" id="L98">        txtAssunto.setRows(5);</span>
-<span class="nc" id="L99">        txtAssunto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));</span>
-<span class="nc" id="L100">        txtAssunto.setMargin(new java.awt.Insets(2, 10, 2, 6));</span>
-<span class="nc" id="L101">        txtAssunto.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L92">        txtAssunto.setBackground(new java.awt.Color(15, 15, 15));</span>
+<span class="nc" id="L93">        txtAssunto.setColumns(20);</span>
+<span class="nc" id="L94">        txtAssunto.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 2, 14)); // NOI18N</span>
+<span class="nc" id="L95">        txtAssunto.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L96">        txtAssunto.setLineWrap(true);</span>
+<span class="nc" id="L97">        txtAssunto.setRows(5);</span>
+<span class="nc" id="L98">        txtAssunto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));</span>
+<span class="nc" id="L99">        txtAssunto.setMargin(new java.awt.Insets(2, 10, 2, 6));</span>
+<span class="nc" id="L100">        txtAssunto.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L103">                txtAssuntoMouseClicked(evt);</span>
-<span class="nc" id="L104">            }</span>
+<span class="nc" id="L102">                txtAssuntoMouseClicked(evt);</span>
+<span class="nc" id="L103">            }</span>
         });
-<span class="nc" id="L106">        jScrollPane1.setViewportView(txtAssunto);</span>
+<span class="nc" id="L105">        jScrollPane1.setViewportView(txtAssunto);</span>
 
-<span class="nc" id="L108">        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 530, 320));</span>
+<span class="nc" id="L107">        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 530, 320));</span>
 
-<span class="nc" id="L110">        txtTitulo.setBackground(new java.awt.Color(15, 15, 15));</span>
-<span class="nc" id="L111">        txtTitulo.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 15)); // NOI18N</span>
-<span class="nc" id="L112">        txtTitulo.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L113">        txtTitulo.setText(&quot;Título do TICKET&quot;);</span>
-<span class="nc" id="L114">        txtTitulo.setBorder(null);</span>
-<span class="nc" id="L115">        txtTitulo.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L109">        txtTitulo.setBackground(new java.awt.Color(15, 15, 15));</span>
+<span class="nc" id="L110">        txtTitulo.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 15)); // NOI18N</span>
+<span class="nc" id="L111">        txtTitulo.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L112">        txtTitulo.setText(&quot;Título do TICKET&quot;);</span>
+<span class="nc" id="L113">        txtTitulo.setBorder(null);</span>
+<span class="nc" id="L114">        txtTitulo.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L117">                txtTituloMouseClicked(evt);</span>
-<span class="nc" id="L118">            }</span>
+<span class="nc" id="L116">                txtTituloMouseClicked(evt);</span>
+<span class="nc" id="L117">            }</span>
         });
-<span class="nc" id="L120">        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 260, -1));</span>
+<span class="nc" id="L119">        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 260, -1));</span>
 
-<span class="nc" id="L122">        pCancelar.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L123">        pCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));</span>
+<span class="nc" id="L121">        pCancelar.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L122">        pCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));</span>
 
-<span class="nc" id="L125">        btCancelar.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L126">        btCancelar.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L127">        btCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="nc" id="L128">        btCancelar.setText(&quot;CANCELAR&quot;);</span>
-<span class="nc" id="L129">        btCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L130">        btCancelar.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L124">        btCancelar.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L125">        btCancelar.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L126">        btCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L127">        btCancelar.setText(&quot;CANCELAR&quot;);</span>
+<span class="nc" id="L128">        btCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L129">        btCancelar.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L132">                btCancelarMouseClicked(evt);</span>
-<span class="nc" id="L133">            }</span>
+<span class="nc" id="L131">                btCancelarMouseClicked(evt);</span>
+<span class="nc" id="L132">            }</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L135">                btCancelarMouseEntered(evt);</span>
-<span class="nc" id="L136">            }</span>
+<span class="nc" id="L134">                btCancelarMouseEntered(evt);</span>
+<span class="nc" id="L135">            }</span>
             public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L138">                btCancelarMouseExited(evt);</span>
-<span class="nc" id="L139">            }</span>
+<span class="nc" id="L137">                btCancelarMouseExited(evt);</span>
+<span class="nc" id="L138">            }</span>
         });
 
-<span class="nc" id="L142">        javax.swing.GroupLayout pCancelarLayout = new javax.swing.GroupLayout(pCancelar);</span>
-<span class="nc" id="L143">        pCancelar.setLayout(pCancelarLayout);</span>
-<span class="nc" id="L144">        pCancelarLayout.setHorizontalGroup(</span>
-<span class="nc" id="L145">            pCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L146">            .addComponent(btCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)</span>
+<span class="nc" id="L141">        javax.swing.GroupLayout pCancelarLayout = new javax.swing.GroupLayout(pCancelar);</span>
+<span class="nc" id="L142">        pCancelar.setLayout(pCancelarLayout);</span>
+<span class="nc" id="L143">        pCancelarLayout.setHorizontalGroup(</span>
+<span class="nc" id="L144">            pCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L145">            .addComponent(btCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L148">        pCancelarLayout.setVerticalGroup(</span>
-<span class="nc" id="L149">            pCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L150">            .addComponent(btCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)</span>
+<span class="nc" id="L147">        pCancelarLayout.setVerticalGroup(</span>
+<span class="nc" id="L148">            pCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L149">            .addComponent(btCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L153">        add(pCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 160, 30));</span>
+<span class="nc" id="L152">        add(pCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 160, 30));</span>
 
-<span class="nc" id="L155">        labelAbrir.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 36)); // NOI18N</span>
-<span class="nc" id="L156">        labelAbrir.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L157">        labelAbrir.setText(&quot;ABRIR TICKET&quot;);</span>
-<span class="nc" id="L158">        add(labelAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 250, 50));</span>
-<span class="nc" id="L159">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L154">        labelAbrir.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 36)); // NOI18N</span>
+<span class="nc" id="L155">        labelAbrir.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L156">        labelAbrir.setText(&quot;ABRIR TICKET&quot;);</span>
+<span class="nc" id="L157">        add(labelAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 250, 50));</span>
+<span class="nc" id="L158">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void btAbrirTicketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAbrirTicketMouseClicked
-<span class="nc" id="L162">        criarTicket();</span>
-<span class="nc" id="L163">    }//GEN-LAST:event_btAbrirTicketMouseClicked</span>
+<span class="nc" id="L161">        criarTicket();</span>
+<span class="nc" id="L162">    }//GEN-LAST:event_btAbrirTicketMouseClicked</span>
 
     private void btAbrirTicketMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAbrirTicketMouseEntered
-<span class="nc" id="L166">        painelMudar(pAbrirTicket, 0, 153, 153);</span>
-<span class="nc" id="L167">    }//GEN-LAST:event_btAbrirTicketMouseEntered</span>
+<span class="nc" id="L165">        painelMudar(pAbrirTicket, 0, 153, 153);</span>
+<span class="nc" id="L166">    }//GEN-LAST:event_btAbrirTicketMouseEntered</span>
 
     private void btAbrirTicketMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAbrirTicketMouseExited
-<span class="nc" id="L170">        painelMudar(pAbrirTicket, 0, 204, 204);</span>
-<span class="nc" id="L171">    }//GEN-LAST:event_btAbrirTicketMouseExited</span>
+<span class="nc" id="L169">        painelMudar(pAbrirTicket, 0, 204, 204);</span>
+<span class="nc" id="L170">    }//GEN-LAST:event_btAbrirTicketMouseExited</span>
 
     private void txtAssuntoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAssuntoMouseClicked
-<span class="nc bnc" id="L174" title="All 2 branches missed.">        if (txtTitulo.getText().isEmpty()) {</span>
-<span class="nc" id="L175">            txtTitulo.setText(&quot;Título do TICKET&quot;);</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">        if (txtTitulo.getText().isEmpty()) {</span>
+<span class="nc" id="L174">            txtTitulo.setText(&quot;Título do TICKET&quot;);</span>
         }
-<span class="nc" id="L177">    }//GEN-LAST:event_txtAssuntoMouseClicked</span>
+<span class="nc" id="L176">    }//GEN-LAST:event_txtAssuntoMouseClicked</span>
 
     private void txtTituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTituloMouseClicked
-<span class="nc bnc" id="L180" title="All 2 branches missed.">        if (txtTitulo.getText().equals(&quot;Título do TICKET&quot;)) {</span>
-<span class="nc" id="L181">            txtTitulo.setText(&quot;&quot;);</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        if (txtTitulo.getText().equals(&quot;Título do TICKET&quot;)) {</span>
+<span class="nc" id="L180">            txtTitulo.setText(&quot;&quot;);</span>
         }
-<span class="nc" id="L183">    }//GEN-LAST:event_txtTituloMouseClicked</span>
+<span class="nc" id="L182">    }//GEN-LAST:event_txtTituloMouseClicked</span>
 
     private void btCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseClicked
-
-<span class="nc" id="L187">        resetarCampos();</span>
-<span class="nc" id="L188">    }//GEN-LAST:event_btCancelarMouseClicked</span>
+<span class="nc" id="L185">        resetarCampos();</span>
+<span class="nc" id="L186">    }//GEN-LAST:event_btCancelarMouseClicked</span>
 
     private void btCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseEntered
-
-<span class="nc" id="L192">        painelMudar(pCancelar, 102, 0, 0);</span>
-<span class="nc" id="L193">    }//GEN-LAST:event_btCancelarMouseEntered</span>
+<span class="nc" id="L189">        painelMudar(pCancelar, 102, 0, 0);</span>
+<span class="nc" id="L190">    }//GEN-LAST:event_btCancelarMouseEntered</span>
 
     private void btCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseExited
-<span class="nc" id="L196">        painelMudar(pCancelar, 16, 16, 16);</span>
-<span class="nc" id="L197">    }//GEN-LAST:event_btCancelarMouseExited</span>
-
+<span class="nc" id="L193">        painelMudar(pCancelar, 16, 16, 16);</span>
+<span class="nc" id="L194">    }//GEN-LAST:event_btCancelarMouseExited</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btAbrirTicket;
@@ -211,39 +207,38 @@ public class NewTicket extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     // efeito hover nos botões
     private void painelMudar(JPanel painel, int r, int g, int b) {
-<span class="nc" id="L214">        painel.setBackground(new java.awt.Color(r, g, b));</span>
-<span class="nc" id="L215">    }</span>
-
+<span class="nc" id="L210">        painel.setBackground(new java.awt.Color(r, g, b));</span>
+<span class="nc" id="L211">    }</span>
+    // resgata o usuário da aba que o chamou
     public void resgatarUsuario(User user) {
-<span class="nc" id="L218">        ticket.setCriador(user.getUsuario());</span>
-<span class="nc" id="L219">        usuario = user;</span>
-<span class="nc" id="L220">    }</span>
-
+<span class="nc" id="L214">        ticket.setCriador(user.getUsuario());</span>
+<span class="nc" id="L215">        usuario = user;</span>
+<span class="nc" id="L216">    }</span>
+    // realiza a criação de um novo chamado
     private void criarTicket() {
-<span class="nc bnc" id="L223" title="All 4 branches missed.">        if (txtTitulo.getText().isEmpty() || txtTitulo.getText().equals(&quot;Título do TICKET&quot;)) {</span>
-<span class="nc" id="L224">            fail.informarErro(&quot;Insira o título do chamado.&quot;);</span>
-
-<span class="nc bnc" id="L226" title="All 2 branches missed.">        } else if (txtAssunto.getText().isEmpty()) {</span>
-<span class="nc" id="L227">            fail.informarErro(&quot;Insira o assunto do chamado.&quot;);</span>
-
-        } else {
-<span class="nc" id="L230">            ticket.setTitulo(txtTitulo.getText());</span>
-<span class="nc" id="L231">            ticket.setAssunto(txtAssunto.getText());</span>
-<span class="nc" id="L232">            ticket.setData(data.verificarData());</span>
-<span class="nc" id="L233">            ticket.setStatus(1); // ABERTO</span>
-<span class="nc" id="L234">            TicketConnections tc = new TicketConnections();</span>
-<span class="nc" id="L235">            tc.criarTicket(ticket);</span>
-<span class="nc" id="L236">            resetarCampos();</span>
-<span class="nc" id="L237">            UserConnections uc = new UserConnections();</span>
-<span class="nc" id="L238">            uc.enviarEmailAdmin(&quot;Novo chamado aberto - MARVSupport&quot;, &quot;Olá, você tem um novo chamado aberto.\n\nChamado aberto por: &quot; +  usuario.getUsuario() + &quot;\n Título do chamado: &quot; + ticket.getTitulo() + &quot;\n\nAssunto do chamado:\n&quot; + ticket.getAssunto() + &quot;\n\n\nEntre no software MARVSupport e verifique o chamado aberto. \n\nAtenciosamente\nEquipe MARVSupport&quot;);</span>
-<span class="nc" id="L239">            System.out.println(&quot;Foi aberto um novo chamado!&quot;);</span>
+        // verifica se os dados estão em branco
+<span class="nc bnc" id="L220" title="All 4 branches missed.">        if (txtTitulo.getText().isEmpty() || txtTitulo.getText().equals(&quot;Título do TICKET&quot;)) {</span>
+<span class="nc" id="L221">            fail.informarErro(&quot;Insira o título do chamado.&quot;);</span>
+<span class="nc bnc" id="L222" title="All 2 branches missed.">        } else if (txtAssunto.getText().isEmpty()) {</span>
+<span class="nc" id="L223">            fail.informarErro(&quot;Insira o assunto do chamado.&quot;);</span>
+        } else { // caso esteja tudo preenchido, abre o chamado
+<span class="nc" id="L225">            ticket.setTitulo(txtTitulo.getText());</span>
+<span class="nc" id="L226">            ticket.setAssunto(txtAssunto.getText());</span>
+<span class="nc" id="L227">            ticket.setData(data.verificarData());</span>
+<span class="nc" id="L228">            ticket.setStatus(1); // ABERTO</span>
+<span class="nc" id="L229">            TicketConnections tc = new TicketConnections();</span>
+<span class="nc" id="L230">            tc.criarTicket(ticket);</span>
+<span class="nc" id="L231">            System.out.println(&quot;Foi aberto um novo chamado!&quot;);</span>
+<span class="nc" id="L232">            resetarCampos();</span>
+<span class="nc" id="L233">            UserConnections uc = new UserConnections();</span>
+            //envia os dados para criar o chamado
+<span class="nc" id="L235">            uc.enviarEmailAdmin(&quot;Chamado aberto por: &quot; + usuario.getUsuario() + &quot; | Título: &quot; + ticket.getTitulo(), &quot;Assunto: &quot; + ticket.getAssunto());</span>
         }
-
-<span class="nc" id="L242">    }</span>
-
+<span class="nc" id="L237">    }</span>
+    //reseta todos os campos (limpa)
     private void resetarCampos() {
-<span class="nc" id="L245">        txtTitulo.setText(&quot;Título do TICKET&quot;);</span>
-<span class="nc" id="L246">        txtAssunto.setText(&quot;&quot;);</span>
-<span class="nc" id="L247">    }</span>
+<span class="nc" id="L240">        txtTitulo.setText(&quot;Título do TICKET&quot;);</span>
+<span class="nc" id="L241">        txtAssunto.setText(&quot;&quot;);</span>
+<span class="nc" id="L242">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,9 +1,11 @@
 Steps\listaTickets.class
 Steps\listaTicketsAbertos.class
-model\TicketTest.class
-controller\TicketConnectionsTest.class
-controller\UserConnectionsTest.class
+junitTests\UserConnectionsTest.class
+junitTests\CurrentDateTest.class
+junitTests\EmailTest.class
 db\DbConnectionTest.class
 SuiteTest.class
+junitTests\TicketConnectionsTest.class
+junitTests\ConnectionTest.class
 Steps\connectionDB.class
 Steps\listaTicketsStatus.class

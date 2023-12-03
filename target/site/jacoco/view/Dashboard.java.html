@@ -13,634 +13,592 @@ import modal.Logout;
 import model.User;
 import utils.HoverEffect;
 
+// classe view - Dashboard (principal)
 public class Dashboard extends javax.swing.JFrame {
+//imports
 
-<span class="nc" id="L18">    User usuario = new User();</span>
-<span class="nc" id="L19">    HoverEffect he = new HoverEffect();</span>
+<span class="nc" id="L20">    User usuario = new User();</span>
+<span class="nc" id="L21">    HoverEffect he = new HoverEffect();</span>
 
-<span class="nc" id="L21">    public Dashboard() {</span>
-<span class="nc" id="L22">        initComponents();</span>
-<span class="nc" id="L23">        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/icone-32x32.png&quot;)).getImage());</span>
-<span class="nc" id="L24">    }</span>
+<span class="nc" id="L23">    public Dashboard() {</span>
+<span class="nc" id="L24">        initComponents();</span>
+        //setando ícone
+<span class="nc" id="L26">        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/icone-32x32.png&quot;)).getImage());</span>
+<span class="nc" id="L27">    }</span>
 
     @SuppressWarnings(&quot;unchecked&quot;)
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L30">        userMenu = new javax.swing.JPopupMenu();</span>
-<span class="nc" id="L31">        nivelUsuario = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L32">        deslogar = new javax.swing.JMenuItem();</span>
-<span class="nc" id="L33">        background = new javax.swing.JPanel();</span>
-<span class="nc" id="L34">        menu = new javax.swing.JPanel();</span>
-<span class="nc" id="L35">        pTickets = new javax.swing.JPanel();</span>
-<span class="nc" id="L36">        btTickets = new javax.swing.JLabel();</span>
-<span class="nc" id="L37">        pHome = new javax.swing.JPanel();</span>
-<span class="nc" id="L38">        btHome = new javax.swing.JLabel();</span>
-<span class="nc" id="L39">        pEmail = new javax.swing.JPanel();</span>
-<span class="nc" id="L40">        btEmail = new javax.swing.JLabel();</span>
-<span class="nc" id="L41">        pConfig = new javax.swing.JPanel();</span>
-<span class="nc" id="L42">        btConfig = new javax.swing.JLabel();</span>
-<span class="nc" id="L43">        pInfo = new javax.swing.JPanel();</span>
-<span class="nc" id="L44">        btSobre = new javax.swing.JLabel();</span>
-<span class="nc" id="L45">        txtExtras = new javax.swing.JLabel();</span>
-<span class="nc" id="L46">        txtPrincipal = new javax.swing.JLabel();</span>
-<span class="nc" id="L47">        nomeUsuario = new javax.swing.JLabel();</span>
-<span class="nc" id="L48">        iconeFotoUser = new javax.swing.JLabel();</span>
-<span class="nc" id="L49">        container = new javax.swing.JPanel();</span>
-<span class="nc" id="L50">        nav = new javax.swing.JPanel();</span>
-<span class="nc" id="L51">        Logo = new javax.swing.JLabel();</span>
-<span class="nc" id="L52">        copyright = new javax.swing.JLabel();</span>
-<span class="nc" id="L53">        iconeUsuario = new javax.swing.JLabel();</span>
-<span class="nc" id="L54">        pNovo = new javax.swing.JPanel();</span>
-<span class="nc" id="L55">        btNovo = new javax.swing.JLabel();</span>
-<span class="nc" id="L56">        newletter = new javax.swing.JLabel();</span>
-<span class="nc" id="L57">        atualizacoes = new javax.swing.JLabel();</span>
-<span class="nc" id="L58">        manual = new javax.swing.JLabel();</span>
-<span class="nc" id="L59">        pSair = new javax.swing.JPanel();</span>
-<span class="nc" id="L60">        btSair = new javax.swing.JLabel();</span>
+<span class="nc" id="L33">        userMenu = new javax.swing.JPopupMenu();</span>
+<span class="nc" id="L34">        nivelUsuario = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L35">        deslogar = new javax.swing.JMenuItem();</span>
+<span class="nc" id="L36">        background = new javax.swing.JPanel();</span>
+<span class="nc" id="L37">        menu = new javax.swing.JPanel();</span>
+<span class="nc" id="L38">        pTickets = new javax.swing.JPanel();</span>
+<span class="nc" id="L39">        btTickets = new javax.swing.JLabel();</span>
+<span class="nc" id="L40">        pHome = new javax.swing.JPanel();</span>
+<span class="nc" id="L41">        btHome = new javax.swing.JLabel();</span>
+<span class="nc" id="L42">        pConfig = new javax.swing.JPanel();</span>
+<span class="nc" id="L43">        btConfig = new javax.swing.JLabel();</span>
+<span class="nc" id="L44">        pInfo = new javax.swing.JPanel();</span>
+<span class="nc" id="L45">        btSobre = new javax.swing.JLabel();</span>
+<span class="nc" id="L46">        txtExtras = new javax.swing.JLabel();</span>
+<span class="nc" id="L47">        txtPrincipal = new javax.swing.JLabel();</span>
+<span class="nc" id="L48">        nomeUsuario = new javax.swing.JLabel();</span>
+<span class="nc" id="L49">        iconeFotoUser = new javax.swing.JLabel();</span>
+<span class="nc" id="L50">        container = new javax.swing.JPanel();</span>
+<span class="nc" id="L51">        nav = new javax.swing.JPanel();</span>
+<span class="nc" id="L52">        Logo = new javax.swing.JLabel();</span>
+<span class="nc" id="L53">        copyright = new javax.swing.JLabel();</span>
+<span class="nc" id="L54">        iconeUsuario = new javax.swing.JLabel();</span>
+<span class="nc" id="L55">        pNovo = new javax.swing.JPanel();</span>
+<span class="nc" id="L56">        btNovo = new javax.swing.JLabel();</span>
+<span class="nc" id="L57">        newletter = new javax.swing.JLabel();</span>
+<span class="nc" id="L58">        atualizacoes = new javax.swing.JLabel();</span>
+<span class="nc" id="L59">        manual = new javax.swing.JLabel();</span>
+<span class="nc" id="L60">        pSair = new javax.swing.JPanel();</span>
+<span class="nc" id="L61">        btSair = new javax.swing.JLabel();</span>
 
-<span class="nc" id="L62">        userMenu.setBackground(new java.awt.Color(10, 10, 10));</span>
-<span class="nc" id="L63">        userMenu.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 12)); // NOI18N</span>
-<span class="nc" id="L64">        userMenu.setForeground(new java.awt.Color(204, 204, 204));</span>
-<span class="nc" id="L65">        userMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));</span>
-<span class="nc" id="L66">        userMenu.setMinimumSize(new java.awt.Dimension(183, 62));</span>
+<span class="nc" id="L63">        userMenu.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L64">        userMenu.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L65">        userMenu.setForeground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L66">        userMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));</span>
+<span class="nc" id="L67">        userMenu.setMinimumSize(new java.awt.Dimension(183, 62));</span>
 
-<span class="nc" id="L68">        nivelUsuario.setBackground(new java.awt.Color(10, 10, 10));</span>
-<span class="nc" id="L69">        nivelUsuario.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L70">        nivelUsuario.setForeground(new java.awt.Color(204, 204, 204));</span>
-<span class="nc" id="L71">        nivelUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeUsuario.png&quot;))); // NOI18N</span>
-<span class="nc" id="L72">        nivelUsuario.setText(&quot;NivelUsuario&quot;);</span>
-<span class="nc" id="L73">        nivelUsuario.setBorder(null);</span>
-<span class="nc" id="L74">        nivelUsuario.setBorderPainted(false);</span>
-<span class="nc" id="L75">        nivelUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L76">        nivelUsuario.setIconTextGap(10);</span>
-<span class="nc" id="L77">        nivelUsuario.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L69">        nivelUsuario.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L70">        nivelUsuario.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L71">        nivelUsuario.setForeground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L72">        nivelUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeUsuario.png&quot;))); // NOI18N</span>
+<span class="nc" id="L73">        nivelUsuario.setText(&quot;NivelUsuario&quot;);</span>
+<span class="nc" id="L74">        nivelUsuario.setBorder(null);</span>
+<span class="nc" id="L75">        nivelUsuario.setBorderPainted(false);</span>
+<span class="nc" id="L76">        nivelUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L77">        nivelUsuario.setIconTextGap(10);</span>
+<span class="nc" id="L78">        userMenu.add(nivelUsuario);</span>
+
+<span class="nc" id="L80">        deslogar.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L81">        deslogar.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L82">        deslogar.setForeground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L83">        deslogar.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeSaida.png&quot;))); // NOI18N</span>
+<span class="nc" id="L84">        deslogar.setText(&quot;Deslogar&quot;);</span>
+<span class="nc" id="L85">        deslogar.setBorder(null);</span>
+<span class="nc" id="L86">        deslogar.setBorderPainted(false);</span>
+<span class="nc" id="L87">        deslogar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L88">        deslogar.setIconTextGap(10);</span>
+<span class="nc" id="L89">        deslogar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L79">                nivelUsuarioActionPerformed(evt);</span>
-<span class="nc" id="L80">            }</span>
+<span class="nc" id="L91">                deslogarActionPerformed(evt);</span>
+<span class="nc" id="L92">            }</span>
         });
-<span class="nc" id="L82">        userMenu.add(nivelUsuario);</span>
+<span class="nc" id="L94">        userMenu.add(deslogar);</span>
 
-<span class="nc" id="L84">        deslogar.setBackground(new java.awt.Color(10, 10, 10));</span>
-<span class="nc" id="L85">        deslogar.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L86">        deslogar.setForeground(new java.awt.Color(204, 204, 204));</span>
-<span class="nc" id="L87">        deslogar.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeSaida.png&quot;))); // NOI18N</span>
-<span class="nc" id="L88">        deslogar.setText(&quot;Deslogar&quot;);</span>
-<span class="nc" id="L89">        deslogar.setBorder(null);</span>
-<span class="nc" id="L90">        deslogar.setBorderPainted(false);</span>
-<span class="nc" id="L91">        deslogar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L92">        deslogar.setIconTextGap(10);</span>
-<span class="nc" id="L93">        deslogar.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L96">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L97">        setTitle(&quot;MARVSupport | Dashboard&quot;);</span>
+<span class="nc" id="L98">        setUndecorated(true);</span>
+<span class="nc" id="L99">        setResizable(false);</span>
+
+<span class="nc" id="L101">        background.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L102">        background.setForeground(new java.awt.Color(10, 10, 10));</span>
+<span class="nc" id="L103">        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L105">        menu.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L106">        menu.setForeground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L107">        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L109">        pTickets.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L110">        pTickets.setMaximumSize(new java.awt.Dimension(200, 40));</span>
+<span class="nc" id="L111">        pTickets.setMinimumSize(new java.awt.Dimension(200, 40));</span>
+
+<span class="nc" id="L113">        btTickets.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L114">        btTickets.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
+<span class="nc" id="L115">        btTickets.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L116">        btTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeTickets.png&quot;))); // NOI18N</span>
+<span class="nc" id="L117">        btTickets.setText(&quot;TICKETS&quot;);</span>
+<span class="nc" id="L118">        btTickets.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(16, 16, 16)));</span>
+<span class="nc" id="L119">        btTickets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L120">        btTickets.setIconTextGap(12);</span>
+<span class="nc" id="L121">        btTickets.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L95">                deslogarMouseClicked(evt);</span>
-<span class="nc" id="L96">            }</span>
+<span class="nc" id="L123">                btTicketsMouseClicked(evt);</span>
+<span class="nc" id="L124">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L126">                btTicketsMouseEntered(evt);</span>
+<span class="nc" id="L127">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L129">                btTicketsMouseExited(evt);</span>
+<span class="nc" id="L130">            }</span>
         });
-<span class="nc" id="L98">        deslogar.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L100">                deslogarActionPerformed(evt);</span>
-<span class="nc" id="L101">            }</span>
-        });
-<span class="nc" id="L103">        userMenu.add(deslogar);</span>
 
-<span class="nc" id="L105">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
-<span class="nc" id="L106">        setTitle(&quot;MARVSupport | Dashboard&quot;);</span>
-<span class="nc" id="L107">        setUndecorated(true);</span>
-<span class="nc" id="L108">        setResizable(false);</span>
+<span class="nc" id="L133">        javax.swing.GroupLayout pTicketsLayout = new javax.swing.GroupLayout(pTickets);</span>
+<span class="nc" id="L134">        pTickets.setLayout(pTicketsLayout);</span>
+<span class="nc" id="L135">        pTicketsLayout.setHorizontalGroup(</span>
+<span class="nc" id="L136">            pTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L137">            .addComponent(btTickets, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L139">        pTicketsLayout.setVerticalGroup(</span>
+<span class="nc" id="L140">            pTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L141">            .addComponent(btTickets, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
+        );
 
-<span class="nc" id="L110">        background.setBackground(new java.awt.Color(10, 10, 10));</span>
-<span class="nc" id="L111">        background.setForeground(new java.awt.Color(10, 10, 10));</span>
-<span class="nc" id="L112">        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+<span class="nc" id="L144">        menu.add(pTickets, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 200, -1));</span>
 
-<span class="nc" id="L114">        menu.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L115">        menu.setForeground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L116">        menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+<span class="nc" id="L146">        pHome.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L147">        pHome.setMaximumSize(new java.awt.Dimension(200, 40));</span>
+<span class="nc" id="L148">        pHome.setMinimumSize(new java.awt.Dimension(200, 40));</span>
+<span class="nc" id="L149">        pHome.setRequestFocusEnabled(false);</span>
 
-<span class="nc" id="L118">        pTickets.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L119">        pTickets.setMaximumSize(new java.awt.Dimension(200, 40));</span>
-<span class="nc" id="L120">        pTickets.setMinimumSize(new java.awt.Dimension(200, 40));</span>
-
-<span class="nc" id="L122">        btTickets.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L123">        btTickets.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
-<span class="nc" id="L124">        btTickets.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L125">        btTickets.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeTickets.png&quot;))); // NOI18N</span>
-<span class="nc" id="L126">        btTickets.setText(&quot;TICKETS&quot;);</span>
-<span class="nc" id="L127">        btTickets.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(16, 16, 16)));</span>
-<span class="nc" id="L128">        btTickets.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L129">        btTickets.setIconTextGap(12);</span>
-<span class="nc" id="L130">        btTickets.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L151">        btHome.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L152">        btHome.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
+<span class="nc" id="L153">        btHome.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L154">        btHome.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/home.png&quot;))); // NOI18N</span>
+<span class="nc" id="L155">        btHome.setText(&quot;HOME&quot;);</span>
+<span class="nc" id="L156">        btHome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(0, 204, 204)));</span>
+<span class="nc" id="L157">        btHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L158">        btHome.setIconTextGap(12);</span>
+<span class="nc" id="L159">        btHome.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L132">                btTicketsMouseClicked(evt);</span>
-<span class="nc" id="L133">            }</span>
+<span class="nc" id="L161">                btHomeMouseClicked(evt);</span>
+<span class="nc" id="L162">            }</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L135">                btTicketsMouseEntered(evt);</span>
-<span class="nc" id="L136">            }</span>
+<span class="nc" id="L164">                btHomeMouseEntered(evt);</span>
+<span class="nc" id="L165">            }</span>
             public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L138">                btTicketsMouseExited(evt);</span>
-<span class="nc" id="L139">            }</span>
+<span class="nc" id="L167">                btHomeMouseExited(evt);</span>
+<span class="nc" id="L168">            }</span>
         });
 
-<span class="nc" id="L142">        javax.swing.GroupLayout pTicketsLayout = new javax.swing.GroupLayout(pTickets);</span>
-<span class="nc" id="L143">        pTickets.setLayout(pTicketsLayout);</span>
-<span class="nc" id="L144">        pTicketsLayout.setHorizontalGroup(</span>
-<span class="nc" id="L145">            pTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L146">            .addComponent(btTickets, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
+<span class="nc" id="L171">        javax.swing.GroupLayout pHomeLayout = new javax.swing.GroupLayout(pHome);</span>
+<span class="nc" id="L172">        pHome.setLayout(pHomeLayout);</span>
+<span class="nc" id="L173">        pHomeLayout.setHorizontalGroup(</span>
+<span class="nc" id="L174">            pHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L175">            .addComponent(btHome, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L148">        pTicketsLayout.setVerticalGroup(</span>
-<span class="nc" id="L149">            pTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L150">            .addComponent(btTickets, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
+<span class="nc" id="L177">        pHomeLayout.setVerticalGroup(</span>
+<span class="nc" id="L178">            pHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L179">            .addComponent(btHome, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L153">        menu.add(pTickets, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 200, -1));</span>
+<span class="nc" id="L182">        menu.add(pHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));</span>
 
-<span class="nc" id="L155">        pHome.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L156">        pHome.setMaximumSize(new java.awt.Dimension(200, 40));</span>
-<span class="nc" id="L157">        pHome.setMinimumSize(new java.awt.Dimension(200, 40));</span>
-<span class="nc" id="L158">        pHome.setRequestFocusEnabled(false);</span>
+<span class="nc" id="L184">        pConfig.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L185">        pConfig.setMaximumSize(new java.awt.Dimension(200, 40));</span>
+<span class="nc" id="L186">        pConfig.setMinimumSize(new java.awt.Dimension(200, 40));</span>
 
-<span class="nc" id="L160">        btHome.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L161">        btHome.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
-<span class="nc" id="L162">        btHome.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L163">        btHome.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/home.png&quot;))); // NOI18N</span>
-<span class="nc" id="L164">        btHome.setText(&quot;HOME&quot;);</span>
-<span class="nc" id="L165">        btHome.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(0, 204, 204)));</span>
-<span class="nc" id="L166">        btHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L167">        btHome.setIconTextGap(12);</span>
-<span class="nc" id="L168">        btHome.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L188">        btConfig.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L189">        btConfig.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
+<span class="nc" id="L190">        btConfig.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L191">        btConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeSuporte.png&quot;))); // NOI18N</span>
+<span class="nc" id="L192">        btConfig.setText(&quot;CONFIGURAÇÕES&quot;);</span>
+<span class="nc" id="L193">        btConfig.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(16, 16, 16)));</span>
+<span class="nc" id="L194">        btConfig.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L195">        btConfig.setIconTextGap(12);</span>
+<span class="nc" id="L196">        btConfig.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L170">                btHomeMouseClicked(evt);</span>
-<span class="nc" id="L171">            }</span>
+<span class="nc" id="L198">                btConfigMouseClicked(evt);</span>
+<span class="nc" id="L199">            }</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L173">                btHomeMouseEntered(evt);</span>
-<span class="nc" id="L174">            }</span>
+<span class="nc" id="L201">                btConfigMouseEntered(evt);</span>
+<span class="nc" id="L202">            }</span>
             public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L176">                btHomeMouseExited(evt);</span>
-<span class="nc" id="L177">            }</span>
+<span class="nc" id="L204">                btConfigMouseExited(evt);</span>
+<span class="nc" id="L205">            }</span>
         });
 
-<span class="nc" id="L180">        javax.swing.GroupLayout pHomeLayout = new javax.swing.GroupLayout(pHome);</span>
-<span class="nc" id="L181">        pHome.setLayout(pHomeLayout);</span>
-<span class="nc" id="L182">        pHomeLayout.setHorizontalGroup(</span>
-<span class="nc" id="L183">            pHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L184">            .addComponent(btHome, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
+<span class="nc" id="L208">        javax.swing.GroupLayout pConfigLayout = new javax.swing.GroupLayout(pConfig);</span>
+<span class="nc" id="L209">        pConfig.setLayout(pConfigLayout);</span>
+<span class="nc" id="L210">        pConfigLayout.setHorizontalGroup(</span>
+<span class="nc" id="L211">            pConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L212">            .addComponent(btConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L186">        pHomeLayout.setVerticalGroup(</span>
-<span class="nc" id="L187">            pHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L188">            .addComponent(btHome, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
+<span class="nc" id="L214">        pConfigLayout.setVerticalGroup(</span>
+<span class="nc" id="L215">            pConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L216">            .addComponent(btConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L191">        menu.add(pHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));</span>
+<span class="nc" id="L219">        menu.add(pConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 200, -1));</span>
 
-<span class="nc" id="L193">        pEmail.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L221">        pInfo.setBackground(new java.awt.Color(16, 16, 16));</span>
 
-<span class="nc" id="L195">        btEmail.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L196">        btEmail.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
-<span class="nc" id="L197">        btEmail.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L198">        btEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/email.png&quot;))); // NOI18N</span>
-<span class="nc" id="L199">        btEmail.setText(&quot;EMAIL&quot;);</span>
-<span class="nc" id="L200">        btEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(16, 16, 16)));</span>
-<span class="nc" id="L201">        btEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L202">        btEmail.setIconTextGap(12);</span>
-<span class="nc" id="L203">        btEmail.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L223">        btSobre.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L224">        btSobre.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
+<span class="nc" id="L225">        btSobre.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L226">        btSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/info.png&quot;))); // NOI18N</span>
+<span class="nc" id="L227">        btSobre.setText(&quot;SOBRE&quot;);</span>
+<span class="nc" id="L228">        btSobre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(16, 16, 16)));</span>
+<span class="nc" id="L229">        btSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L230">        btSobre.setIconTextGap(12);</span>
+<span class="nc" id="L231">        btSobre.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L233">                btSobreMouseClicked(evt);</span>
+<span class="nc" id="L234">            }</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L205">                btEmailMouseEntered(evt);</span>
-<span class="nc" id="L206">            }</span>
+<span class="nc" id="L236">                btSobreMouseEntered(evt);</span>
+<span class="nc" id="L237">            }</span>
             public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L208">                btEmailMouseExited(evt);</span>
-<span class="nc" id="L209">            }</span>
-        });
-
-<span class="nc" id="L212">        javax.swing.GroupLayout pEmailLayout = new javax.swing.GroupLayout(pEmail);</span>
-<span class="nc" id="L213">        pEmail.setLayout(pEmailLayout);</span>
-<span class="nc" id="L214">        pEmailLayout.setHorizontalGroup(</span>
-<span class="nc" id="L215">            pEmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L216">            .addComponent(btEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
-        );
-<span class="nc" id="L218">        pEmailLayout.setVerticalGroup(</span>
-<span class="nc" id="L219">            pEmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L220">            .addComponent(btEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
-        );
-
-<span class="nc" id="L223">        menu.add(pEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, -1));</span>
-
-<span class="nc" id="L225">        pConfig.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L226">        pConfig.setMaximumSize(new java.awt.Dimension(200, 40));</span>
-<span class="nc" id="L227">        pConfig.setMinimumSize(new java.awt.Dimension(200, 40));</span>
-
-<span class="nc" id="L229">        btConfig.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L230">        btConfig.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
-<span class="nc" id="L231">        btConfig.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L232">        btConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeSuporte.png&quot;))); // NOI18N</span>
-<span class="nc" id="L233">        btConfig.setText(&quot;CONFIGURAÇÕES&quot;);</span>
-<span class="nc" id="L234">        btConfig.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(16, 16, 16)));</span>
-<span class="nc" id="L235">        btConfig.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L236">        btConfig.setIconTextGap(12);</span>
-<span class="nc" id="L237">        btConfig.addMouseListener(new java.awt.event.MouseAdapter() {</span>
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L239">                btConfigMouseEntered(evt);</span>
+<span class="nc" id="L239">                btSobreMouseExited(evt);</span>
 <span class="nc" id="L240">            }</span>
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L242">                btConfigMouseExited(evt);</span>
-<span class="nc" id="L243">            }</span>
         });
 
-<span class="nc" id="L246">        javax.swing.GroupLayout pConfigLayout = new javax.swing.GroupLayout(pConfig);</span>
-<span class="nc" id="L247">        pConfig.setLayout(pConfigLayout);</span>
-<span class="nc" id="L248">        pConfigLayout.setHorizontalGroup(</span>
-<span class="nc" id="L249">            pConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L250">            .addComponent(btConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
+<span class="nc" id="L243">        javax.swing.GroupLayout pInfoLayout = new javax.swing.GroupLayout(pInfo);</span>
+<span class="nc" id="L244">        pInfo.setLayout(pInfoLayout);</span>
+<span class="nc" id="L245">        pInfoLayout.setHorizontalGroup(</span>
+<span class="nc" id="L246">            pInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L247">            .addComponent(btSobre, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L252">        pConfigLayout.setVerticalGroup(</span>
-<span class="nc" id="L253">            pConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L254">            .addComponent(btConfig, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
-        );
-
-<span class="nc" id="L257">        menu.add(pConfig, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 200, -1));</span>
-
-<span class="nc" id="L259">        pInfo.setBackground(new java.awt.Color(16, 16, 16));</span>
-
-<span class="nc" id="L261">        btSobre.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L262">        btSobre.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 12)); // NOI18N</span>
-<span class="nc" id="L263">        btSobre.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L264">        btSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/info.png&quot;))); // NOI18N</span>
-<span class="nc" id="L265">        btSobre.setText(&quot;SOBRE&quot;);</span>
-<span class="nc" id="L266">        btSobre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 10, 0, 0, new java.awt.Color(16, 16, 16)));</span>
-<span class="nc" id="L267">        btSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L268">        btSobre.setIconTextGap(12);</span>
-<span class="nc" id="L269">        btSobre.addMouseListener(new java.awt.event.MouseAdapter() {</span>
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L271">                btSobreMouseEntered(evt);</span>
-<span class="nc" id="L272">            }</span>
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L274">                btSobreMouseExited(evt);</span>
-<span class="nc" id="L275">            }</span>
-        });
-
-<span class="nc" id="L278">        javax.swing.GroupLayout pInfoLayout = new javax.swing.GroupLayout(pInfo);</span>
-<span class="nc" id="L279">        pInfo.setLayout(pInfoLayout);</span>
-<span class="nc" id="L280">        pInfoLayout.setHorizontalGroup(</span>
-<span class="nc" id="L281">            pInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L282">            .addComponent(btSobre, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)</span>
-        );
-<span class="nc" id="L284">        pInfoLayout.setVerticalGroup(</span>
-<span class="nc" id="L285">            pInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L286">            .addComponent(btSobre, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
+<span class="nc" id="L249">        pInfoLayout.setVerticalGroup(</span>
+<span class="nc" id="L250">            pInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L251">            .addComponent(btSobre, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L289">        menu.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, -1, -1));</span>
+<span class="nc" id="L254">        menu.add(pInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, -1));</span>
 
-<span class="nc" id="L291">        txtExtras.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 15)); // NOI18N</span>
-<span class="nc" id="L292">        txtExtras.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L293">        txtExtras.setText(&quot;EXTRAS&quot;);</span>
-<span class="nc" id="L294">        menu.add(txtExtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 80, -1));</span>
+<span class="nc" id="L256">        txtExtras.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 15)); // NOI18N</span>
+<span class="nc" id="L257">        txtExtras.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L258">        txtExtras.setText(&quot;EXTRAS&quot;);</span>
+<span class="nc" id="L259">        menu.add(txtExtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 80, -1));</span>
 
-<span class="nc" id="L296">        txtPrincipal.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 15)); // NOI18N</span>
-<span class="nc" id="L297">        txtPrincipal.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L298">        txtPrincipal.setText(&quot;PRINCIPAL&quot;);</span>
-<span class="nc" id="L299">        menu.add(txtPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, -1));</span>
+<span class="nc" id="L261">        txtPrincipal.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 15)); // NOI18N</span>
+<span class="nc" id="L262">        txtPrincipal.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L263">        txtPrincipal.setText(&quot;PRINCIPAL&quot;);</span>
+<span class="nc" id="L264">        menu.add(txtPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, -1));</span>
 
-<span class="nc" id="L301">        nomeUsuario.setFont(new java.awt.Font(&quot;Segoe UI Light&quot;, 3, 18)); // NOI18N</span>
-<span class="nc" id="L302">        nomeUsuario.setForeground(new java.awt.Color(0, 204, 204));</span>
-<span class="nc" id="L303">        nomeUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="nc" id="L304">        nomeUsuario.setText(&quot;Nome completo&quot;);</span>
-<span class="nc" id="L305">        nomeUsuario.setToolTipText(&quot;&quot;);</span>
-<span class="nc" id="L306">        nomeUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);</span>
-<span class="nc" id="L307">        nomeUsuario.setIconTextGap(-10);</span>
-<span class="nc" id="L308">        nomeUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);</span>
-<span class="nc" id="L309">        menu.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 116, 200, -1));</span>
+<span class="nc" id="L266">        nomeUsuario.setFont(new java.awt.Font(&quot;Segoe UI Light&quot;, 3, 18)); // NOI18N</span>
+<span class="nc" id="L267">        nomeUsuario.setForeground(new java.awt.Color(0, 204, 204));</span>
+<span class="nc" id="L268">        nomeUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L269">        nomeUsuario.setText(&quot;Nome completo&quot;);</span>
+<span class="nc" id="L270">        nomeUsuario.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L271">        nomeUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L272">        nomeUsuario.setIconTextGap(-10);</span>
+<span class="nc" id="L273">        nomeUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);</span>
+<span class="nc" id="L274">        menu.add(nomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 116, 200, -1));</span>
 
-<span class="nc" id="L311">        iconeFotoUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="nc" id="L312">        iconeFotoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeNomeCompleto.png&quot;))); // NOI18N</span>
-<span class="nc" id="L313">        iconeFotoUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));</span>
-<span class="nc" id="L314">        menu.add(iconeFotoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 100, 100));</span>
+<span class="nc" id="L276">        iconeFotoUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L277">        iconeFotoUser.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeNomeCompleto.png&quot;))); // NOI18N</span>
+<span class="nc" id="L278">        iconeFotoUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));</span>
+<span class="nc" id="L279">        menu.add(iconeFotoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 100, 100));</span>
 
-<span class="nc" id="L316">        background.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 650));</span>
+<span class="nc" id="L281">        background.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 650));</span>
 
-<span class="nc" id="L318">        container.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L283">        container.setBackground(new java.awt.Color(16, 16, 16));</span>
 
-<span class="nc" id="L320">        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);</span>
-<span class="nc" id="L321">        container.setLayout(containerLayout);</span>
-<span class="nc" id="L322">        containerLayout.setHorizontalGroup(</span>
-<span class="nc" id="L323">            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L324">            .addGap(0, 1070, Short.MAX_VALUE)</span>
+<span class="nc" id="L285">        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);</span>
+<span class="nc" id="L286">        container.setLayout(containerLayout);</span>
+<span class="nc" id="L287">        containerLayout.setHorizontalGroup(</span>
+<span class="nc" id="L288">            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L289">            .addGap(0, 1070, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L326">        containerLayout.setVerticalGroup(</span>
-<span class="nc" id="L327">            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L328">            .addGap(0, 650, Short.MAX_VALUE)</span>
+<span class="nc" id="L291">        containerLayout.setVerticalGroup(</span>
+<span class="nc" id="L292">            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L293">            .addGap(0, 650, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L331">        background.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 1070, 650));</span>
+<span class="nc" id="L296">        background.add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 1070, 650));</span>
 
-<span class="nc" id="L333">        nav.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L334">        nav.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+<span class="nc" id="L298">        nav.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L299">        nav.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
 
-<span class="nc" id="L336">        Logo.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 18)); // NOI18N</span>
-<span class="nc" id="L337">        Logo.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L338">        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/icone-32x32.png&quot;))); // NOI18N</span>
-<span class="nc" id="L339">        Logo.setText(&quot;MARVSupport&quot;);</span>
-<span class="nc" id="L340">        nav.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 14, 170, -1));</span>
+<span class="nc" id="L301">        Logo.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 18)); // NOI18N</span>
+<span class="nc" id="L302">        Logo.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L303">        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/icone-32x32.png&quot;))); // NOI18N</span>
+<span class="nc" id="L304">        Logo.setText(&quot;MARVSupport&quot;);</span>
+<span class="nc" id="L305">        nav.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 14, 170, -1));</span>
 
-<span class="nc" id="L342">        copyright.setBackground(new java.awt.Color(0, 0, 0));</span>
-<span class="nc" id="L343">        copyright.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 10)); // NOI18N</span>
-<span class="nc" id="L344">        copyright.setForeground(new java.awt.Color(153, 153, 153));</span>
-<span class="nc" id="L345">        copyright.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="nc" id="L346">        copyright.setText(&quot;2023© MARVSupport&quot;);</span>
-<span class="nc" id="L347">        copyright.setToolTipText(&quot;2023© MARVSupport&quot;);</span>
-<span class="nc" id="L348">        nav.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 35, 140, 20));</span>
+<span class="nc" id="L307">        copyright.setBackground(new java.awt.Color(0, 0, 0));</span>
+<span class="nc" id="L308">        copyright.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 3, 10)); // NOI18N</span>
+<span class="nc" id="L309">        copyright.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L310">        copyright.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L311">        copyright.setText(&quot;2023© MARVSupport&quot;);</span>
+<span class="nc" id="L312">        copyright.setToolTipText(&quot;2023© MARVSupport&quot;);</span>
+<span class="nc" id="L313">        nav.add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 35, 140, 20));</span>
 
-<span class="nc" id="L350">        iconeUsuario.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 2, 13)); // NOI18N</span>
-<span class="nc" id="L351">        iconeUsuario.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L352">        iconeUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/usuarioIcone.png&quot;))); // NOI18N</span>
-<span class="nc" id="L353">        iconeUsuario.setText(&quot;nomeUsuario&quot;);</span>
-<span class="nc" id="L354">        iconeUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L355">        iconeUsuario.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L315">        iconeUsuario.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 2, 13)); // NOI18N</span>
+<span class="nc" id="L316">        iconeUsuario.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L317">        iconeUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/usuarioIcone.png&quot;))); // NOI18N</span>
+<span class="nc" id="L318">        iconeUsuario.setText(&quot;nomeUsuario&quot;);</span>
+<span class="nc" id="L319">        iconeUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L320">        iconeUsuario.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L357">                iconeUsuarioMouseClicked(evt);</span>
-<span class="nc" id="L358">            }</span>
+<span class="nc" id="L322">                iconeUsuarioMouseClicked(evt);</span>
+<span class="nc" id="L323">            }</span>
         });
-<span class="nc" id="L360">        nav.add(iconeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 190, 40));</span>
+<span class="nc" id="L325">        nav.add(iconeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 190, 40));</span>
 
-<span class="nc" id="L362">        pNovo.setBackground(new java.awt.Color(0, 204, 204));</span>
+<span class="nc" id="L327">        pNovo.setBackground(new java.awt.Color(0, 204, 204));</span>
 
-<span class="nc" id="L364">        btNovo.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 15)); // NOI18N</span>
-<span class="nc" id="L365">        btNovo.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="nc" id="L366">        btNovo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="nc" id="L367">        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeAddWhite.png&quot;))); // NOI18N</span>
-<span class="nc" id="L368">        btNovo.setText(&quot;NOVO&quot;);</span>
-<span class="nc" id="L369">        btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L370">        btNovo.setVerifyInputWhenFocusTarget(false);</span>
-<span class="nc" id="L371">        btNovo.setVerticalTextPosition(javax.swing.SwingConstants.TOP);</span>
-<span class="nc" id="L372">        btNovo.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L329">        btNovo.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 15)); // NOI18N</span>
+<span class="nc" id="L330">        btNovo.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L331">        btNovo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L332">        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeAddWhite.png&quot;))); // NOI18N</span>
+<span class="nc" id="L333">        btNovo.setText(&quot;NOVO&quot;);</span>
+<span class="nc" id="L334">        btNovo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L335">        btNovo.setVerifyInputWhenFocusTarget(false);</span>
+<span class="nc" id="L336">        btNovo.setVerticalTextPosition(javax.swing.SwingConstants.TOP);</span>
+<span class="nc" id="L337">        btNovo.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L374">                btNovoMouseClicked(evt);</span>
-<span class="nc" id="L375">            }</span>
+<span class="nc" id="L339">                btNovoMouseClicked(evt);</span>
+<span class="nc" id="L340">            }</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L377">                btNovoMouseEntered(evt);</span>
-<span class="nc" id="L378">            }</span>
+<span class="nc" id="L342">                btNovoMouseEntered(evt);</span>
+<span class="nc" id="L343">            }</span>
             public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L380">                btNovoMouseExited(evt);</span>
-<span class="nc" id="L381">            }</span>
+<span class="nc" id="L345">                btNovoMouseExited(evt);</span>
+<span class="nc" id="L346">            }</span>
         });
 
-<span class="nc" id="L384">        javax.swing.GroupLayout pNovoLayout = new javax.swing.GroupLayout(pNovo);</span>
-<span class="nc" id="L385">        pNovo.setLayout(pNovoLayout);</span>
-<span class="nc" id="L386">        pNovoLayout.setHorizontalGroup(</span>
-<span class="nc" id="L387">            pNovoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L388">            .addComponent(btNovo, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)</span>
+<span class="nc" id="L349">        javax.swing.GroupLayout pNovoLayout = new javax.swing.GroupLayout(pNovo);</span>
+<span class="nc" id="L350">        pNovo.setLayout(pNovoLayout);</span>
+<span class="nc" id="L351">        pNovoLayout.setHorizontalGroup(</span>
+<span class="nc" id="L352">            pNovoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L353">            .addComponent(btNovo, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L390">        pNovoLayout.setVerticalGroup(</span>
-<span class="nc" id="L391">            pNovoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L392">            .addComponent(btNovo, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
+<span class="nc" id="L355">        pNovoLayout.setVerticalGroup(</span>
+<span class="nc" id="L356">            pNovoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L357">            .addComponent(btNovo, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L395">        nav.add(pNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 90, 40));</span>
+<span class="nc" id="L360">        nav.add(pNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 90, 40));</span>
 
-<span class="nc" id="L397">        newletter.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L398">        newletter.setForeground(new java.awt.Color(153, 153, 153));</span>
-<span class="nc" id="L399">        newletter.setText(&quot;NewsLatter&quot;);</span>
-<span class="nc" id="L400">        newletter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L401">        newletter.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L362">        newletter.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L363">        newletter.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L364">        newletter.setText(&quot;NewsLatter&quot;);</span>
+<span class="nc" id="L365">        newletter.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L366">        newletter.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L403">                newletterMouseEntered(evt);</span>
-<span class="nc" id="L404">            }</span>
+<span class="nc" id="L368">                newletterMouseEntered(evt);</span>
+<span class="nc" id="L369">            }</span>
             public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L406">                newletterMouseExited(evt);</span>
-<span class="nc" id="L407">            }</span>
+<span class="nc" id="L371">                newletterMouseExited(evt);</span>
+<span class="nc" id="L372">            }</span>
         });
-<span class="nc" id="L409">        nav.add(newletter, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));</span>
+<span class="nc" id="L374">        nav.add(newletter, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));</span>
 
-<span class="nc" id="L411">        atualizacoes.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L412">        atualizacoes.setForeground(new java.awt.Color(153, 153, 153));</span>
-<span class="nc" id="L413">        atualizacoes.setText(&quot;Atualizações&quot;);</span>
-<span class="nc" id="L414">        atualizacoes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L415">        atualizacoes.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="nc" id="L376">        atualizacoes.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L377">        atualizacoes.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L378">        atualizacoes.setText(&quot;Atualizações&quot;);</span>
+<span class="nc" id="L379">        atualizacoes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L380">        atualizacoes.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L417">                atualizacoesMouseEntered(evt);</span>
+<span class="nc" id="L382">                atualizacoesMouseEntered(evt);</span>
+<span class="nc" id="L383">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L385">                atualizacoesMouseExited(evt);</span>
+<span class="nc" id="L386">            }</span>
+        });
+<span class="nc" id="L388">        nav.add(atualizacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));</span>
+
+<span class="nc" id="L390">        manual.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L391">        manual.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L392">        manual.setText(&quot;Manual de utilização&quot;);</span>
+<span class="nc" id="L393">        manual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L394">        manual.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L396">                manualMouseEntered(evt);</span>
+<span class="nc" id="L397">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L399">                manualMouseExited(evt);</span>
+<span class="nc" id="L400">            }</span>
+        });
+<span class="nc" id="L402">        nav.add(manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));</span>
+
+<span class="nc" id="L404">        pSair.setBackground(new java.awt.Color(16, 16, 16));</span>
+
+<span class="nc" id="L406">        btSair.setBackground(new java.awt.Color(16, 16, 16));</span>
+<span class="nc" id="L407">        btSair.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L408">        btSair.setForeground(new java.awt.Color(102, 102, 102));</span>
+<span class="nc" id="L409">        btSair.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="nc" id="L410">        btSair.setText(&quot;X&quot;);</span>
+<span class="nc" id="L411">        btSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L412">        btSair.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L414">                btSairMouseEntered(evt);</span>
+<span class="nc" id="L415">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L417">                btSairMouseExited(evt);</span>
 <span class="nc" id="L418">            }</span>
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L420">                atualizacoesMouseExited(evt);</span>
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L420">                btSairMousePressed(evt);</span>
 <span class="nc" id="L421">            }</span>
         });
-<span class="nc" id="L423">        nav.add(atualizacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));</span>
 
-<span class="nc" id="L425">        manual.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L426">        manual.setForeground(new java.awt.Color(153, 153, 153));</span>
-<span class="nc" id="L427">        manual.setText(&quot;Manual de utilização&quot;);</span>
-<span class="nc" id="L428">        manual.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L429">        manual.addMouseListener(new java.awt.event.MouseAdapter() {</span>
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L431">                manualMouseEntered(evt);</span>
-<span class="nc" id="L432">            }</span>
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L434">                manualMouseExited(evt);</span>
-<span class="nc" id="L435">            }</span>
-        });
-<span class="nc" id="L437">        nav.add(manual, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));</span>
-
-<span class="nc" id="L439">        pSair.setBackground(new java.awt.Color(16, 16, 16));</span>
-
-<span class="nc" id="L441">        btSair.setBackground(new java.awt.Color(16, 16, 16));</span>
-<span class="nc" id="L442">        btSair.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L443">        btSair.setForeground(new java.awt.Color(102, 102, 102));</span>
-<span class="nc" id="L444">        btSair.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="nc" id="L445">        btSair.setText(&quot;X&quot;);</span>
-<span class="nc" id="L446">        btSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="nc" id="L447">        btSair.addMouseListener(new java.awt.event.MouseAdapter() {</span>
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L449">                btSairMouseEntered(evt);</span>
-<span class="nc" id="L450">            }</span>
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L452">                btSairMouseExited(evt);</span>
-<span class="nc" id="L453">            }</span>
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-<span class="nc" id="L455">                btSairMousePressed(evt);</span>
-<span class="nc" id="L456">            }</span>
-        });
-
-<span class="nc" id="L459">        javax.swing.GroupLayout pSairLayout = new javax.swing.GroupLayout(pSair);</span>
-<span class="nc" id="L460">        pSair.setLayout(pSairLayout);</span>
-<span class="nc" id="L461">        pSairLayout.setHorizontalGroup(</span>
-<span class="nc" id="L462">            pSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L463">            .addComponent(btSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)</span>
+<span class="nc" id="L424">        javax.swing.GroupLayout pSairLayout = new javax.swing.GroupLayout(pSair);</span>
+<span class="nc" id="L425">        pSair.setLayout(pSairLayout);</span>
+<span class="nc" id="L426">        pSairLayout.setHorizontalGroup(</span>
+<span class="nc" id="L427">            pSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L428">            .addComponent(btSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L465">        pSairLayout.setVerticalGroup(</span>
-<span class="nc" id="L466">            pSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L467">            .addComponent(btSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)</span>
+<span class="nc" id="L430">        pSairLayout.setVerticalGroup(</span>
+<span class="nc" id="L431">            pSairLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L432">            .addComponent(btSair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L470">        nav.add(pSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(1222, 0, -1, -1));</span>
+<span class="nc" id="L435">        nav.add(pSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(1222, 0, -1, -1));</span>
 
-<span class="nc" id="L472">        background.add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));</span>
+<span class="nc" id="L437">        background.add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));</span>
 
-<span class="nc" id="L474">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L475">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L476">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L477">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L478">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L439">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L440">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L441">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L442">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L443">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L480">        layout.setVerticalGroup(</span>
-<span class="nc" id="L481">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L482">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L445">        layout.setVerticalGroup(</span>
+<span class="nc" id="L446">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L447">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L485">        pack();</span>
-<span class="nc" id="L486">        setLocationRelativeTo(null);</span>
-<span class="nc" id="L487">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L450">        pack();</span>
+<span class="nc" id="L451">        setLocationRelativeTo(null);</span>
+<span class="nc" id="L452">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void iconeUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeUsuarioMouseClicked
-<span class="nc" id="L490">        userMenu.show(this, 1050, 50);</span>
-<span class="nc" id="L491">    }//GEN-LAST:event_iconeUsuarioMouseClicked</span>
+<span class="nc" id="L455">        userMenu.show(this, 1050, 50);</span>
+<span class="nc" id="L456">    }//GEN-LAST:event_iconeUsuarioMouseClicked</span>
 
     private void btNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseClicked
-
-<span class="nc" id="L495">        novoTicket();</span>
-<span class="nc" id="L496">    }//GEN-LAST:event_btNovoMouseClicked</span>
+<span class="nc" id="L459">        novoTicket();</span>
+<span class="nc" id="L460">    }//GEN-LAST:event_btNovoMouseClicked</span>
 
     private void btNovoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseEntered
-<span class="nc" id="L499">        he.efeitoHover(pNovo, 0, 153, 153);</span>
-<span class="nc" id="L500">    }//GEN-LAST:event_btNovoMouseEntered</span>
+<span class="nc" id="L463">        he.efeitoHover(pNovo, 0, 153, 153);</span>
+<span class="nc" id="L464">    }//GEN-LAST:event_btNovoMouseEntered</span>
 
     private void btNovoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNovoMouseExited
-<span class="nc" id="L503">        he.efeitoHover(pNovo, 0, 204, 204);</span>
-<span class="nc" id="L504">    }//GEN-LAST:event_btNovoMouseExited</span>
+<span class="nc" id="L467">        he.efeitoHover(pNovo, 0, 204, 204);</span>
+<span class="nc" id="L468">    }//GEN-LAST:event_btNovoMouseExited</span>
 
     private void newletterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newletterMouseEntered
-
-<span class="nc" id="L508">        he.efeitoHoverTextos(newletter, 230, 230, 230);</span>
-<span class="nc" id="L509">    }//GEN-LAST:event_newletterMouseEntered</span>
+<span class="nc" id="L471">        he.efeitoHoverTextos(newletter, 230, 230, 230);</span>
+<span class="nc" id="L472">    }//GEN-LAST:event_newletterMouseEntered</span>
 
     private void newletterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newletterMouseExited
-<span class="nc" id="L512">        he.efeitoHoverTextos(newletter, 153, 153, 153);</span>
-<span class="nc" id="L513">    }//GEN-LAST:event_newletterMouseExited</span>
+<span class="nc" id="L475">        he.efeitoHoverTextos(newletter, 153, 153, 153);</span>
+<span class="nc" id="L476">    }//GEN-LAST:event_newletterMouseExited</span>
 
     private void atualizacoesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atualizacoesMouseEntered
-<span class="nc" id="L516">        he.efeitoHoverTextos(atualizacoes, 230, 230, 230);</span>
-<span class="nc" id="L517">    }//GEN-LAST:event_atualizacoesMouseEntered</span>
+<span class="nc" id="L479">        he.efeitoHoverTextos(atualizacoes, 230, 230, 230);</span>
+<span class="nc" id="L480">    }//GEN-LAST:event_atualizacoesMouseEntered</span>
 
     private void atualizacoesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atualizacoesMouseExited
-<span class="nc" id="L520">        he.efeitoHoverTextos(atualizacoes, 153, 153, 153);</span>
-<span class="nc" id="L521">    }//GEN-LAST:event_atualizacoesMouseExited</span>
+<span class="nc" id="L483">        he.efeitoHoverTextos(atualizacoes, 153, 153, 153);</span>
+<span class="nc" id="L484">    }//GEN-LAST:event_atualizacoesMouseExited</span>
 
     private void manualMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manualMouseEntered
-<span class="nc" id="L524">        he.efeitoHoverTextos(manual, 230, 230, 230);</span>
-<span class="nc" id="L525">    }//GEN-LAST:event_manualMouseEntered</span>
+<span class="nc" id="L487">        he.efeitoHoverTextos(manual, 230, 230, 230);</span>
+<span class="nc" id="L488">    }//GEN-LAST:event_manualMouseEntered</span>
 
     private void manualMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manualMouseExited
-<span class="nc" id="L528">        he.efeitoHoverTextos(manual, 153, 153, 153);</span>
-<span class="nc" id="L529">    }//GEN-LAST:event_manualMouseExited</span>
+<span class="nc" id="L491">        he.efeitoHoverTextos(manual, 153, 153, 153);</span>
+<span class="nc" id="L492">    }//GEN-LAST:event_manualMouseExited</span>
 
     private void btTicketsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btTicketsMouseClicked
-<span class="nc" id="L532">        TicketsView tv = new TicketsView();</span>
-<span class="nc" id="L533">        tv.inicializarTicketsView(nivelUsuario.getText());</span>
-<span class="nc" id="L534">        trocarAba(btTickets, tv);</span>
-<span class="nc" id="L535">    }//GEN-LAST:event_btTicketsMouseClicked</span>
+        // alterando pra view Tickets
+<span class="nc" id="L496">        TicketsView tv = new TicketsView();</span>
+<span class="nc" id="L497">        tv.inicializarTicketsView(nivelUsuario.getText());</span>
+<span class="nc" id="L498">        trocarAba(btTickets, tv);</span>
+<span class="nc" id="L499">    }//GEN-LAST:event_btTicketsMouseClicked</span>
 
     private void btTicketsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btTicketsMouseEntered
-<span class="nc" id="L538">        he.efeitoHover(pTickets, 18, 18, 18);</span>
-<span class="nc" id="L539">    }//GEN-LAST:event_btTicketsMouseEntered</span>
+<span class="nc" id="L502">        he.efeitoHover(pTickets, 18, 18, 18);</span>
+<span class="nc" id="L503">    }//GEN-LAST:event_btTicketsMouseEntered</span>
 
     private void btTicketsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btTicketsMouseExited
-<span class="nc" id="L542">        he.efeitoHover(pTickets, 16, 16, 16);</span>
-<span class="nc" id="L543">    }//GEN-LAST:event_btTicketsMouseExited</span>
+<span class="nc" id="L506">        he.efeitoHover(pTickets, 16, 16, 16);</span>
+<span class="nc" id="L507">    }//GEN-LAST:event_btTicketsMouseExited</span>
 
     private void btHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btHomeMouseClicked
-<span class="nc" id="L546">        HomeView hv = new HomeView();</span>
-<span class="nc" id="L547">        trocarAba(btHome, hv);</span>
-<span class="nc" id="L548">    }//GEN-LAST:event_btHomeMouseClicked</span>
+        // alterando pra view Home (Dashboard)
+<span class="nc" id="L511">        HomeView hv = new HomeView();</span>
+<span class="nc" id="L512">        trocarAba(btHome, hv);</span>
+<span class="nc" id="L513">    }//GEN-LAST:event_btHomeMouseClicked</span>
 
     private void btHomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btHomeMouseEntered
-<span class="nc" id="L551">        he.efeitoHover(pHome, 18, 18, 18);</span>
-<span class="nc" id="L552">    }//GEN-LAST:event_btHomeMouseEntered</span>
+<span class="nc" id="L516">        he.efeitoHover(pHome, 18, 18, 18);</span>
+<span class="nc" id="L517">    }//GEN-LAST:event_btHomeMouseEntered</span>
 
     private void btHomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btHomeMouseExited
-<span class="nc" id="L555">        he.efeitoHover(pHome, 16, 16, 16);</span>
-<span class="nc" id="L556">    }//GEN-LAST:event_btHomeMouseExited</span>
-
-    private void btEmailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEmailMouseEntered
-<span class="nc" id="L559">        he.efeitoHover(pEmail, 18, 18, 18);</span>
-<span class="nc" id="L560">    }//GEN-LAST:event_btEmailMouseEntered</span>
-
-    private void btEmailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btEmailMouseExited
-<span class="nc" id="L563">        he.efeitoHover(pEmail, 16, 16, 16);</span>
-<span class="nc" id="L564">    }//GEN-LAST:event_btEmailMouseExited</span>
+<span class="nc" id="L520">        he.efeitoHover(pHome, 16, 16, 16);</span>
+<span class="nc" id="L521">    }//GEN-LAST:event_btHomeMouseExited</span>
 
     private void btConfigMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btConfigMouseEntered
-<span class="nc" id="L567">        he.efeitoHover(pConfig, 18, 18, 18);</span>
-<span class="nc" id="L568">    }//GEN-LAST:event_btConfigMouseEntered</span>
+<span class="nc" id="L524">        he.efeitoHover(pConfig, 18, 18, 18);</span>
+<span class="nc" id="L525">    }//GEN-LAST:event_btConfigMouseEntered</span>
 
     private void btConfigMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btConfigMouseExited
-<span class="nc" id="L571">        he.efeitoHover(pConfig, 16, 16, 16);</span>
-<span class="nc" id="L572">    }//GEN-LAST:event_btConfigMouseExited</span>
+<span class="nc" id="L528">        he.efeitoHover(pConfig, 16, 16, 16);</span>
+<span class="nc" id="L529">    }//GEN-LAST:event_btConfigMouseExited</span>
 
     private void btSobreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSobreMouseEntered
-<span class="nc" id="L575">        he.efeitoHover(pInfo, 18, 18, 18);</span>
-<span class="nc" id="L576">    }//GEN-LAST:event_btSobreMouseEntered</span>
+<span class="nc" id="L532">        he.efeitoHover(pInfo, 18, 18, 18);</span>
+<span class="nc" id="L533">    }//GEN-LAST:event_btSobreMouseEntered</span>
 
     private void btSobreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSobreMouseExited
-
-<span class="nc" id="L580">        he.efeitoHover(pInfo, 16, 16, 16);</span>
-<span class="nc" id="L581">    }//GEN-LAST:event_btSobreMouseExited</span>
-
-    private void nivelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nivelUsuarioActionPerformed
-        // TODO add your handling code here:
-<span class="nc" id="L585">    }//GEN-LAST:event_nivelUsuarioActionPerformed</span>
-
-    private void deslogarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deslogarMouseClicked
-
-<span class="nc" id="L589">    }//GEN-LAST:event_deslogarMouseClicked</span>
+<span class="nc" id="L536">        he.efeitoHover(pInfo, 16, 16, 16);</span>
+<span class="nc" id="L537">    }//GEN-LAST:event_btSobreMouseExited</span>
 
     private void deslogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deslogarActionPerformed
-<span class="nc" id="L592">Logout logout = new Logout();</span>
-<span class="nc" id="L593">logout.setVisible(true);</span>
-<span class="nc" id="L594">    }//GEN-LAST:event_deslogarActionPerformed</span>
+        // exibe o Logout ao clicar no botão de deslogar
+<span class="nc" id="L541">        Logout logout = new Logout();</span>
+<span class="nc" id="L542">        logout.setVisible(true);</span>
+<span class="nc" id="L543">    }//GEN-LAST:event_deslogarActionPerformed</span>
 
     private void btSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseEntered
-<span class="nc" id="L597">        he.efeitoHover(pSair, 153, 0, 0);</span>
-<span class="nc" id="L598">        btSair.setForeground(Color.WHITE);</span>
-<span class="nc" id="L599">    }//GEN-LAST:event_btSairMouseEntered</span>
+<span class="nc" id="L546">        he.efeitoHover(pSair, 153, 0, 0);</span>
+<span class="nc" id="L547">        btSair.setForeground(Color.WHITE);</span>
+<span class="nc" id="L548">    }//GEN-LAST:event_btSairMouseEntered</span>
 
     private void btSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseExited
-<span class="nc" id="L602">        he.efeitoHover(pSair, 16, 16, 16);</span>
-<span class="nc" id="L603">        btSair.setForeground(Color.GRAY);</span>
-<span class="nc" id="L604">    }//GEN-LAST:event_btSairMouseExited</span>
+<span class="nc" id="L551">        he.efeitoHover(pSair, 16, 16, 16);</span>
+<span class="nc" id="L552">        btSair.setForeground(Color.GRAY);</span>
+<span class="nc" id="L553">    }//GEN-LAST:event_btSairMouseExited</span>
 
     private void btSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMousePressed
-<span class="nc" id="L607">        System.exit(0);</span>
-<span class="nc" id="L608">    }//GEN-LAST:event_btSairMousePressed</span>
+// fecha o sistema ao clicar direto no X pra sair
+<span class="nc" id="L557">        System.exit(0);</span>
+<span class="nc" id="L558">    }//GEN-LAST:event_btSairMousePressed</span>
+
+    private void btConfigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btConfigMouseClicked
+        // alterando pra view Configurações
+<span class="nc" id="L562">        Config config = new Config();</span>
+<span class="nc" id="L563">        config.resgatarUsuario(usuario);</span>
+<span class="nc" id="L564">        trocarAba(btConfig, config);</span>
+<span class="nc" id="L565">    }//GEN-LAST:event_btConfigMouseClicked</span>
+
+    private void btSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSobreMouseClicked
+        // alterando pra view Sobre
+<span class="nc" id="L569">        About about = new About();</span>
+<span class="nc" id="L570">        trocarAba(btSobre, about);</span>
+<span class="nc" id="L571">    }//GEN-LAST:event_btSobreMouseClicked</span>
 
     public static void main(String args[]) {
-
         try {
-<span class="nc bnc" id="L613" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L614" title="All 2 branches missed.">                if (&quot;Metal&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L615">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L616">                    break;</span>
+<span class="nc bnc" id="L575" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L576" title="All 2 branches missed.">                if (&quot;Metal&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L577">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L578">                    break;</span>
                 }
             }
-<span class="nc" id="L619">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L620">            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L621">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L622">            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L623">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L624">            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L625">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L626">            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L627">        }</span>
-        //&lt;/editor-fold&gt;
-
-        /* Create and display the form */
-<span class="nc" id="L631">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L581">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L582">            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L583">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L584">            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L585">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L586">            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L587">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L588">            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L589">        }</span>
+<span class="nc" id="L590">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L633">                new Dashboard().setVisible(true);</span>
-<span class="nc" id="L634">            }</span>
+<span class="nc" id="L592">                new Dashboard().setVisible(true);</span>
+<span class="nc" id="L593">            }</span>
         });
-<span class="nc" id="L636">    }</span>
+<span class="nc" id="L595">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
     private javax.swing.JLabel atualizacoes;
     private javax.swing.JPanel background;
     private javax.swing.JLabel btConfig;
-    private javax.swing.JLabel btEmail;
     private javax.swing.JLabel btHome;
     private javax.swing.JLabel btNovo;
     private javax.swing.JLabel btSair;
@@ -658,7 +616,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JMenuItem nivelUsuario;
     private javax.swing.JLabel nomeUsuario;
     private javax.swing.JPanel pConfig;
-    private javax.swing.JPanel pEmail;
     private javax.swing.JPanel pHome;
     private javax.swing.JPanel pInfo;
     private javax.swing.JPanel pNovo;
@@ -669,83 +626,75 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPopupMenu userMenu;
     // End of variables declaration//GEN-END:variables
     // importando objetos que serão usados repetidas vezes
-<span class="nc" id="L672">    Fail fail = new Fail();</span>
-<span class="nc" id="L673">    Color bordaSelecionado = new java.awt.Color(0, 204, 204);</span>
-<span class="nc" id="L674">    Color bordaNormal = new java.awt.Color(16, 16, 16);</span>
-
+<span class="nc" id="L629">    Fail fail = new Fail();</span>
+<span class="nc" id="L630">    Color bordaSelecionado = new java.awt.Color(0, 204, 204);</span>
+<span class="nc" id="L631">    Color bordaNormal = new java.awt.Color(16, 16, 16);</span>
     // método de trocar a aba e marcar selecionada
     private void trocarAba(JLabel label, JPanel painel) {
-<span class="nc" id="L678">        btHome.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
-<span class="nc" id="L679">        btTickets.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
-<span class="nc" id="L680">        btEmail.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
-<span class="nc" id="L681">        btConfig.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
-<span class="nc" id="L682">        btSobre.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
-<span class="nc" id="L683">        label.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaSelecionado));</span>
-<span class="nc" id="L684">        trocarTela(painel);</span>
-<span class="nc" id="L685">    }</span>
-
+<span class="nc" id="L634">        btHome.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
+<span class="nc" id="L635">        btTickets.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
+<span class="nc" id="L636">        btConfig.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
+<span class="nc" id="L637">        btSobre.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaNormal));</span>
+<span class="nc" id="L638">        label.setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, bordaSelecionado));</span>
+<span class="nc" id="L639">        trocarTela(painel);</span>
+<span class="nc" id="L640">    }</span>
     // método pra trocar de aba clicando na opção
     private void trocarTela(JPanel painel) {
-<span class="nc" id="L689">        painel.setSize(1060, 650);</span>
-<span class="nc" id="L690">        painel.setLocation(0, 0);</span>
-<span class="nc" id="L691">        container.removeAll();</span>
-<span class="nc" id="L692">        container.add(painel, BorderLayout.CENTER);</span>
-<span class="nc" id="L693">        container.revalidate();</span>
-<span class="nc" id="L694">        container.repaint();</span>
-<span class="nc" id="L695">    }</span>
-
+<span class="nc" id="L643">        painel.setSize(1060, 650);</span>
+<span class="nc" id="L644">        painel.setLocation(0, 0);</span>
+<span class="nc" id="L645">        container.removeAll();</span>
+<span class="nc" id="L646">        container.add(painel, BorderLayout.CENTER);</span>
+<span class="nc" id="L647">        container.revalidate();</span>
+<span class="nc" id="L648">        container.repaint();</span>
+<span class="nc" id="L649">    }</span>
     // mostrar tela home dashboard
     public void mostrarHome() {
-<span class="nc" id="L699">        HomeView home = new HomeView();</span>
-<span class="nc" id="L700">        trocarAba(btHome, home);</span>
-<span class="nc" id="L701">    }</span>
-
-    // novo ticket botões
+<span class="nc" id="L652">        HomeView home = new HomeView();</span>
+<span class="nc" id="L653">        trocarAba(btHome, home);</span>
+<span class="nc" id="L654">    }</span>
+    // novo ticket botão
     private void novoTicket() {
-<span class="nc" id="L705">        NewTicket nt = new NewTicket();</span>
-<span class="nc" id="L706">        nt.resgatarUsuario(usuario);</span>
-<span class="nc" id="L707">        trocarAba(btTickets, nt);</span>
-<span class="nc" id="L708">    }</span>
-
-    // inicializando dashboard
+<span class="nc" id="L657">        NewTicket nt = new NewTicket();</span>
+<span class="nc" id="L658">        nt.resgatarUsuario(usuario);</span>
+<span class="nc" id="L659">        trocarAba(btTickets, nt);</span>
+<span class="nc" id="L660">    }</span>
+    // inicializando dashboard com dados do usuário recebidos depois do Login
     public void inicializar(User user) {
-<span class="nc" id="L712">        iconeUsuario.setText(&quot;Bem-Vindo(a), \n&quot; + user.getUsuario());</span>
-<span class="nc" id="L713">        usuario = user;</span>
-<span class="nc" id="L714">        UserConnections conUser = new UserConnections();</span>
-<span class="nc" id="L715">        ResultSet resultadoBusca = conUser.verificarNivelUsuario(usuario);</span>
-
-        
-        
+<span class="nc" id="L663">        iconeUsuario.setText(&quot;Bem-Vindo(a), \n&quot; + user.getUsuario());</span>
+<span class="nc" id="L664">        usuario = user;</span>
+<span class="nc" id="L665">        UserConnections conUser = new UserConnections();</span>
+<span class="nc" id="L666">        ResultSet resultadoBusca = conUser.verificarNivelUsuario(usuario);</span>
+        // realiza busca do usuário e verifica o nível do mesmo (1 Operador e 2 Administrador)
         try {
-<span class="nc bnc" id="L720" title="All 2 branches missed.">            while (resultadoBusca.next()) {</span>
-<span class="nc" id="L721">                usuario.setNivel(resultadoBusca.getInt(&quot;nivel&quot;));</span>
-<span class="nc" id="L722">                int nivelUser = usuario.getNivel();</span>
-<span class="nc bnc" id="L723" title="All 3 branches missed.">                switch (nivelUser) {</span>
+<span class="nc bnc" id="L669" title="All 2 branches missed.">            while (resultadoBusca.next()) {</span>
+<span class="nc" id="L670">                usuario.setNivel(resultadoBusca.getInt(&quot;nivel&quot;));</span>
+<span class="nc" id="L671">                int nivelUser = usuario.getNivel();</span>
+<span class="nc bnc" id="L672" title="All 3 branches missed.">                switch (nivelUser) {</span>
                     case 1:
-                        
-<span class="nc" id="L726">                        nivelUsuario.setText(&quot;Operador(a)&quot;);</span>
-<span class="nc" id="L727">                        break;</span>
+<span class="nc" id="L674">                        nivelUsuario.setText(&quot;Operador(a)&quot;);</span>
+<span class="nc" id="L675">                        break;</span>
                     case 2:
-<span class="nc" id="L729">                        nivelUsuario.setText(&quot;Administrador(a)&quot;);</span>
+<span class="nc" id="L677">                        nivelUsuario.setText(&quot;Administrador(a)&quot;);</span>
                         break;
                 }
-<span class="nc" id="L732">                mostrarHome();</span>
-
-<span class="nc" id="L734">            }</span>
-<span class="nc" id="L735">        } catch (SQLException ex) {</span>
-<span class="nc" id="L736">        }</span>
-<span class="nc" id="L737">        ResultSet resultadoBuscaNome = conUser.verificarDados(usuario);</span>
+<span class="nc" id="L680">                mostrarHome();</span>
+<span class="nc" id="L681">            }</span>
+<span class="nc" id="L682">        } catch (SQLException ex) {</span>
+<span class="nc" id="L683">        }</span>
+        // busca o nome completo do usuário
+<span class="nc" id="L685">        ResultSet resultadoBuscaNome = conUser.verificarDados(usuario);</span>
         try {
-<span class="nc bnc" id="L739" title="All 2 branches missed.">            while (resultadoBuscaNome.next()) {</span>
-<span class="nc" id="L740">                usuario.setNome(resultadoBuscaNome.getString(&quot;nomecompleto&quot;));</span>
-<span class="nc" id="L741">                nomeUsuario.setText(usuario.getNome());</span>
+<span class="nc bnc" id="L687" title="All 2 branches missed.">            while (resultadoBuscaNome.next()) {</span>
+<span class="nc" id="L688">                usuario.setNome(resultadoBuscaNome.getString(&quot;nomecompleto&quot;));</span>
+<span class="nc" id="L689">                nomeUsuario.setText(usuario.getNome());</span>
             }
-
-<span class="nc" id="L744">        } catch (SQLException e) {</span>
-<span class="nc" id="L745">        }</span>
-<span class="nc" id="L746">        HomeView home = new HomeView();</span>
-<span class="nc" id="L747">        trocarAba(btHome, home);</span>
-<span class="nc" id="L748">        mostrarHome();</span>
-<span class="nc" id="L749">    }</span>
+<span class="nc" id="L691">        } catch (SQLException e) {</span>
+<span class="nc" id="L692">            nomeUsuario.setText(&quot;Não encontrado&quot;);</span>
+<span class="nc" id="L693">   }</span>
+        // exibe a Home
+<span class="nc" id="L695">        HomeView home = new HomeView();</span>
+<span class="nc" id="L696">        trocarAba(btHome, home);</span>
+<span class="nc" id="L697">        mostrarHome();</span>
+<span class="nc" id="L698">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

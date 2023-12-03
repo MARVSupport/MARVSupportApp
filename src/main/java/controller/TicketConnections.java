@@ -10,6 +10,8 @@ import java.util.List;
 import modal.Fail;
 import modal.Sucess;
 import db.DbConnection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Ticket;
 
 
@@ -128,5 +130,38 @@ public class TicketConnections {
             }
         }
         return null;
+    }
+               //pesquisa de tickets pelo status
+       public Ticket pesquisarTicketStatus(int status){
+        for(Ticket t : this.listarTicketsEspecificos(status)){
+            if(t.getStatus()== status){
+                return t;
+            }
+        }
+        return null;
+    }
+    // retorna a quantidade total dependendo do status e retorna em String pra ser exibida
+    public String qntTotalTicket(int status) {
+        String total = "";
+        conexao = new DbConnection().conectarBD();
+        String search = "SELECT count(1) as total from tb_ticket where status = " + status + ";";
+        try {
+            PreparedStatement stm = conexao.prepareStatement(search);
+            ResultSet result = stm.executeQuery();
+            result.next();
+            total = String.valueOf(result.getInt(1));
+        } catch (SQLException ex) {
+            Logger.getLogger(TicketConnections.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total;
+    }
+    // retorna quantidade total independente do status e retorna em String pra ser exibida
+    public String totalTickets() {
+        int open = Integer.parseInt(qntTotalTicket(1));
+        int pending = Integer.parseInt(qntTotalTicket(2));
+        int closed = Integer.parseInt(qntTotalTicket(3));
+        int total = open + pending + closed;
+        String totalFormated = String.valueOf(total);
+        return totalFormated;
     }
 }

@@ -9,75 +9,75 @@ public class Ticket {
     private String data;
     private String criador;
     private String comentario;
-    
-<span class="fc" id="L13">    public Ticket(){</span>
-<span class="fc" id="L14">    }</span>
 
-<span class="fc" id="L16">    public Ticket(int id, int status, String titulo, String assunto, String data, String criador, String comentario) {</span>
-<span class="fc" id="L17">        this.id = id;</span>
-<span class="fc" id="L18">        this.status = status;</span>
-<span class="fc" id="L19">        this.titulo = titulo;</span>
-<span class="fc" id="L20">        this.assunto = assunto;</span>
-<span class="fc" id="L21">        this.data = data;</span>
-<span class="fc" id="L22">        this.criador = criador;</span>
-<span class="fc" id="L23">        this.comentario = comentario;</span>
-<span class="fc" id="L24">    }</span>
-
+    //construtor padrão
+<span class="fc" id="L14">    public Ticket() {</span>
+<span class="fc" id="L15">    }</span>
+    // construtor pra criação de tickets
+<span class="fc" id="L17">    public Ticket(int id, int status, String titulo, String assunto, String data, String criador, String comentario) {</span>
+<span class="fc" id="L18">        this.id = id;</span>
+<span class="fc" id="L19">        this.status = status;</span>
+<span class="fc" id="L20">        this.titulo = titulo;</span>
+<span class="fc" id="L21">        this.assunto = assunto;</span>
+<span class="fc" id="L22">        this.data = data;</span>
+<span class="fc" id="L23">        this.criador = criador;</span>
+<span class="fc" id="L24">        this.comentario = comentario;</span>
+<span class="fc" id="L25">    }</span>
+// getters e setters
     public int getId() {
-<span class="fc" id="L27">        return id;</span>
+<span class="fc" id="L28">        return id;</span>
     }
 
     public void setId(int id) {
-<span class="fc" id="L31">        this.id = id;</span>
-<span class="fc" id="L32">    }</span>
+<span class="fc" id="L32">        this.id = id;</span>
+<span class="fc" id="L33">    }</span>
 
     public int getStatus() {
-<span class="nc" id="L35">        return status;</span>
+<span class="fc" id="L36">        return status;</span>
     }
 
     public void setStatus(int status) {
-<span class="fc" id="L39">        this.status = status;</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L40">        this.status = status;</span>
+<span class="fc" id="L41">    }</span>
 
     public String getTitulo() {
-<span class="fc" id="L43">        return titulo;</span>
+<span class="fc" id="L44">        return titulo;</span>
     }
 
     public void setTitulo(String titulo) {
-<span class="fc" id="L47">        this.titulo = titulo;</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L48">        this.titulo = titulo;</span>
+<span class="fc" id="L49">    }</span>
 
     public String getAssunto() {
-<span class="nc" id="L51">        return assunto;</span>
+<span class="nc" id="L52">        return assunto;</span>
     }
 
     public void setAssunto(String assunto) {
-<span class="nc" id="L55">        this.assunto = assunto;</span>
-<span class="nc" id="L56">    }</span>
+<span class="nc" id="L56">        this.assunto = assunto;</span>
+<span class="nc" id="L57">    }</span>
 
     public String getData() {
-<span class="nc" id="L59">        return data;</span>
+<span class="nc" id="L60">        return data;</span>
     }
 
     public void setData(String data) {
-<span class="fc" id="L63">        this.data = data;</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L64">        this.data = data;</span>
+<span class="fc" id="L65">    }</span>
 
     public String getCriador() {
-<span class="nc" id="L67">        return criador;</span>
+<span class="nc" id="L68">        return criador;</span>
     }
 
     public void setCriador(String criador) {
-<span class="nc" id="L71">        this.criador = criador;</span>
-<span class="nc" id="L72">    }</span>
+<span class="nc" id="L72">        this.criador = criador;</span>
+<span class="nc" id="L73">    }</span>
 
     public String getComentario() {
-<span class="nc" id="L75">        return comentario;</span>
+<span class="nc" id="L76">        return comentario;</span>
     }
 
     public void setComentario(String comentario) {
-<span class="nc" id="L79">        this.comentario = comentario;</span>
-<span class="nc" id="L80">    }</span>
-
+<span class="nc" id="L80">        this.comentario = comentario;</span>
+<span class="nc" id="L81">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

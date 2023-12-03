@@ -31,21 +31,20 @@ import java.sql.SQLException;
 <span class="fc" id="L31">        return conexao;</span>
     }
     }
-
     // Desconecta do BANCO DE DADOS
     public void desconectarBD() {
         try {
-<span class="nc bnc" id="L38" title="All 2 branches missed.">            if (!conexao.isClosed()) {</span>
-<span class="nc" id="L39">                conexao.close();</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            if (!conexao.isClosed()) {</span>
+<span class="nc" id="L38">                conexao.close();</span>
             }
-<span class="nc" id="L41">        } catch (SQLException e) {</span>
-<span class="nc" id="L42">            System.out.println(erro);</span>
-<span class="nc" id="L43">        }</span>
-<span class="nc" id="L44">    }</span>
-
+<span class="nc" id="L40">        } catch (SQLException e) {</span>
+<span class="nc" id="L41">            System.out.println(erro);</span>
+<span class="nc" id="L42">        }</span>
+<span class="nc" id="L43">    }</span>
+    // verifica o status da conexão com o banco de dados
     public boolean verificarStatus() {
-<span class="nc" id="L47">        conectarBD();</span>
-<span class="nc" id="L48">        return verificar;</span>
+<span class="fc" id="L46">        conectarBD();</span>
+<span class="fc" id="L47">        return verificar;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

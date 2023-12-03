@@ -13,6 +13,10 @@ public class Email {
     private String mensagem2;
     private String destinatario;
 
+    // construtor padrão
+    public Email(){
+        
+    }
     // construtor do método pra coletar mensagem e destinatário
     public Email(String mensagem, String mensagem2, String destinatario) {
         this.mensagem = mensagem;
@@ -46,7 +50,7 @@ public class Email {
     }
     
     // método para verificar se o email é válido através de um padrão de matches
-    private boolean isEmailValid(String email) {
+    public boolean isEmailValid(String email) {
         return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
     }
 // método de envio do email

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import modal.Fail;
 import modal.Sucess;
+import model.Email;
 import model.User;
 
 // classe view - Configurações
@@ -139,16 +140,12 @@ public class Config extends javax.swing.JPanel {
     }
 // método que salva o novo email e verifica se é válido
     private void salvarEmail() {
-        if (!isEmailValid(txtEmailUser.getText())) {
+        Email email = new Email();
+        if (!email.isEmailValid(txtEmailUser.getText())) {
             fail.informarErro("Email inválido.");
         } else {
             usuario.setEmail(txtEmailUser.getText());
             uc.editarEmailUsuario(usuario);
         }
     }
-   // confirma se o formato do email é válido comparando uma sequência de matches
-    private boolean isEmailValid(String email) {
-        return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
-    }
-
 }

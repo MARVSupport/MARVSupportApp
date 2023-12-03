@@ -6,6 +6,7 @@ public class Logout extends javax.swing.JFrame {
         initComponents();
         //seta ícone
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/img/icone-32x32.png")).getImage());
+
     }
 
     @SuppressWarnings("unchecked")
@@ -104,11 +105,13 @@ public class Logout extends javax.swing.JFrame {
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
         // fecha o sistema
         System.exit(0);
+        deslogado(true);
     }//GEN-LAST:event_btOkActionPerformed
 
     private void btNokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNokActionPerformed
         // fecha essa janela
         this.dispose();
+      deslogado(false);
     }//GEN-LAST:event_btNokActionPerformed
 
     public static void main(String args[]) {
@@ -149,4 +152,7 @@ public class Logout extends javax.swing.JFrame {
     private javax.swing.JButton btOk;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+  public boolean deslogado(boolean logado){
+      return logado;
+      } 
 }

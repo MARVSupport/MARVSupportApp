@@ -3,7 +3,6 @@ modal\Logout.class
 view\Dashboard$3.class
 model\Email.class
 view\Login$2.class
-view\InfoTicket$4.class
 view\NewTicket$3.class
 view\TicketsView$5.class
 controller\UserConnections.class
@@ -24,7 +23,6 @@ view\About.class
 view\Dashboard.class
 view\Login$5.class
 view\Dashboard$11.class
-view\InfoTicket$3.class
 view\TicketsView.class
 view\HomeView.class
 view\Config.class
@@ -32,7 +30,6 @@ view\Dashboard$1.class
 view\InfoTicket$2.class
 modal\Fail$1.class
 view\Dashboard$8.class
-view\Dashboard$14.class
 view\NewTicket$4.class
 view\TicketsView$4.class
 modal\Logout$1.class
@@ -45,7 +42,6 @@ modal\Sucess.class
 view\NewTicket$1.class
 view\Dashboard$2.class
 view\Login$3.class
-view\Dashboard$13.class
 view\NewTicket.class
 view\InfoTicket$1.class
 view\Login$6.class
@@ -53,7 +49,6 @@ db\DbConnection.class
 view\Dashboard$5.class
 view\Login.class
 modal\Sucess$1.class
-view\InfoTicket$5.class
 utils\CurrentDate.class
 view\TicketsView$3.class
 view\NewTicket$2.class

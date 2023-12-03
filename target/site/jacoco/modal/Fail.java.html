@@ -1,134 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Fail.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">modal</a> &gt; <span class="el_source">Fail.java</span></div><h1>Fail.java</h1><pre class="source lang-java linenums">package modal;
 
-
-
 public class Fail extends javax.swing.JFrame {
 
-
-<span class="fc" id="L8">    public Fail() {</span>
-<span class="fc" id="L9">        initComponents();</span>
-<span class="fc" id="L10">    }</span>
-
-
+<span class="fc" id="L5">    public Fail() {</span>
+<span class="fc" id="L6">        initComponents();</span>
+        // seta ícone
+<span class="fc" id="L8">        this.setIconImage(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/icone-32x32.png&quot;)).getImage());</span>
+<span class="fc" id="L9">    }</span>
     @SuppressWarnings(&quot;unchecked&quot;)
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="fc" id="L17">        background = new javax.swing.JPanel();</span>
-<span class="fc" id="L18">        jLabel1 = new javax.swing.JLabel();</span>
-<span class="fc" id="L19">        txtErro = new javax.swing.JLabel();</span>
-<span class="fc" id="L20">        btOk = new javax.swing.JButton();</span>
+<span class="fc" id="L14">        background = new javax.swing.JPanel();</span>
+<span class="fc" id="L15">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="fc" id="L16">        txtErro = new javax.swing.JLabel();</span>
+<span class="fc" id="L17">        btOk = new javax.swing.JButton();</span>
 
-<span class="fc" id="L22">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
-<span class="fc" id="L23">        setTitle(&quot;ERRO!&quot;);</span>
-<span class="fc" id="L24">        setUndecorated(true);</span>
-<span class="fc" id="L25">        setResizable(false);</span>
+<span class="fc" id="L19">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L20">        setTitle(&quot;ERRO!&quot;);</span>
+<span class="fc" id="L21">        setUndecorated(true);</span>
+<span class="fc" id="L22">        setResizable(false);</span>
 
-<span class="fc" id="L27">        background.setBackground(new java.awt.Color(10, 10, 10));</span>
-<span class="fc" id="L28">        background.setForeground(new java.awt.Color(10, 10, 10));</span>
+<span class="fc" id="L24">        background.setBackground(new java.awt.Color(10, 10, 10));</span>
+<span class="fc" id="L25">        background.setForeground(new java.awt.Color(10, 10, 10));</span>
 
-<span class="fc" id="L30">        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="fc" id="L31">        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeErro.png&quot;))); // NOI18N</span>
+<span class="fc" id="L27">        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="fc" id="L28">        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/iconeErro.png&quot;))); // NOI18N</span>
 
-<span class="fc" id="L33">        txtErro.setBackground(new java.awt.Color(255, 255, 255));</span>
-<span class="fc" id="L34">        txtErro.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="fc" id="L35">        txtErro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
-<span class="fc" id="L36">        txtErro.setText(&quot;ERRO&quot;);</span>
-<span class="fc" id="L37">        txtErro.setToolTipText(&quot;&quot;);</span>
+<span class="fc" id="L30">        txtErro.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="fc" id="L31">        txtErro.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="fc" id="L32">        txtErro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="fc" id="L33">        txtErro.setText(&quot;ERRO&quot;);</span>
+<span class="fc" id="L34">        txtErro.setToolTipText(&quot;&quot;);</span>
 
-<span class="fc" id="L39">        btOk.setBackground(new java.awt.Color(15, 15, 15));</span>
-<span class="fc" id="L40">        btOk.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 12)); // NOI18N</span>
-<span class="fc" id="L41">        btOk.setForeground(new java.awt.Color(255, 255, 255));</span>
-<span class="fc" id="L42">        btOk.setText(&quot;OK, CIENTE&quot;);</span>
-<span class="fc" id="L43">        btOk.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));</span>
-<span class="fc" id="L44">        btOk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
-<span class="fc" id="L45">        btOk.setFocusPainted(false);</span>
-<span class="fc" id="L46">        btOk.setFocusable(false);</span>
-<span class="fc" id="L47">        btOk.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="fc" id="L36">        btOk.setBackground(new java.awt.Color(15, 15, 15));</span>
+<span class="fc" id="L37">        btOk.setFont(new java.awt.Font(&quot;Segoe UI&quot;, 1, 12)); // NOI18N</span>
+<span class="fc" id="L38">        btOk.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="fc" id="L39">        btOk.setText(&quot;OK, CIENTE&quot;);</span>
+<span class="fc" id="L40">        btOk.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));</span>
+<span class="fc" id="L41">        btOk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L42">        btOk.setFocusPainted(false);</span>
+<span class="fc" id="L43">        btOk.setFocusable(false);</span>
+<span class="fc" id="L44">        btOk.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L49">                btOkActionPerformed(evt);</span>
-<span class="nc" id="L50">            }</span>
+<span class="nc" id="L46">                btOkActionPerformed(evt);</span>
+<span class="nc" id="L47">            }</span>
         });
 
-<span class="fc" id="L53">        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);</span>
-<span class="fc" id="L54">        background.setLayout(backgroundLayout);</span>
-<span class="fc" id="L55">        backgroundLayout.setHorizontalGroup(</span>
-<span class="fc" id="L56">            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L57">            .addGroup(backgroundLayout.createSequentialGroup()</span>
-<span class="fc" id="L58">                .addGap(17, 17, 17)</span>
-<span class="fc" id="L59">                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="fc" id="L60">                    .addComponent(txtErro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="fc" id="L61">                    .addComponent(btOk, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))</span>
-<span class="fc" id="L62">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
-<span class="fc" id="L63">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()</span>
-<span class="fc" id="L64">                .addContainerGap()</span>
-<span class="fc" id="L65">                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)</span>
-<span class="fc" id="L66">                .addContainerGap())</span>
+<span class="fc" id="L50">        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);</span>
+<span class="fc" id="L51">        background.setLayout(backgroundLayout);</span>
+<span class="fc" id="L52">        backgroundLayout.setHorizontalGroup(</span>
+<span class="fc" id="L53">            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L54">            .addGroup(backgroundLayout.createSequentialGroup()</span>
+<span class="fc" id="L55">                .addGap(17, 17, 17)</span>
+<span class="fc" id="L56">                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="fc" id="L57">                    .addComponent(txtErro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L58">                    .addComponent(btOk, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))</span>
+<span class="fc" id="L59">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="fc" id="L60">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()</span>
+<span class="fc" id="L61">                .addContainerGap()</span>
+<span class="fc" id="L62">                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)</span>
+<span class="fc" id="L63">                .addContainerGap())</span>
         );
-<span class="fc" id="L68">        backgroundLayout.setVerticalGroup(</span>
-<span class="fc" id="L69">            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L70">            .addGroup(backgroundLayout.createSequentialGroup()</span>
-<span class="fc" id="L71">                .addGap(17, 17, 17)</span>
-<span class="fc" id="L72">                .addComponent(jLabel1)</span>
-<span class="fc" id="L73">                .addGap(38, 38, 38)</span>
-<span class="fc" id="L74">                .addComponent(txtErro, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="fc" id="L75">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)</span>
-<span class="fc" id="L76">                .addComponent(btOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="fc" id="L77">                .addGap(19, 19, 19))</span>
-        );
-
-<span class="fc" id="L80">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="fc" id="L81">        getContentPane().setLayout(layout);</span>
-<span class="fc" id="L82">        layout.setHorizontalGroup(</span>
-<span class="fc" id="L83">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L84">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-        );
-<span class="fc" id="L86">        layout.setVerticalGroup(</span>
-<span class="fc" id="L87">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L88">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L65">        backgroundLayout.setVerticalGroup(</span>
+<span class="fc" id="L66">            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L67">            .addGroup(backgroundLayout.createSequentialGroup()</span>
+<span class="fc" id="L68">                .addGap(17, 17, 17)</span>
+<span class="fc" id="L69">                .addComponent(jLabel1)</span>
+<span class="fc" id="L70">                .addGap(38, 38, 38)</span>
+<span class="fc" id="L71">                .addComponent(txtErro, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L72">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)</span>
+<span class="fc" id="L73">                .addComponent(btOk, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L74">                .addGap(19, 19, 19))</span>
         );
 
-<span class="fc" id="L91">        pack();</span>
-<span class="fc" id="L92">        setLocationRelativeTo(null);</span>
-<span class="fc" id="L93">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="fc" id="L77">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="fc" id="L78">        getContentPane().setLayout(layout);</span>
+<span class="fc" id="L79">        layout.setHorizontalGroup(</span>
+<span class="fc" id="L80">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L81">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+<span class="fc" id="L83">        layout.setVerticalGroup(</span>
+<span class="fc" id="L84">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L85">            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+
+<span class="fc" id="L88">        pack();</span>
+<span class="fc" id="L89">        setLocationRelativeTo(null);</span>
+<span class="fc" id="L90">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
-<span class="nc" id="L96">        this.dispose();</span>
-<span class="nc" id="L97">    }//GEN-LAST:event_btOkActionPerformed</span>
+<span class="nc" id="L93">        this.dispose();</span>
+<span class="nc" id="L94">    }//GEN-LAST:event_btOkActionPerformed</span>
 
-  
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-<span class="nc bnc" id="L107" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L108" title="All 2 branches missed.">                if (&quot;Metal&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L109">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L110">                    break;</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">                if (&quot;Metal&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L100">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L101">                    break;</span>
                 }
             }
-<span class="nc" id="L113">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L114">            java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L115">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L116">            java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L117">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L118">            java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L119">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L120">            java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L121">        }</span>
-        //&lt;/editor-fold&gt;
-        //&lt;/editor-fold&gt;
-
-        /* Create and display the form */
-<span class="nc" id="L126">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L104">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L105">            java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L106">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L107">            java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L108">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L109">            java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L110">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L111">            java.util.logging.Logger.getLogger(Fail.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L112">        }</span>
+<span class="nc" id="L113">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L128">                new Fail().setVisible(true);</span>
-<span class="nc" id="L129">            }</span>
+<span class="nc" id="L115">                new Fail().setVisible(true);</span>
+<span class="nc" id="L116">            }</span>
         });
-<span class="nc" id="L131">    }</span>
+<span class="nc" id="L118">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
@@ -137,9 +124,10 @@ public class Fail extends javax.swing.JFrame {
     private javax.swing.JLabel txtErro;
     // End of variables declaration//GEN-END:variables
 
-public void informarErro(String erro){
-<span class="nc" id="L141">    this.setVisible(true);</span>
-<span class="nc" id="L142">    txtErro.setText(erro);</span>
-<span class="nc" id="L143">}</span>
+    // método que seta uma mensagem no campo txtErro
+    public void informarErro(String erro) {
+<span class="nc" id="L129">        this.setVisible(true);</span>
+<span class="nc" id="L130">        txtErro.setText(erro);</span>
+<span class="nc" id="L131">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

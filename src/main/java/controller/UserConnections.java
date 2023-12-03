@@ -116,4 +116,37 @@ public class UserConnections {
             fail.informarErro("ConexaoUsuario | editarEmailUsuario " + e);
         }
     }
+// verifica o nível e retorna booleano
+    public boolean nivelUsuario(User user) {
+        boolean nivel = false;
+        ResultSet resultadoBusca = verificarNivelUsuario(user);
+        // realiza busca do usuário e verifica o nível do mesmo (1 Operador e 2 Administrador)
+        try {
+            while (resultadoBusca.next()) {
+                user.setNivel(resultadoBusca.getInt("nivel"));
+                int nivelUser = user.getNivel();
+                switch (nivelUser) {
+                    case 1:
+                        nivel = false;
+                        break;
+                    case 2:
+                        nivel = true;
+                        break;
+                }
+            }
+        } catch (SQLException ex) {
+        }
+        return nivel;
+    }
+    // verifica se foram encontrado dados do usuário
+    public boolean dadosEncontrados(User user){
+        boolean encontrado = false;
+        ResultSet resultadoBusca = verificarDados(user);
+        try {
+            while(resultadoBusca.next())
+                encontrado = true;
+        } catch (Exception e) {
+        }
+        return encontrado;
+    }
 }

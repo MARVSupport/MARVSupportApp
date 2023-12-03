@@ -1,9 +1,6 @@
 package view;
 
-import db.DbConnection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import controller.TicketConnections;
 import java.sql.Connection;
 import modal.Fail;
 import modal.Sucess;
@@ -15,6 +12,7 @@ public class HomeView extends javax.swing.JPanel {
     Connection conexao;
     Fail fail = new Fail();
     Sucess ok = new Sucess();
+    TicketConnections tc = new TicketConnections();
 
     public HomeView() {
         initComponents();
@@ -384,6 +382,7 @@ public class HomeView extends javax.swing.JPanel {
         CurrentDate data = new CurrentDate();
         txtData.setText("Exibindo atualizações de " + data.verificarDataCompleta());
     }
+
     // verificando e calculando quantidade mínima, máxima e meio termo para analisar e mostrar no gráfico
     private void mostrarGrafico() {
         int qntMin = 8;
@@ -430,59 +429,19 @@ public class HomeView extends javax.swing.JPanel {
             fechados.setPreferredSize(new java.awt.Dimension(min, 19));
         }
     }
-    // realizando busca e contagem de Tickets abertos
-    private void contagemDeTicketsAbertos() {
-        conexao = new DbConnection().conectarBD();
-        String busca = "SELECT count(1) as total from tb_ticket where status = 1;";
-        PreparedStatement stm;
-        try {
-            stm = conexao.prepareStatement(busca);
-            ResultSet result = stm.executeQuery();
-            result.next();
-            txtAbertos.setText(String.valueOf(result.getInt(1)));
-            txtAbertos.setToolTipText(txtAbertos.getText());
-            mostrarGrafico(); // exibindo no gráfico
-        } catch (SQLException erro) {
-            fail.informarErro("Home | contagemDeTicketsAbertos " + erro);
-        }
-    }
-    // realizando busca e contagem de Tickets pendentes
-    private void contagemDeTicketsPendentes() {
-        conexao = new DbConnection().conectarBD();
-        String busca = "SELECT count(1) as total from tb_ticket where status = 2;";
-        PreparedStatement stm;
-        try {
-            stm = conexao.prepareStatement(busca);
-            ResultSet result = stm.executeQuery();
-            result.next();
-            txtPendentes.setText(String.valueOf(result.getInt(1)));
-            txtPendentes.setToolTipText(txtPendentes.getText());
-            mostrarGrafico(); // exibindo no gráfico
-        } catch (SQLException erro) {
-            fail.informarErro("Home | contagemDeTicketsPendentes " + erro);
-        }
-    }
-    // realizando busca e contagem de Tickets fechados
-    private void contagemDeTicketsFechados() {
-        conexao = new DbConnection().conectarBD();
-        String busca = "SELECT count(1) as total from tb_ticket where status = 3;";
-        PreparedStatement stm;
-        try {
-            stm = conexao.prepareStatement(busca);
-            ResultSet result = stm.executeQuery();
-            result.next();
-            txtFechados.setText(String.valueOf(result.getInt(1)));
-            txtFechados.setToolTipText(txtFechados.getText());
-            mostrarGrafico(); // exibindo no gráfico
-        } catch (SQLException erro) {
-            fail.informarErro("Home | contagemDeTicketsFechados " + erro);
-        }
-    }
 // exibindo informações ao abrir essa aba
     private void inicializarTicketsView() {
-        contagemDeTicketsAbertos();
-        contagemDeTicketsPendentes();
-        contagemDeTicketsFechados();
+        contagemTickets();
         mostrarGrafico();
+    }
+
+    //contagem de tickets
+    private void contagemTickets() {
+        txtAbertos.setText(tc.qntTotalTicket(1));
+        txtAbertos.setToolTipText(txtAbertos.getText());
+        txtPendentes.setText(tc.qntTotalTicket(2));
+        txtPendentes.setToolTipText(txtPendentes.getText());
+        txtFechados.setText(tc.qntTotalTicket(3));
+        txtFechados.setToolTipText(txtFechados.getText());
     }
 }
