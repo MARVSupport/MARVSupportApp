@@ -33,26 +33,29 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import modal.Fail;
 import model.Ticket;
 import utils.HoverEffect;
+
 /**
  * VIEW - Tabela com os chamados
  *
  * @author Victor Silva
  * @version 1.0.2
  */
-
 //classe que lista na tabela os tickets
 public class TicketsView extends javax.swing.JPanel {
 
     //imports e variáveis locais
     String nivel = "";
     HoverEffect hover = new HoverEffect();
+    Fail fail = new Fail();
 
     public TicketsView() {
         initComponents();
         mostrarTickets();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -295,7 +298,7 @@ public class TicketsView extends javax.swing.JPanel {
     }//GEN-LAST:event_tbAbertosMouseClicked
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-buscarTickets(); // realiza busca de tickets pelo filtro
+        buscarTickets(); // realiza busca de tickets pelo filtro
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarIdActionPerformed
@@ -339,6 +342,8 @@ buscarTickets(); // realiza busca de tickets pelo filtro
         this.revalidate();
         this.repaint();
     }
+    
+    
 // método que exibe os chamados na tabela
     private void mostrarTickets() {
         DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();
@@ -346,7 +351,12 @@ buscarTickets(); // realiza busca de tickets pelo filtro
         String status = "";
 
         modeloTabelaPendentes.setNumRows(0);
+
         for (Ticket ticket : t.listarTodosTickets()) {
+
+            if (ticket == null) {
+                fail.informarErro("Sem tickets no momento.");
+            }
 
             switch (ticket.getStatus()) {
                 case 1:
@@ -367,6 +377,7 @@ buscarTickets(); // realiza busca de tickets pelo filtro
             corNaLinha();
         }
     }
+
     // inserindo cor no status do chamado
     private void corNaLinha() {
         String aberto = "ABERTO";
@@ -391,6 +402,7 @@ buscarTickets(); // realiza busca de tickets pelo filtro
             }
         });
     }
+
     // realizando busca dos chamados através do filtro (aberto, pendente e fechado)
     private void buscarTickets() {
         DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();
@@ -438,6 +450,7 @@ buscarTickets(); // realiza busca de tickets pelo filtro
             }
         }
     }
+
     // passa a view InfoTicket a coluna e linha da tabela pra realizar a busca, além do tipo de usuário (Admin ou operador)
     private void carregarTicket(JTable table) throws SQLException {
         int validar = (int) table.getValueAt(table.getSelectedRow(), 0);
@@ -445,37 +458,44 @@ buscarTickets(); // realiza busca de tickets pelo filtro
         infos.mostrarDadosTicket(validar, nivel);
         trocarTela(infos);
     }
+
     // resgata o nível do usuário
     public void inicializarTicketsView(String nivelUsuario) {
         nivel = nivelUsuario;
     }
+
     // realizando busca dos chamados através do filtro (ID)
-    private void buscarTicketId() { 
+    private void buscarTicketId() {
         DefaultTableModel modeloTabelaPendentes = (DefaultTableModel) tbAbertos.getModel();
         TicketConnections t = new TicketConnections();
         String id = txtId.getText();
         int idTicket = Integer.parseInt(id);
         Ticket ticket = t.pesquisarTicket(idTicket);
-        String status = "";
-        String stt = (String) comboSelecionarStatus.getSelectedItem();
-        modeloTabelaPendentes.setNumRows(0);
 
-        switch (ticket.getStatus()) {
-            case 1:
-                status = "ABERTO";
-                break;
+        if (ticket == null) {
+            fail.informarErro("Sem tickets no momento.");
+        } else {
+            String status = "";
+            String stt = (String) comboSelecionarStatus.getSelectedItem();
+            modeloTabelaPendentes.setNumRows(0);
 
-            case 2:
-                status = "PENDENTE";
-                break;
+            switch (ticket.getStatus()) {
+                case 1:
+                    status = "ABERTO";
+                    break;
 
-            case 3:
-                status = "FECHADO";
-                break;
+                case 2:
+                    status = "PENDENTE";
+                    break;
+
+                case 3:
+                    status = "FECHADO";
+                    break;
+            }
+            modeloTabelaPendentes.addRow(new Object[]{
+                ticket.getId(), ticket.getTitulo(), ticket.getData(), status
+            });
+            corNaLinha();
         }
-        modeloTabelaPendentes.addRow(new Object[]{
-            ticket.getId(), ticket.getTitulo(), ticket.getData(), status
-        });
-        corNaLinha();
     }
 }
