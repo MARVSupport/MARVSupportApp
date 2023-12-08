@@ -1,4 +1,26 @@
-
+/*
+ * The MIT License
+ *
+ * Copyright 2023 MARVSupport..
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 package controller;
 
 import java.sql.Connection;
@@ -14,14 +36,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Ticket;
 
-
+/**
+ * Conexão com banco de dados para ações com os chamados
+ *
+ * @author Victor Silva
+ * @version 1.0.2
+ */
 public class TicketConnections {
-    
-     Connection conexao;
-     Fail fail = new Fail();
-     Sucess ok = new Sucess();
-     
-         // CRIAR ticket
+
+    Connection conexao;
+    Fail fail = new Fail();
+    Sucess ok = new Sucess();
+
+    // CRIAR ticket
     public void criarTicket(Ticket ticket) {
         conexao = new DbConnection().conectarBD();
         try {
@@ -40,8 +67,9 @@ public class TicketConnections {
         }
 
     }
+
     // EDITAR ticket
-    public void editarTicket(Ticket ticket){
+    public void editarTicket(Ticket ticket) {
         conexao = new DbConnection().conectarBD();
         try {
             String editarTicket = "UPDATE tb_ticket SET comentario = ?, status = ? WHERE id = ?;";
@@ -57,8 +85,9 @@ public class TicketConnections {
             fail.informarErro("TicketConnections | editarTicket " + e);
         }
     }
+
     // EXCLUIR ticket
-    public void excluirTicket(Ticket ticket){
+    public void excluirTicket(Ticket ticket) {
         String excluirTicket = "DELETE FROM tb_ticket WHERE id = ?;";
         conexao = new DbConnection().conectarBD();
         try {
@@ -68,11 +97,16 @@ public class TicketConnections {
             stm.close();
             ok.informarAssunto("Chamado excluido com sucesso.");
             ok.setVisible(true);
-        } catch (Exception e){
+        } catch (Exception e) {
             fail.informarErro("TicketConnections | excluirTicket " + e);
         }
     }
-    // lista os tickets da empresa
+
+    /**
+     * Método responsável por listar os dados do ticket via status
+     *
+     * @return lista
+     */
     public List<Ticket> listarTicketsEspecificos(int status) {
         conexao = new DbConnection().conectarBD();
         String busca = "SELECT id, titulo, data, status FROM tb_ticket WHERE status = '" + status + "';";
@@ -93,7 +127,12 @@ public class TicketConnections {
         }
         return lista;
     }
-     // lista todos os tickets da empresa
+
+    /**
+     * Método responsável por listar todos os tickets
+     *
+     * @return lista
+     */
     public List<Ticket> listarTodosTickets() {
         conexao = new DbConnection().conectarBD();
         String busca = "SELECT id, titulo, data, status FROM tb_ticket;";
@@ -113,34 +152,55 @@ public class TicketConnections {
             fail.informarErro("TicketConnections | listarTodosTickets " + erro);
         }
         return lista;
-    }   
-        // exibindo dados do ticket
-        public ResultSet mostrarDados(int idTicket) throws SQLException{
+    }
+
+    /**
+     * Método responsável por buscar os dados do ticket
+     *
+     * @return result
+     */
+    public ResultSet mostrarDados(int idTicket) throws SQLException {
         conexao = new DbConnection().conectarBD();
         String verificarDados = "SELECT * FROM tb_ticket WHERE id = '" + idTicket + "';";
         PreparedStatement stm = conexao.prepareStatement(verificarDados);
         ResultSet result = stm.executeQuery();
         return result;
     }
-        //pesquisa de tickets pelo ID
-       public Ticket pesquisarTicket(int id){
-        for(Ticket t : this.listarTodosTickets()){
-            if(t.getId()== id){
+
+    /**
+     * Método responsável por pesquisar o chamado pelo ID
+     *
+     * @return t
+     */
+    public Ticket pesquisarTicket(int id) {
+        for (Ticket t : this.listarTodosTickets()) {
+            if (t.getId() == id) {
                 return t;
             }
         }
         return null;
     }
-               //pesquisa de tickets pelo status
-       public Ticket pesquisarTicketStatus(int status){
-        for(Ticket t : this.listarTicketsEspecificos(status)){
-            if(t.getStatus()== status){
+
+    /**
+     * Método responsável por pesquisar o chamado pelo status
+     *
+     * @return t
+     */
+    public Ticket pesquisarTicketStatus(int status) {
+        for (Ticket t : this.listarTicketsEspecificos(status)) {
+            if (t.getStatus() == status) {
                 return t;
             }
         }
         return null;
     }
-    // retorna a quantidade total dependendo do status e retorna em String pra ser exibida
+
+    /**
+     * Método responsável por retornar a quantidade total dependendo do status e
+     * retorna em String pra ser exibida
+     *
+     * @return total
+     */
     public String qntTotalTicket(int status) {
         String total = "";
         conexao = new DbConnection().conectarBD();
@@ -155,7 +215,13 @@ public class TicketConnections {
         }
         return total;
     }
-    // retorna quantidade total independente do status e retorna em String pra ser exibida
+
+    /**
+     * Método responsável por retornar quantidade total independente do status e
+     * retorna em String pra ser exibida
+     *
+     * @return totalFormated
+     */
     public String totalTickets() {
         int open = Integer.parseInt(qntTotalTicket(1));
         int pending = Integer.parseInt(qntTotalTicket(2));

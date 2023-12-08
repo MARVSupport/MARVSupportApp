@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserConnections.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">UserConnections.java</span></div><h1>UserConnections.java</h1><pre class="source lang-java linenums">package controller;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserConnections.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MARVSupportApp</a> &gt; <a href="index.source.html" class="el_package">controller</a> &gt; <span class="el_source">UserConnections.java</span></div><h1>UserConnections.java</h1><pre class="source lang-java linenums">/*
+ * The MIT License
+ *
+ * Copyright 2023 MARVSupport..
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package controller;
 
 import db.DbConnection;
 import java.sql.Connection;
@@ -10,144 +33,178 @@ import modal.Sucess;
 import model.Email;
 import model.User;
 
-<span class="fc" id="L13">public class UserConnections {</span>
+/**
+ * Conexão com banco de dados para ações com os usuários
+ *
+ * @author Victor Silva
+ * @version 1.0.2
+ */
+<span class="fc" id="L42">public class UserConnections {</span>
 
     Connection conexao;
-<span class="fc" id="L16">    String erro = &quot;Ocorreu um erro: &quot;;</span>
-<span class="fc" id="L17">    Fail fail = new Fail();</span>
-<span class="fc" id="L18">    Sucess ok = new Sucess();</span>
+<span class="fc" id="L45">    String erro = &quot;Ocorreu um erro: &quot;;</span>
+<span class="fc" id="L46">    Fail fail = new Fail();</span>
+<span class="fc" id="L47">    Sucess ok = new Sucess();</span>
 
-    // VERIFICANDO SE EXISTE O USUÁRIO E AUTENTICANDO
+    /**
+     * Método responsável por verificar se o usuário existe e caso sim, autentica
+     *
+     * @return resultado
+     */
     public ResultSet autenticarUsuario(User user) {
-<span class="fc" id="L22">        conexao = new DbConnection().conectarBD();</span>
+<span class="fc" id="L55">        conexao = new DbConnection().conectarBD();</span>
         try {
-<span class="fc" id="L24">            String buscarUserPass = &quot;SELECT usuario, senha FROM tb_usuario WHERE usuario = ? AND senha = ?;&quot;;</span>
-<span class="fc" id="L25">            PreparedStatement stm = conexao.prepareStatement(buscarUserPass);</span>
-<span class="fc" id="L26">            stm.setString(1, user.getUsuario());</span>
-<span class="fc" id="L27">            stm.setString(2, user.getSenha());</span>
-<span class="fc" id="L28">            ResultSet resultado = stm.executeQuery();</span>
-<span class="fc" id="L29">            return resultado;</span>
+<span class="fc" id="L57">            String buscarUserPass = &quot;SELECT usuario, senha FROM tb_usuario WHERE usuario = ? AND senha = ?;&quot;;</span>
+<span class="fc" id="L58">            PreparedStatement stm = conexao.prepareStatement(buscarUserPass);</span>
+<span class="fc" id="L59">            stm.setString(1, user.getUsuario());</span>
+<span class="fc" id="L60">            stm.setString(2, user.getSenha());</span>
+<span class="fc" id="L61">            ResultSet resultado = stm.executeQuery();</span>
+<span class="fc" id="L62">            return resultado;</span>
             // realizando a busca de usuário/senha e retornando o resultado
-<span class="nc" id="L31">        } catch (SQLException e) {</span>
-<span class="nc" id="L32">            System.out.println(erro + e);</span>
+<span class="nc" id="L64">        } catch (SQLException e) {</span>
+<span class="nc" id="L65">            System.out.println(erro + e);</span>
             // caso der erro, retorna a mensagem e não faz nada
-<span class="nc" id="L34">            return null;</span>
+<span class="nc" id="L67">            return null;</span>
         }
     }
 
-    // resgatar dados do usuário selecionado
+    /**
+     * Método responsável por resgatar do banco os dados do usuário
+     *
+     * @return resultado
+     */
     public ResultSet verificarDados(User user) {
-<span class="fc" id="L40">        conexao = new DbConnection().conectarBD();</span>
+<span class="fc" id="L77">        conexao = new DbConnection().conectarBD();</span>
         try {
-<span class="fc" id="L42">            String buscarUserPass = &quot;SELECT * FROM tb_usuario WHERE usuario = ?;&quot;;</span>
-<span class="fc" id="L43">            PreparedStatement stm = conexao.prepareStatement(buscarUserPass);</span>
-<span class="fc" id="L44">            stm.setString(1, user.getUsuario());</span>
-<span class="fc" id="L45">            ResultSet resultado = stm.executeQuery();</span>
-<span class="fc" id="L46">            return resultado;</span>
+<span class="fc" id="L79">            String buscarUserPass = &quot;SELECT * FROM tb_usuario WHERE usuario = ?;&quot;;</span>
+<span class="fc" id="L80">            PreparedStatement stm = conexao.prepareStatement(buscarUserPass);</span>
+<span class="fc" id="L81">            stm.setString(1, user.getUsuario());</span>
+<span class="fc" id="L82">            ResultSet resultado = stm.executeQuery();</span>
+<span class="fc" id="L83">            return resultado;</span>
             // realizando a busca dos dados do usuário
 
-<span class="nc" id="L49">        } catch (SQLException e) {</span>
-<span class="nc" id="L50">            fail.informarErro(&quot;ConexaoUsuario | verificarDados: &quot; + e);</span>
+<span class="nc" id="L86">        } catch (SQLException e) {</span>
+<span class="nc" id="L87">            fail.informarErro(&quot;ConexaoUsuario | verificarDados: &quot; + e);</span>
             // caso der erro, retorna a mensagem e não faz nada
-<span class="nc" id="L52">            return null;</span>
+<span class="nc" id="L89">            return null;</span>
         }
     }
 
-    // verifica o nível do usuário em alguma requisição
+    /**
+     * Método responsável por verificar o nível do usuário em alguma requisição
+     *
+     * @return resultado
+     */
     public ResultSet verificarNivelUsuario(User user) {
-<span class="fc" id="L58">        conexao = new DbConnection().conectarBD();</span>
+<span class="fc" id="L99">        conexao = new DbConnection().conectarBD();</span>
         try {
-<span class="fc" id="L60">            String buscarUser = &quot;SELECT nivel FROM tb_usuario WHERE usuario = ?;&quot;;</span>
-<span class="fc" id="L61">            PreparedStatement stm = conexao.prepareStatement(buscarUser);</span>
-<span class="fc" id="L62">            stm.setString(1, user.getUsuario());</span>
-<span class="fc" id="L63">            ResultSet resultado = stm.executeQuery();</span>
-<span class="fc" id="L64">            return resultado;</span>
+<span class="fc" id="L101">            String buscarUser = &quot;SELECT nivel FROM tb_usuario WHERE usuario = ?;&quot;;</span>
+<span class="fc" id="L102">            PreparedStatement stm = conexao.prepareStatement(buscarUser);</span>
+<span class="fc" id="L103">            stm.setString(1, user.getUsuario());</span>
+<span class="fc" id="L104">            ResultSet resultado = stm.executeQuery();</span>
+<span class="fc" id="L105">            return resultado;</span>
 
-<span class="nc" id="L66">        } catch (SQLException e) {</span>
-<span class="nc" id="L67">            fail.informarErro(&quot;ConexaoUsuario | verificarNivelUsuario: &quot; + e);</span>
-<span class="nc" id="L68">            return null;</span>
+<span class="nc" id="L107">        } catch (SQLException e) {</span>
+<span class="nc" id="L108">            fail.informarErro(&quot;ConexaoUsuario | verificarNivelUsuario: &quot; + e);</span>
+<span class="nc" id="L109">            return null;</span>
         }
     }
 
     // envia um email para todos os administradores do sistema 
     public void enviarEmailAdmin(String mensagem1, String mensagem2) {
-<span class="nc" id="L74">        conexao = new DbConnection().conectarBD();</span>
+<span class="nc" id="L115">        conexao = new DbConnection().conectarBD();</span>
         try {
-<span class="nc" id="L76">            String buscarUser = &quot;SELECT email FROM tb_usuario WHERE nivel = 2;&quot;;</span>
-<span class="nc" id="L77">            PreparedStatement stm = conexao.prepareStatement(buscarUser);</span>
-<span class="nc" id="L78">            ResultSet resultado = stm.executeQuery();</span>
-<span class="nc bnc" id="L79" title="All 2 branches missed.">            while (resultado.next()) {</span>
-<span class="nc" id="L80">                String destinatario = resultado.getString(&quot;email&quot;);</span>
-<span class="nc" id="L81">                Email email = new Email(mensagem1, mensagem2, destinatario);</span>
-<span class="nc" id="L82">                email.enviar();</span>
-<span class="nc" id="L83">            }</span>
-<span class="nc" id="L84">        } catch (SQLException e) {</span>
-<span class="nc" id="L85">            fail.informarErro(&quot;ConexaoUsuario | verificarEmailAdmin: &quot; + e);</span>
-<span class="nc" id="L86">        }</span>
-<span class="nc" id="L87">    }</span>
+<span class="nc" id="L117">            String buscarUser = &quot;SELECT email FROM tb_usuario WHERE nivel = 2;&quot;;</span>
+<span class="nc" id="L118">            PreparedStatement stm = conexao.prepareStatement(buscarUser);</span>
+<span class="nc" id="L119">            ResultSet resultado = stm.executeQuery();</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">            while (resultado.next()) {</span>
+<span class="nc" id="L121">                String destinatario = resultado.getString(&quot;email&quot;);</span>
+<span class="nc" id="L122">                Email email = new Email(mensagem1, mensagem2, destinatario);</span>
+<span class="nc" id="L123">                email.enviar();</span>
+<span class="nc" id="L124">            }</span>
+<span class="nc" id="L125">        } catch (SQLException e) {</span>
+<span class="nc" id="L126">            fail.informarErro(&quot;ConexaoUsuario | verificarEmailAdmin: &quot; + e);</span>
+<span class="nc" id="L127">        }</span>
+<span class="nc" id="L128">    }</span>
 
-    // verifica se aquele usuário está autenticado
+       /**
+     * Método responsável por verificar se o usuário está autenticado
+     *
+     * @return auth
+     */
     public boolean userAutenticado(User user) {
-<span class="fc" id="L91">        boolean auth = false;</span>
-<span class="fc" id="L92">        ResultSet resultadoLogin = this.autenticarUsuario(user);</span>
+<span class="fc" id="L136">        boolean auth = false;</span>
+<span class="fc" id="L137">        ResultSet resultadoLogin = this.autenticarUsuario(user);</span>
         try {
-<span class="fc bfc" id="L94" title="All 2 branches covered.">            if (resultadoLogin.next()) {</span>
-<span class="fc" id="L95">                auth = true;</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">            if (resultadoLogin.next()) {</span>
+<span class="fc" id="L140">                auth = true;</span>
             }
-<span class="nc" id="L97">        } catch (SQLException ex) {</span>
-<span class="nc" id="L98">            fail.informarErro(&quot;ConexaoUsuario | UserAutenticado: &quot; + ex);</span>
-<span class="fc" id="L99">        }</span>
-<span class="fc" id="L100">        return auth;</span>
+<span class="nc" id="L142">        } catch (SQLException ex) {</span>
+<span class="nc" id="L143">            fail.informarErro(&quot;ConexaoUsuario | UserAutenticado: &quot; + ex);</span>
+<span class="fc" id="L144">        }</span>
+<span class="fc" id="L145">        return auth;</span>
     }
 
     // Edição do email dos usuários
     public void editarEmailUsuario(User user) {
-<span class="nc" id="L105">        conexao = new DbConnection().conectarBD();</span>
+<span class="nc" id="L150">        conexao = new DbConnection().conectarBD();</span>
         try {
-<span class="nc" id="L107">            String editarTicket = &quot;UPDATE tb_usuario SET email = ? WHERE usuario = ?;&quot;;</span>
-<span class="nc" id="L108">            PreparedStatement stm = conexao.prepareStatement(editarTicket);</span>
-<span class="nc" id="L109">            stm.setString(1, user.getEmail());</span>
-<span class="nc" id="L110">            stm.setString(2, user.getUsuario());</span>
-<span class="nc" id="L111">            stm.executeUpdate();</span>
-<span class="nc" id="L112">            stm.close();</span>
-<span class="nc" id="L113">            ok.informarAssunto(&quot;Email editado com sucesso.&quot;);</span>
-<span class="nc" id="L114">            ok.setVisible(true);</span>
-<span class="nc" id="L115">        } catch (Exception e) {</span>
-<span class="nc" id="L116">            fail.informarErro(&quot;ConexaoUsuario | editarEmailUsuario &quot; + e);</span>
-<span class="nc" id="L117">        }</span>
-<span class="nc" id="L118">    }</span>
-// verifica o nível e retorna booleano
+<span class="nc" id="L152">            String editarTicket = &quot;UPDATE tb_usuario SET email = ? WHERE usuario = ?;&quot;;</span>
+<span class="nc" id="L153">            PreparedStatement stm = conexao.prepareStatement(editarTicket);</span>
+<span class="nc" id="L154">            stm.setString(1, user.getEmail());</span>
+<span class="nc" id="L155">            stm.setString(2, user.getUsuario());</span>
+<span class="nc" id="L156">            stm.executeUpdate();</span>
+<span class="nc" id="L157">            stm.close();</span>
+<span class="nc" id="L158">            ok.informarAssunto(&quot;Email editado com sucesso.&quot;);</span>
+<span class="nc" id="L159">            ok.setVisible(true);</span>
+<span class="nc" id="L160">        } catch (Exception e) {</span>
+<span class="nc" id="L161">            fail.informarErro(&quot;ConexaoUsuario | editarEmailUsuario &quot; + e);</span>
+<span class="nc" id="L162">        }</span>
+<span class="nc" id="L163">    }</span>
+    
+    
+    /**
+     * Método responsável por verificar o nível do usuário booleano
+     *
+     * @return nivel
+     */
     public boolean nivelUsuario(User user) {
-<span class="fc" id="L121">        boolean nivel = false;</span>
-<span class="fc" id="L122">        ResultSet resultadoBusca = verificarNivelUsuario(user);</span>
+<span class="fc" id="L172">        boolean nivel = false;</span>
+<span class="fc" id="L173">        ResultSet resultadoBusca = verificarNivelUsuario(user);</span>
         // realiza busca do usuário e verifica o nível do mesmo (1 Operador e 2 Administrador)
         try {
-<span class="fc bfc" id="L125" title="All 2 branches covered.">            while (resultadoBusca.next()) {</span>
-<span class="fc" id="L126">                user.setNivel(resultadoBusca.getInt(&quot;nivel&quot;));</span>
-<span class="fc" id="L127">                int nivelUser = user.getNivel();</span>
-<span class="pc bpc" id="L128" title="1 of 3 branches missed.">                switch (nivelUser) {</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">            while (resultadoBusca.next()) {</span>
+<span class="fc" id="L177">                user.setNivel(resultadoBusca.getInt(&quot;nivel&quot;));</span>
+<span class="fc" id="L178">                int nivelUser = user.getNivel();</span>
+<span class="pc bpc" id="L179" title="1 of 3 branches missed.">                switch (nivelUser) {</span>
                     case 1:
-<span class="fc" id="L130">                        nivel = false;</span>
-<span class="fc" id="L131">                        break;</span>
+<span class="fc" id="L181">                        nivel = false;</span>
+<span class="fc" id="L182">                        break;</span>
                     case 2:
-<span class="fc" id="L133">                        nivel = true;</span>
+<span class="fc" id="L184">                        nivel = true;</span>
                         break;
                 }
-<span class="fc" id="L136">            }</span>
-<span class="nc" id="L137">        } catch (SQLException ex) {</span>
-<span class="fc" id="L138">        }</span>
-<span class="fc" id="L139">        return nivel;</span>
+<span class="fc" id="L187">            }</span>
+<span class="nc" id="L188">        } catch (SQLException ex) {</span>
+<span class="fc" id="L189">        }</span>
+<span class="fc" id="L190">        return nivel;</span>
     }
-    // verifica se foram encontrado dados do usuário
-    public boolean dadosEncontrados(User user){
-<span class="fc" id="L143">        boolean encontrado = false;</span>
-<span class="fc" id="L144">        ResultSet resultadoBusca = verificarDados(user);</span>
+
+    /**
+     * Método responsável por verificar se encontrou dados daquele usuário específico
+     *
+     * @return encontrado
+     */
+    public boolean dadosEncontrados(User user) {
+<span class="fc" id="L199">        boolean encontrado = false;</span>
+<span class="fc" id="L200">        ResultSet resultadoBusca = verificarDados(user);</span>
         try {
-<span class="fc bfc" id="L146" title="All 2 branches covered.">            while(resultadoBusca.next())</span>
-<span class="fc" id="L147">                encontrado = true;</span>
-<span class="nc" id="L148">        } catch (Exception e) {</span>
-<span class="fc" id="L149">        }</span>
-<span class="fc" id="L150">        return encontrado;</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">            while (resultadoBusca.next()) {</span>
+<span class="fc" id="L203">                encontrado = true;</span>
+            }
+<span class="nc" id="L205">        } catch (Exception e) {</span>
+<span class="fc" id="L206">        }</span>
+<span class="fc" id="L207">        return encontrado;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

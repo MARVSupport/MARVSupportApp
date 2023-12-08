@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: junitTests.UserConnectionsTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.371 s -- in junitTests.UserConnectionsTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.663 s -- in junitTests.UserConnectionsTest

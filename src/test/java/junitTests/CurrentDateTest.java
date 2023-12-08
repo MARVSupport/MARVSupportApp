@@ -9,8 +9,8 @@ import utils.CurrentDate;
 public class CurrentDateTest {
 // váriaveis com a data atual de hoje
 
-    String diaMesAno = "02/12/2023";
-    String dataExtenso = "sábado, 2 de dezembro de 2023";
+    String diaMesAno = "08/12/2023";
+    String dataExtenso = "sexta-feira, 8 de dezembro de 2023";
     CurrentDate cd = new CurrentDate();
 
     //teste pra verificar se a data em formado dia/mês/ano está retornando corretamente

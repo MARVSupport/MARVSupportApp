@@ -1,10 +1,40 @@
+/*
+ * The MIT License
+ *
+ * Copyright 2023 MARVSupport..
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 package model;
 
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
+/**
+ * Envio de Emails
+ *
+ * @author Victor Silva
+ * @version 1.0.2
+ */
 public class Email {
+
     // variáveis locais
     private static final String marvEmail = "marvspprt@gmail.com"; //Email do software
     private static final String senhaEmail = "eurpmiemapqqqjtv"; //senha gerada pelo Gmail pra acesso externo
@@ -14,9 +44,10 @@ public class Email {
     private String destinatario;
 
     // construtor padrão
-    public Email(){
-        
+    public Email() {
+
     }
+
     // construtor do método pra coletar mensagem e destinatário
     public Email(String mensagem, String mensagem2, String destinatario) {
         this.mensagem = mensagem;
@@ -48,11 +79,16 @@ public class Email {
     public void setDestinatario(String destinatario) {
         this.destinatario = destinatario;
     }
-    
-    // método para verificar se o email é válido através de um padrão de matches
+
+    /**
+     * Método para verificar se o email é válido através de um padrão de matches
+     *
+     * @return email.matches
+     */
     public boolean isEmailValid(String email) {
         return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
     }
+
 // método de envio do email
     public void enviar() {
         // Verifica se o destinatário é um email válido
